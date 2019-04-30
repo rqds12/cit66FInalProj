@@ -5,6 +5,7 @@
 #ifndef CIT66FINALPROJ_PLAYER_H
 #define CIT66FINALPROJ_PLAYER_H
 
+#include <ncurses.h>
 
 class player {
 

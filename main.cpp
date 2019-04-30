@@ -1,6 +1,12 @@
 #include <iostream>
+#include <ncurses.h>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
+    initscr();
+    printw("Try resizing your window(if possible) and then run this program again");
+    refresh();
+    getch();
+    endwin();
     return 0;
 }
