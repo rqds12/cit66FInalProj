@@ -3,4 +3,4 @@ project(cit66FInalProj)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(cit66FInalProj main.cpp)
+add_executable(cit66FInalProj main.cpp player.cpp player.h)
