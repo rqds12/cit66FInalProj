@@ -6,7 +6,11 @@
 #define CIT66FINALPROJ_INDIAN_POWER_RANGERS_H
 
 
-class Indian_Power_Rangers {
+#include "Enemy.h"
+
+class Indian_Power_Rangers: public Enemy{
+public:
+    bool specialAbility();
 
 };
 
