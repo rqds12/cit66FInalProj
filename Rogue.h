@@ -10,6 +10,7 @@
 
 class Rogue : public player {
     //player class
+explicit Rogue(string &name);
 
 
 

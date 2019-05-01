@@ -10,6 +10,9 @@
 
 class Wizard : public player {
     //player class
+public:
+    explicit Wizard(string &name);
+    bool specialAbility();
 
 
 
