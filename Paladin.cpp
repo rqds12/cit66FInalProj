@@ -21,6 +21,7 @@ bool Paladin::specialAbility(player target) {
         srand(time(0));
         int chance = rand() % 35;
         double dmg = 55 + chance;
+        cout << this.getName() << " thrusts " << this.getWeapon() << "into the earth before him, ripping a void in the celestial fabric we exist upon.\nSt.John sees his plight and advises his master of " << target.getName() << "'s sin. The glory of " << this.getName() <<"'s devine master purifys his opponent."<<endl;  
         return target.takeDamage(dmg,false);
     }
     else{
