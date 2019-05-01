@@ -7,7 +7,7 @@
 
 
 Indian_Power_Rangers::Indian_Power_Rangers() {
-
+std::cout  << "hi there";
 }
 
 bool Indian_Power_Rangers::specialAbility() {
