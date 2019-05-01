@@ -22,15 +22,23 @@ bool player::attack(player target) {
     // Attack Succeeds
     double dmg = (rand() % 15) + weaponDmg;
     cout << name << " attacks " << target.getName() << " with their "<< weapon << " and delivers a destructive blow causing " << dmg<< " points of damage.\n\n";
-    return target.takeDamage(dmg);
+    return target.takeDamage(dmg,false);
 }
 
-bool player::takeDamage(double dmg) {
-    if (armor > 0){cout << name << "'s armor blocks " << armor << " points of the incoming "<< "damage.\n\n";
-    dmg -= armor;
-    armor -= (dmg * 0.70);
+bool player::takeDamage(double dmg,bool ispoison) {
+    if (!ispoison) {
+        if (armor > 0) {
+            cout << name << "'s armor blocks " << armor << " points of the incoming " << "damage.\n\n";
+            dmg -= armor;
+            armor -= (dmg * 0.70);
+        }
     }
-    health -= dmg;
+    if (poisoned){
+        health -=dmg + (--popo);
+    }
+    else {
+        health -= dmg;
+    }
     if (health <= 0){cout << name << " breathes their last breath while cursing the gods "<<
      "that brought about such a cruel world and such suffering.\n\n"<< name << " has died.\n\n";
     return true;
@@ -90,3 +98,10 @@ int player::getAgility() const {
 void player::setAgility(int agility) {
     player::agility = agility;
 }
+bool player::isPoisoned() const {
+    return poisoned;
+}
+void player::setPoisoned(bool poisoned) {
+    player::poisoned = poisoned;
+}
+

@@ -20,10 +20,13 @@ class player {
         double armor;
         double weaponDmg;
         int agility;
+        bool poisoned = false;
+        int popo = 4;
+
 public:
     void displayStatus();
     bool attack(player target);
-    bool takeDamage(double dmg);
+    bool takeDamage(double dmg, bool ispoison);
     virtual bool specialAbility(player target);
 
     const string &getName() const;
@@ -42,6 +45,8 @@ public:
     void setWeaponDmg(double weaponDmg);
     int getAgility() const;
     void setAgility(int agility);
+    bool isPoisoned() const;
+    void setPoisoned(bool poisoned);
 
 };
 
