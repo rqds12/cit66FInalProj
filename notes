@@ -1,18 +1,21 @@
 paladin dmg 16
 rogue dmg 34
 wizard dmg 2.332
+Indin Power Rangers dmg 12
 
 paladin hlth 350
 rogue hlth 120
 wizard hlth 150
+Indian Power Rangers hlth 30
 
 paladin armor 40
 rogue armor 25
 wizard armor 3
+Indian Power Rangers armor 110
 
 special abilities
 paladin "the light of god" (lightning) 55 -- 90
 rogue "oliander powder in your soup" (poison) (health -= health * 0.4 -- 0.6)
 wizard "summon the shkeild of mogoukre" (shield) (armor += 52 -- 68.5)
 wizard "summon Viserion and have him puke on your foe" (poison) (health -= health * 0.8)
-
+Indian Power Rangers "IED"  (explosion) (70--110) does dmg to self
