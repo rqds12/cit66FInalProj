@@ -6,7 +6,7 @@
 
 Paladin::Paladin(string &name) {
     player::name = name;
-    player::weapon = "staff";
+    player::weapon = "Sword";
     player::health = 100;
     string resourceName;
     player::resource = 100;

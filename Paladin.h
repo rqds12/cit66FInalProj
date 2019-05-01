@@ -10,7 +10,8 @@
 
 class Paladin : public player {
     //player class
-explicit Paladin(string &name);
+    explicit Paladin(string &name);
+
 
 
 };

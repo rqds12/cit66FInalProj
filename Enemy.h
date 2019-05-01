@@ -8,6 +8,7 @@
 #include <string>
 using namespace std;
 class Enemy {
+private:
     string name;
     string weapon;
     double health;
@@ -15,7 +16,8 @@ class Enemy {
     int resource;
     int armor;
     double weaponDmg;
-
+public:
+    Enemy();
 };
 
 
