@@ -16,5 +16,13 @@ Rogue::Rogue(string& name) {
 }
 
 bool Rogue::specialAbility(Enemy& target) {
-    if()
+    srand(time(NULL));
+
+    double chance = ((rand()% 10)+1)/10;
+    if(chance >=0.4 && chance <= 0.6){
+        target.setPoisoned(true);
+
+        target.takeDamage(target.getHealth()-(target.getHealth()*chance), true);
+    }
+
 }
