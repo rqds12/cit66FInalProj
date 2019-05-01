@@ -7,6 +7,7 @@
 
 
 class Wizard {
+    //player class
 
 };
 

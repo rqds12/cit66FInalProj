@@ -7,6 +7,7 @@
 
 
 class Paladin {
+    //player class
 
 };
 

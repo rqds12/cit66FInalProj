@@ -12,12 +12,11 @@ class player {
         protected:
         string name;
         string weapon;
-        int health;
+        double health;
         string resourceName;
         int resource;
-        int agility;
-        int strength;
         int armor;
+        double weaponDmg;
 
 };
 
