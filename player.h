@@ -19,6 +19,7 @@ class player {
         double resource;
         double armor;
         double weaponDmg;
+        string weaponType;
         int agility;
         bool poisoned = false;
         int popo = 4;
