@@ -13,8 +13,9 @@ class Enemy: public player {
 private:
 
 public:
-    Enemy(string name);
-    virtual bool specialAbility();
+
+    virtual bool specialAbility() = 0;
+
 
 };
 

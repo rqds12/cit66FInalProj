@@ -5,7 +5,13 @@
 #include <iostream>
 #include "Indian_Power_Rangers.h"
 
+
+Indian_Power_Rangers::Indian_Power_Rangers() {
+
+}
+
 bool Indian_Power_Rangers::specialAbility() {
     std::cout << "I.E.D powers ATTACK" << std::endl;
+
 
 }

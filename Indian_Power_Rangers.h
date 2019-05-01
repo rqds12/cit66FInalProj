@@ -11,6 +11,7 @@
 class Indian_Power_Rangers: public Enemy{
 public:
     bool specialAbility();
+    Indian_Power_Rangers();
 
 };
 
