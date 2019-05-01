@@ -7,6 +7,7 @@
 
 
 #include "player.h"
+#include "Enemy.h"
 
 class Paladin : public player {
     //player class

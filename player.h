@@ -7,6 +7,8 @@
 
 
 #include <string>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 class player {
         protected:
@@ -14,7 +16,7 @@ class player {
         string weapon;
         double health;
         string resourceName;
-        int resource;
+        double resource;
         int armor;
         double weaponDmg;
         int agility;
