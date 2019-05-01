@@ -10,6 +10,7 @@
 
 class Paladin : public player {
     //player class
+public:
     explicit Paladin(string &name);
 
 

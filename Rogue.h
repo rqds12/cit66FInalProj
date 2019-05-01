@@ -10,7 +10,9 @@
 
 class Rogue : public player {
     //player class
-explicit Rogue(string &name);
+public:
+    explicit Rogue(string &name);
+    bool specialAbility(player target);
 
 
 
