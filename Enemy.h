@@ -14,6 +14,7 @@ private:
 
 public:
     Enemy(string name);
+    virtual bool specialAbility();
 
 };
 
