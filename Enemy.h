@@ -6,8 +6,10 @@
 #define CIT66FINALPROJ_ENEMY_H
 
 #include <string>
+#include "player.h"
+
 using namespace std;
-class Enemy {
+class Enemy: public player {
 private:
     string name;
     string weapon;
@@ -17,7 +19,7 @@ private:
     int armor;
     double weaponDmg;
 public:
-    Enemy();
+    Enemy(string name);
 };
 
 

@@ -7,12 +7,13 @@
 
 
 #include "player.h"
+#include "Enemy.h"
 
 class Rogue : public player {
     //player class
 public:
     explicit Rogue(string &name);
-    bool specialAbility(player target);
+    bool specialAbility(Enemy& target);
 
 
 
