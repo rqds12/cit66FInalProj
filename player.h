@@ -6,7 +6,18 @@
 #define CIT66FINALPROJ_PLAYER_H
 
 
+#include <string>
+using namespace std;
 class player {
+        protected:
+        string name;
+        string weapon;
+        int health;
+        string resourceName;
+        int resource;
+        int agility;
+        int strength;
+        int armor;
 
 };
 

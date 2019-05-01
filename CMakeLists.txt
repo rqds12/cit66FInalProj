@@ -6,5 +6,5 @@ set(CMAKE_CXX_STANDARD 17)
 
 
 
-add_executable(cit66FInalProj main.cpp player.cpp player.h)
+add_executable(cit66FInalProj main.cpp player.cpp player.h Wizard.cpp Wizard.h Paladin.cpp Paladin.h Rogue.cpp Rogue.h)
 
