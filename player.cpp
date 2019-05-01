@@ -12,11 +12,29 @@ void player::displayStatus() {
 }
 
 bool player::attack(player target) {
-
-    return false;
+    int toHitRoll = rand() % 100;
+    if (toHitRoll > target.getAgility()){
+        // Attack is Dodged
+        cout << name << " attacks " << target.getName() << " with their "<< weapon << ", but " << target.getName() <<
+          " artfully dodges "<< "the attack causing embarrassment for " << name << ".\n\n";
+        return false;
+    }
+    // Attack Succeeds
+    double dmg = (rand() % 15) + weaponDmg;
+    cout << name << " attacks " << target.getName() << " with their "<< weapon << " and delivers a destructive blow causing " << dmg<< " points of damage.\n\n";
+    return target.takeDamage(dmg);
 }
 
-bool player::takeDamage(int dmg) {
+bool player::takeDamage(double dmg) {
+    if (armor > 0){cout << name << "'s armor blocks " << armor << " points of the incoming "<< "damage.\n\n";
+    dmg -= armor;
+    armor -= (dmg * 0.70);
+    }
+    health -= dmg;
+    if (health <= 0){cout << name << " breathes their last breath while cursing the gods "<<
+     "that brought about such a cruel world and such suffering.\n\n"<< name << " has died.\n\n";
+    return true;
+    }
     return false;
 }
 
