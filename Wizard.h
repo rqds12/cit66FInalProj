@@ -6,8 +6,19 @@
 #define CIT66FINALPROJ_WIZARD_H
 
 
-class Wizard {
+#include "player.h"
+
+class Wizard : public player {
     //player class
+private:
+    string name = "Hugo";
+    string weapon = "Sword";
+    double health = 380;
+    string resourceName = "Faith";
+    int resource = 2;
+    int armor = 45;
+    double weaponDmg = 16;
+
 
 };
 

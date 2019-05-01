@@ -6,8 +6,19 @@
 #define CIT66FINALPROJ_ROGUE_H
 
 
-class Rogue {
+#include "player.h"
+
+class Rogue : public player {
     //player class
+private:
+    string name = "Hugo";
+    string weapon = "Sword";
+    double health = 380;
+    string resourceName = "Faith";
+    int resource = 2;
+    int armor = 45;
+    double weaponDmg = 16;
+
 
 };
 
