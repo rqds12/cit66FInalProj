@@ -23,7 +23,7 @@ bool Paladin::specialAbility(player target) {
         return target.takeDamage(dmg,false);
     }
     else{
-        cout << getName() << " doesn't have enough " << getResourceName() << "to invoke the light of god. " << getName() << " looses most of their faith in their deity because of this failure" << endl;
+        cout << getName() << " doesn't have enough " << getResourceName() << "to invoke the light of god.\n" << getName() << " looses most of their faith in their deity because of this failure" << endl;
         setResource((getResource())-(getResource())*0.85);
         setHealth(getHealth()*0.4)
         return false;
