@@ -17,7 +17,7 @@ class player {
         double health;
         string resourceName;
         double resource;
-        int armor;
+        double armor;
         double weaponDmg;
         int agility;
 public:
@@ -34,10 +34,10 @@ public:
     void setHealth(double health);
     const string &getResourceName() const;
     void setResourceName(const string &resourceName);
-    int getResource() const;
-    void setResource(int resource);
-    int getArmor() const;
-    void setArmor(int armor);
+    double getResource() const;
+    void setResource(double resource);
+    double getArmor();
+    void setArmor(double armor);
     double getWeaponDmg() const;
     void setWeaponDmg(double weaponDmg);
     int getAgility() const;

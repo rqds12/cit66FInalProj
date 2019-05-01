@@ -66,16 +66,16 @@ const string &player::getResourceName() const {
 void player::setResourceName(const string &resourceName) {
     player::resourceName = resourceName;
 }
-int player::getResource() const {
+double player::getResource() const {
     return resource;
 }
-void player::setResource(int resource) {
+void player::setResource(double resource) {
     player::resource = resource;
 }
-int player::getArmor() const {
+double player::getArmor() {
     return armor;
 }
-void player::setArmor(int armor) {
+void player::setArmor(double armor) {
     player::armor = armor;
 }
 double player::getWeaponDmg() const {
