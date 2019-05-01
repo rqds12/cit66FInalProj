@@ -9,9 +9,15 @@
 #include "Enemy.h"
 
 class Indian_Power_Rangers: public Enemy{
+private:
+    std::string color ="";
 public:
-    bool specialAbility();
-    Indian_Power_Rangers();
+    bool specialAbility(player& target);
+    Indian_Power_Rangers(std::string color);
+
+    const string &getColor() const;
+
+    void setColor(const string &color);
 
 };
 

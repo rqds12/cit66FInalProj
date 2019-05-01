@@ -6,12 +6,39 @@
 #include "Indian_Power_Rangers.h"
 
 
-Indian_Power_Rangers::Indian_Power_Rangers() {
+Indian_Power_Rangers::Indian_Power_Rangers(std::string color) {
+    Indian_Power_Rangers::color = color;
+    player::resourceName = "Tunuk Tunuk";
+    player::resource = 5;
+    player::armor = 110;
+    player::health = 30;
+    player::weaponDmg = 12;
+    player::weapon = "Earth Slap";
+
 
 }
 
-bool Indian_Power_Rangers::specialAbility() {
-    std::cout << "I.E.D powers ATTACK" << std::endl;
+bool Indian_Power_Rangers::specialAbility(player& target) {
+    srand(time(NULL));
+    double chance  = (rand()%100)+1;
+    if(chance >=80) {
+        if (resource >= 70) {
+            chance = (rand()%40)+31;
+            target.takeDamage(chance, false);
+            this->takeDamage(5, false);
+            std::cout << "The Indian Power Ranger hit you with an IED\n";
+        }else{
+            std::cout << "You did not have enough resource to launch the IED";
+        }
 
+    }
 
+}
+
+const string &Indian_Power_Rangers::getColor() const {
+    return color;
+}
+
+void Indian_Power_Rangers::setColor(const string &color) {
+    Indian_Power_Rangers::color = color;
 }
