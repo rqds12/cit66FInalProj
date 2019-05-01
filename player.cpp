@@ -26,6 +26,7 @@ bool player::attack(player target) {
 }
 
 bool player::takeDamage(double dmg,bool ispoison) {
+    //checks if the attack poisons
     if (!ispoison) {
         if (armor > 0) {
             cout << name << "'s armor blocks " << armor << " points of the incoming " << "damage.\n\n";
@@ -33,14 +34,16 @@ bool player::takeDamage(double dmg,bool ispoison) {
             armor -= (dmg * 0.70);
         }
     }
+    //poison decrementor
     if (poisoned){
         health -=dmg + (--popo);
     }
     else {
         health -= dmg;
     }
-    if (health <= 0){cout << name << " breathes their last breath while cursing the gods "<<
-     "that brought about such a cruel world and such suffering.\n\n"<< name << " has died.\n\n";
+    //death msg
+    if (health <= 0){cout << name << " breathes their last breath while cursing the bane for failing their path. "<<
+     " It is truely a dark day for the empire...\n\n"<< name << " has died.\n\n";
     return true;
     }
     return false;
