@@ -10,7 +10,10 @@
 
 class Paladin : public player {
     //player class
-explicit Paladin(string &name);
+
+public:
+    bool specialAbility(player target);
+    Paladin(string &name);
 
 
 };
