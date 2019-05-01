@@ -6,10 +6,10 @@
 
 Wizard::Wizard(string &name) {
     player::name = name;
-    player::weapon = "staff";
+    player::weapon = "Wand, Dragon Heartstring, 10 &3/4 inches";
     player::health = 159;
     player::resourceName = "Mana";
-    player::resource = 0;
+    player::resource = 40;
     player::armor =3;
     player::weaponDmg = 2.332;
 }
