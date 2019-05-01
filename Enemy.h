@@ -11,15 +11,10 @@
 using namespace std;
 class Enemy: public player {
 private:
-    string name;
-    string weapon;
-    double health;
-    string resourceName;
-    int resource;
-    int armor;
-    double weaponDmg;
+
 public:
     Enemy(string name);
+
 };
 
 

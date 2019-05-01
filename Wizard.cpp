@@ -14,3 +14,6 @@ Wizard::Wizard(string &name) {
     player::weaponDmg = 2.332;
 }
 
+bool Wizard::specialAbility()   {
+
+}
