@@ -32,7 +32,7 @@ bool Rogue::specialAbility(Enemy& target) {
 
 bool Rogue::read() {
     std::string temp;
-    reader.open("PaladinStory");
+    reader.open("../RogueStory.txt");
     if (reader.is_open()) {
         while(reader.good()) {
 
@@ -40,7 +40,6 @@ bool Rogue::read() {
             storyLine.push_back(temp);
             if(reader.bad()){
                 break;
-                ;
             }
         }
     }

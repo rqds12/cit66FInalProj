@@ -38,9 +38,10 @@ bool Paladin::specialAbility(player target) {
 
 }
 
+
 bool Paladin::read() {
     std::string temp;
-    reader.open("PaladinStory");
+    reader.open("../PaladinStory.txt");
     if (reader.is_open()) {
         while(reader.good()) {
 

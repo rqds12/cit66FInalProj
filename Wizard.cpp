@@ -21,7 +21,7 @@ bool Wizard::specialAbility()   {
 }
 bool Wizard::read() {
     std::string temp;
-    reader.open("PaladinStory");
+    reader.open("../WizardStory.txt");
     if (reader.is_open()) {
         while(reader.good()) {
 
