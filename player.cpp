@@ -42,14 +42,14 @@ bool player::takeDamage(double dmg,bool ispoison) {
         health -= dmg;
     }
     //death msg
-    if (health <= 0){std::cout << name << " breathes their last breath while cursing the bane for failing their path. "<<
-     " It is truely a dark day for the empire...\n\n"<< name << " has died.\n\n";
+    if (health <= 0){cout << name << " breathes their last breath while cursing the bane for failing their path. "<<
+     " It is truly a dark day for the empire...\n\n"<< name << " has died.\n\n";
     return true;
     }
     return false;
 }
 
-bool player::specialAbility(player target) {
+bool player::specialAbility(player target, int choiNum) {
     return false;
 }
 
@@ -128,3 +128,20 @@ void player::setStoryLine(const std::vector<std::string> &storyLine) {
 bool player::read() {
     return false;
 }
+
+const string &player::getWeaponType() const {
+    return weaponType;
+}
+
+void player::setWeaponType(const string &weaponType) {
+    player::weaponType = weaponType;
+}
+
+double player::getMoney() const {
+    return money;
+}
+
+void player::setMoney(double money) {
+    player::money = money;
+}
+

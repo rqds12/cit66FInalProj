@@ -14,6 +14,7 @@ Indian_Power_Rangers::Indian_Power_Rangers(std::string color) {
     player::health = 30;
     player::weaponDmg = 12;
     player::weapon = "Earth Slap";
+    player::weaponType = "Energy"
 
 
 }
@@ -26,10 +27,12 @@ bool Indian_Power_Rangers::specialAbility(player& target) {
             chance = (rand()%40)+31;
             target.takeDamage(chance, false);
             this->takeDamage(5, false);
-            std::cout << "The Indian Power Ranger hit you with an IED\n";
+          
+            std::cout << "The "<< color << " Indian PowerRanger® hit you with an IED\n";
             return true;
-        }else{
-            std::cout << "You did not have enough resource to launch the IED";
+        }
+      else{
+            std::cout << "The "<< color << "Indian PowerRanger® did not have enough resource to launch the IED";
             return false;
         }
 

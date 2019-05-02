@@ -26,6 +26,7 @@ protected:
         double resource;
         double armor;
         double weaponDmg;
+        string weaponType;
         int agility;
         bool poisoned = false;
         int popo = 4;
@@ -33,12 +34,13 @@ protected:
         std::ifstream reader;
         std::ofstream writer;
         std::vector<std::string> storyLine;
+        double money;
 
 public:
     void displayStatus();
     bool attack(player target);
     bool takeDamage(double dmg, bool ispoison);
-    virtual bool specialAbility(player target);
+    virtual bool specialAbility(player target, int choiNum);
 
     const std::string &getName() const;
     void setName(const std::string &name);
@@ -61,10 +63,13 @@ public:
     bool usePotion(Medicine medicine);
     virtual bool read();
     //virtual bool write();
-
     const std::vector<std::string> &getStoryLine() const;
 
     void setStoryLine(const std::vector<std::string> &storyLine);
+    const string &getWeaponType() const;
+    void setWeaponType(const string &weaponType);
+    double getMoney() const;
+    void setMoney(double money);
 
 };
 
