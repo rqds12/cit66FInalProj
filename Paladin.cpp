@@ -7,7 +7,7 @@
 #include <string>
 #include <fstream>
 
-Paladin::Paladin(const std::string &name) {
+Paladin::Paladin(string &name) {
     player::name = name;
     player::weapon = "Abaddon's Exterminant";
     player::weaponType = "Two Handed Great Sword";

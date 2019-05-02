@@ -17,6 +17,7 @@
 class Items;
 class Medicine;
 
+using namespace std;
 class player {
 protected:
         std::string name;

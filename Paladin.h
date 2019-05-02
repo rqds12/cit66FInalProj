@@ -15,7 +15,7 @@ class Paladin : public player {
 public:
     bool specialAbility(player target);
     Paladin(string &name);
-
+    bool read();
 
 
 };
