@@ -43,7 +43,7 @@ bool player::takeDamage(double dmg,bool ispoison) {
     }
     //death msg
     if (health <= 0){cout << name << " breathes their last breath while cursing the bane for failing their path. "<<
-     " It is truely a dark day for the empire...\n\n"<< name << " has died.\n\n";
+     " It is truly a dark day for the empire...\n\n"<< name << " has died.\n\n";
     return true;
     }
     return false;
@@ -106,5 +106,21 @@ bool player::isPoisoned() const {
 }
 void player::setPoisoned(bool poisoned) {
     player::poisoned = poisoned;
+}
+
+const string &player::getWeaponType() const {
+    return weaponType;
+}
+
+void player::setWeaponType(const string &weaponType) {
+    player::weaponType = weaponType;
+}
+
+double player::getMoney() const {
+    return money;
+}
+
+void player::setMoney(double money) {
+    player::money = money;
 }
 

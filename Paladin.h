@@ -13,7 +13,7 @@ class Paladin : public player {
     //player class
 
 public:
-    bool specialAbility(player target) override;
+    bool specialAbility(player target);
     Paladin(string &name);
 
 

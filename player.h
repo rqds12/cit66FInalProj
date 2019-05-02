@@ -23,6 +23,7 @@ class player {
         int agility;
         bool poisoned = false;
         int popo = 4;
+        double money;
 
 public:
     void displayStatus();
@@ -48,6 +49,10 @@ public:
     void setAgility(int agility);
     bool isPoisoned() const;
     void setPoisoned(bool poisoned);
+    const string &getWeaponType() const;
+    void setWeaponType(const string &weaponType);
+    double getMoney() const;
+    void setMoney(double money);
 
 };
 
