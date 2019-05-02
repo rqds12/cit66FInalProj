@@ -3,3 +3,9 @@
 //
 
 #include "Orcs.h"
+
+Orcs::Orcs() {
+    Orcs::name = "";
+    Orcs::weaponDmg = 5;
+    Orcs::armor =
+}

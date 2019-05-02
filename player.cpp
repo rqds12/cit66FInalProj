@@ -165,7 +165,7 @@ void player::shop(player recipient) {
     switch (a) {
         case 1: {
             //todo:fix protected
-        recipient.bag.push_back(Medicine("Weed",25))
+        recipient.bag.push_back(Medicine("Medicinal Herbs",25));
         }
         case 2: {
             recipient.setWeaponDmg(recipient.getWeaponDmg()+5);
@@ -181,4 +181,5 @@ void player::shop(player recipient) {
 
 
 }
+
 

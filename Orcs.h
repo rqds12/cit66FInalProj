@@ -9,6 +9,10 @@
 #include "Enemy.h"
 
 class Orcs: public Enemy {
+protected:
+public:
+    bool specialAbility = 0;
+    Orcs();
 
 };
 

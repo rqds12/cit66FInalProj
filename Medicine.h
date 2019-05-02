@@ -8,7 +8,7 @@
 #include <string>
 #include "Items.h"
 
-class Medicine : protected Items {
+class Medicine : public Items {
 protected:
     bool curePoison;
     double healingPower;
