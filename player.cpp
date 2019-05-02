@@ -146,10 +146,38 @@ void player::setMoney(double money) {
 }
 
 void player::shop(player recipient) {
-    cout << "Welcome to Ye Olde Shoppe" << endl;
-    cout << "=========================" << endl;
-    cout << "=========================" << endl;
-    cout << "Welcome " << recipient.getName() << ", you have " << recipient.getMoney() << " gold to spend..." << endl;
+    int a = 0;
+    cout << "=============================" << endl;
+    cout << "==Welcome to Ye Olde Shoppe==" << endl;
+    cout << "=============================" << endl;
+    cout << "=============================" << endl;
+    cout << "Welcome " << recipient.getName() << ", you have " << recipient.getMoney() << " gold to spend...\n" << endl;
+
+    cout << "1) Medicinal Herbs (+25 health)............8 gold\n"
+            "2) "<< recipient.getWeaponType() << " Sharpening/Reforging by the local Armorer (+5 Damage)............14 gold\n"
+            "3) Leather Breastplate (+6 Armor)............6 gold\n"
+            "4) Iron Breastplate (+8 Armor)............8 gold\n"
+            "5) A good kick in the pants (-2 health)............1 gold\n"
+            "6) Short Sword, good for blocking and knifing political opponents in the back (+13 Damage)............30 gold" << endl << endl;
+    //todo: make poison thingamagig
+    cout << "Enter your selection: " << endl;
+    cin >> a;
+    switch (a) {
+        case 1: {
+            //todo:fix protected
+        recipient.bag.push_back(Medicine("Weed",25))
+        }
+        case 2: {
+            recipient.setWeaponDmg(recipient.getWeaponDmg()+5);
+        }
+        case 3:{
+            recipient.setArmor(recipient.getArmor()+6);
+        }
+        case 4:{
+            recipient.setArmor(recipient.getArmor()+8);
+        }
+    }
+
 
 
 }
