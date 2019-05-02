@@ -28,7 +28,7 @@ public:
     void displayStatus();
     bool attack(player target);
     bool takeDamage(double dmg, bool ispoison);
-    virtual bool specialAbility(player target);
+    virtual bool specialAbility(player target, int choiNum);
 
     const string &getName() const;
     void setName(const string &name);
