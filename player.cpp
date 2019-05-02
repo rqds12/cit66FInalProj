@@ -128,64 +128,118 @@ void player::setStoryLine(const std::vector<std::string> &storyLine) {
 bool player::read() {
     return false;
 }
-
 const string &player::getWeaponType() const {
     return weaponType;
 }
-
 void player::setWeaponType(const string &weaponType) {
     player::weaponType = weaponType;
 }
-
 double player::getMoney() const {
     return money;
 }
-
 void player::setMoney(double money) {
     player::money = money;
 }
 
-void player::shop(player recipient) {
-    int a = 0;
-    cout << "=============================" << endl;
-    cout << "==Welcome to Ye Olde Shoppe==" << endl;
-    cout << "=============================" << endl;
-    cout << "=============================" << endl;
-    cout << "Welcome " << recipient.getName() << ", you have " << recipient.getMoney() << " gold to spend...\n" << endl;
 
-    cout << "1) Medicinal Herbs (+25 health)............8 gold\n"
-            "2) "<< recipient.getWeaponType() << " Sharpening/Reforging by the local Armorer (+5 Damage)............14 gold\n"
-            "3) Leather Breastplate (+6 Armor)............6 gold\n"
-            "4) Iron Breastplate (+8 Armor)............8 gold\n"
-            "5) A good kick in the pants (-2 health)............1 gold\n"
-            "6) Short Sword, good for blocking and knifing political opponents in the back (+13 Damage)............30 gold" << endl << endl;
-    //todo: make poison thingamagig
-    cout << "Enter your selection: " << endl;
-    cin >> a;
-    switch (a) {
-        case 1: {
-            //todo:fix protected
-        recipient.bag.push_back(Medicine("Medicinal Herbs",25));
+void player::shop() {
+    bool yeetusDeletus = false;
+    while (!yeetusDeletus) {
+        int a = 0;
+        cout << "=============================" << endl;
+        cout << "==Welcome to Ye Olde Shoppe==" << endl;
+        cout << "=============================" << endl;
+        cout << "=============================" << endl;
+        cout << "Welcome " << this->getName() << ", you have " << this->getMoney() << " gold to spend...\n"
+             << endl;
+
+        cout << "1) Medicinal Herbs (+25 health)............8 gold\n"
+                "2) " << getWeaponType()
+             << " Sharpening/Reforging by the local Armorer (+5 Damage)............14 gold\n"
+                "3) Leather Breastplate (+6 Armor)............6 gold\n"
+                "4) Iron Breastplate (+8 Armor)............8 gold\n"
+                "5) A good kick in the pants (-2 health)............1 gold\n"
+                "6) Short Sword, good for blocking and knifing political opponents in the back (+17 Damage)............30 gold"
+             << endl << endl;
+        //todo: make poison thingamagig
+        cout << "Enter your selection: " << endl;
+        cin >> a;
+        switch (a) {
+            case 1: {
+                if (this->getMoney()>=8){
+                    this->bag.push_back(Medicine("Medicinal Herbs(Weeedddd)", 25));
+                }
+                else{
+                    cout << "Shop owner beats you with a cricket bat for being a hooligan" << endl;
+                    this->takeDamage(16,false);
+                }
+            }
+            break;
+
+            case 2: {
+                if (this->getMoney()>=14) {
+                    this->setWeaponDmg(this->getWeaponDmg() + 5);
+                }
+                else{
+                    cout << "Shop owner beats you with a cricket bat for being a hooligan" << endl;
+                    this->takeDamage(16,false);
+                }
+            }
+                break;
+            case 3: {
+                if (this->getMoney() >= 6) {
+                    this->setArmor(this->getArmor() + 6);
+                }
+                else {
+                    cout << "Shop owner beats you with a cricket bat for being a hooligan" << endl;
+                    this->takeDamage(16, false);
+                }
+            }
+                break;
+            case 4: {
+                if (this->getMoney()>= 8){
+                    this->setArmor(this->getArmor() + 8);
+                }
+                else{
+                    cout << "Shop owner beats you with a cricket bat for being a hooligan" << endl;
+                    this->takeDamage(16,false);
+                }
+            }
+                break;
+            case 5: {
+                if (this->getMoney()>=1){
+                    this->setHealth(this->getHealth() - 2);
+                }
+                else{
+                    cout << "You obviously need this gold more than I do... By the way, here is a sword and some weed" << endl;
+                    this->setWeaponDmg(this->getWeaponDmg()+17);
+                    this->setMoney(this->getMoney()+12);
+                    this->bag.push_back(Medicine("Herbs ;)",25));
+                }
+            }
+                break;
+            case 6: {
+                if (this->getMoney()>= 30){
+                    this->setWeaponDmg(this->getWeaponDmg() + 17);
+                }
+                else{
+                    cout << "Shop owner beats you with a cricket bat for being a hooligan" << endl;
+                    this->takeDamage(16,false);
+                }
+            }
+                break;
+            case 7: {
+                yeetusDeletus = true;
+            }
+            default:{
+                    cout << "Shop owner beats you severely with a cricket bat for being a hooligan" << endl;
+                this->takeDamage(35,false);
+
+            }
         }
-        case 2: {
-            recipient.setWeaponDmg(recipient.getWeaponDmg()+5);
-        }
-        case 3:{
-            recipient.setArmor(recipient.getArmor()+6);
-        }
-        case 4:{
-            recipient.setArmor(recipient.getArmor()+8);
-        }
-        case 5:{
-            recipient.setHealth(recipient.getHealth()-2);
-        }
-        case 6:{
-            recipient.setWeaponDmg(recipient.getWeaponDmg()+13);
-        }
+
+
     }
-
-
-
 }
 
 

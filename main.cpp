@@ -12,11 +12,12 @@ int main() {
     startingMenu();
 
 
-
     return 0;
 }
 
 void play(std::vector<player*> players){
+    player *player1 = (players[0]);
+    player1->shop();
     players[0]->read();
     std::vector <std::string>story = players[0]->getStoryLine();
     for (int i = 0; i < story.size(); ++i) {
