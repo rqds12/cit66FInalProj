@@ -176,6 +176,12 @@ void player::shop(player recipient) {
         case 4:{
             recipient.setArmor(recipient.getArmor()+8);
         }
+        case 5:{
+            recipient.setHealth(recipient.getHealth()-2);
+        }
+        case 6:{
+            recipient.setWeaponDmg(recipient.getWeaponDmg()+13);
+        }
     }
 
 
