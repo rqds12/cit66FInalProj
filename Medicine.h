@@ -5,11 +5,11 @@
 #ifndef CIT66FINALPROJ_MEDICINE_H
 #define CIT66FINALPROJ_MEDICINE_H
 
-
+#include <string>
 #include "Items.h"
 
-class Medicine: public Items{
-private:
+class Medicine : protected Items {
+protected:
     bool curePoison;
     double healingPower;
 public:

@@ -27,11 +27,14 @@ bool Indian_Power_Rangers::specialAbility(player& target) {
             target.takeDamage(chance, false);
             this->takeDamage(5, false);
             std::cout << "The Indian Power Ranger hit you with an IED\n";
+            return true;
         }else{
             std::cout << "You did not have enough resource to launch the IED";
+            return false;
         }
 
     }
+    return false;
 
 }
 

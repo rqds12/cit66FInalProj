@@ -6,13 +6,12 @@
 #define CIT66FINALPROJ_ITEMS_H
 
 #include <string>
-#include "player.h"
 
-using namespace std;
 class Items {
 protected:
-    string name;
+    std::string name;
 public:
+
 
 
 };

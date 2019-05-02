@@ -14,7 +14,10 @@ private:
 
 public:
 
-    virtual bool specialAbility() = 0;
+    virtual bool specialAbility() =0 ;
+
+
+
 
 
 };

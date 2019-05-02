@@ -15,13 +15,13 @@ bool player::attack(player target) {
     int toHitRoll = rand() % 100;
     if (toHitRoll > target.getAgility()){
         // Attack is Dodged
-        cout << name << " attacks " << target.getName() << " with their "<< weapon << ", but " << target.getName() <<
+        std::cout << name << " attacks " << target.getName() << " with their "<< weapon << ", but " << target.getName() <<
           " artfully dodges "<< "the attack causing embarrassment for " << name << ".\n\n";
         return false;
     }
     // Attack Succeeds
     double dmg = (rand() % 15) + weaponDmg;
-    cout << name << " attacks " << target.getName() << " with their "<< weapon << " and delivers a destructive blow causing " << dmg<< " points of damage.\n\n";
+    std::cout << name << " attacks " << target.getName() << " with their "<< weapon << " and delivers a destructive blow causing " << dmg<< " points of damage.\n\n";
     return target.takeDamage(dmg,false);
 }
 
@@ -29,7 +29,7 @@ bool player::takeDamage(double dmg,bool ispoison) {
     //checks if the attack poisons
     if (!ispoison) {
         if (armor > 0) {
-            cout << name << "'s armor blocks " << armor << " points of the incoming " << "damage.\n\n";
+            std::cout << name << "'s armor blocks " << armor << " points of the incoming " << "damage.\n\n";
             dmg -= armor;
             armor -= (dmg * 0.70);
         }
@@ -42,7 +42,7 @@ bool player::takeDamage(double dmg,bool ispoison) {
         health -= dmg;
     }
     //death msg
-    if (health <= 0){cout << name << " breathes their last breath while cursing the bane for failing their path. "<<
+    if (health <= 0){std::cout << name << " breathes their last breath while cursing the bane for failing their path. "<<
      " It is truely a dark day for the empire...\n\n"<< name << " has died.\n\n";
     return true;
     }
@@ -53,16 +53,16 @@ bool player::specialAbility(player target) {
     return false;
 }
 
-const string &player::getName() const {
+const std::string &player::getName() const {
     return name;
 }
-void player::setName(const string &name) {
+void player::setName(const std::string &name) {
     player::name = name;
 }
-const string &player::getWeapon() const {
+const std::string &player::getWeapon() const {
     return weapon;
 }
-void player::setWeapon(const string &weapon) {
+void player::setWeapon(const std::string &weapon) {
     player::weapon = weapon;
 }
 double player::getHealth() const {
@@ -71,10 +71,10 @@ double player::getHealth() const {
 void player::setHealth(double health) {
     player::health = health;
 }
-const string &player::getResourceName() const {
+const std::string &player::getResourceName() const {
     return resourceName;
 }
-void player::setResourceName(const string &resourceName) {
+void player::setResourceName(const std::string &resourceName) {
     player::resourceName = resourceName;
 }
 double player::getResource() const {
@@ -117,3 +117,14 @@ bool player::usePotion(Medicine medicine) {
     return false;
 }
 
+const std::vector<std::string> &player::getStoryLine() const {
+    return storyLine;
+}
+
+void player::setStoryLine(const std::vector<std::string> &storyLine) {
+    player::storyLine = storyLine;
+}
+
+bool player::read() {
+    return false;
+}

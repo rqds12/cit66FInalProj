@@ -4,7 +4,7 @@
 
 #include "Wizard.h"
 
-Wizard::Wizard(string &name) {
+Wizard::Wizard(std::string &name) {
     player::name = name;
     player::weapon = "Wand, Dragon Heartstring, 10 &3/4 inches";
     player::health = 159;
@@ -17,4 +17,20 @@ Wizard::Wizard(string &name) {
 
 bool Wizard::specialAbility()   {
 
+}
+
+bool Wizard::read() {
+    std::string temp;
+    reader.open("PaladinStory");
+    if (reader.is_open()) {
+        while(reader.good()) {
+
+            getline(reader, temp, '|');
+            storyLine.push_back(temp);
+            if(reader.bad()){
+                break;
+                ;
+            }
+        }
+    }
 }

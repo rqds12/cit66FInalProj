@@ -27,4 +27,22 @@ bool Rogue::specialAbility(Enemy& target) {
         }
 
     }
+    return false;
+}
+
+bool Rogue::read() {
+    std::string temp;
+    reader.open("PaladinStory");
+    if (reader.is_open()) {
+        while(reader.good()) {
+
+            getline(reader, temp, '|');
+            storyLine.push_back(temp);
+            if(reader.bad()){
+                break;
+                ;
+            }
+        }
+    }
+    return true;
 }

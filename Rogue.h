@@ -14,6 +14,7 @@ class Rogue : public player {
 public:
     explicit Rogue(string &name);
     bool specialAbility(Enemy& target);
+    bool read();
 
 
 

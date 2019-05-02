@@ -12,21 +12,27 @@
 #include <vector>
 #include "Items.h"
 #include "Medicine.h"
+#include <fstream>
 
-using namespace std;
+class Items;
+class Medicine;
+
 class player {
-        protected:
-        string name;
-        string weapon;
+protected:
+        std::string name;
+        std::string weapon;
         double health;
-        string resourceName;
+       std::string resourceName;
         double resource;
         double armor;
         double weaponDmg;
         int agility;
         bool poisoned = false;
         int popo = 4;
-        vector <Items> bag;
+        std::vector<Items> bag;
+        std::ifstream reader;
+        std::ofstream writer;
+        std::vector<std::string> storyLine;
 
 public:
     void displayStatus();
@@ -34,14 +40,14 @@ public:
     bool takeDamage(double dmg, bool ispoison);
     virtual bool specialAbility(player target);
 
-    const string &getName() const;
-    void setName(const string &name);
-    const string &getWeapon() const;
-    void setWeapon(const string &weapon);
+    const std::string &getName() const;
+    void setName(const std::string &name);
+    const std::string &getWeapon() const;
+    void setWeapon(const std::string &weapon);
     double getHealth() const;
     void setHealth(double health);
-    const string &getResourceName() const;
-    void setResourceName(const string &resourceName);
+    const std::string &getResourceName() const;
+    void setResourceName(const std::string &resourceName);
     double getResource() const;
     void setResource(double resource);
     double getArmor();
@@ -53,7 +59,12 @@ public:
     bool isPoisoned() const;
     void setPoisoned(bool poisoned);
     bool usePotion(Medicine medicine);
+    virtual bool read();
+    //virtual bool write();
 
+    const std::vector<std::string> &getStoryLine() const;
+
+    void setStoryLine(const std::vector<std::string> &storyLine);
 
 };
 
