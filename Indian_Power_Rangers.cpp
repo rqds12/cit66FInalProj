@@ -1,5 +1,5 @@
 //
-// Created by sethsan on 5/1/19.
+// Created by seth on 5/1/19.
 //
 
 #include <iostream>
@@ -27,12 +27,17 @@ bool Indian_Power_Rangers::specialAbility(player& target) {
             chance = (rand()%40)+31;
             target.takeDamage(chance, false);
             this->takeDamage(5, false);
+          
             std::cout << "The "<< color << " Indian PowerRanger® hit you with an IED\n";
-        }else{
+            return true;
+        }
+      else{
             std::cout << "The "<< color << "Indian PowerRanger® did not have enough resource to launch the IED";
+            return false;
         }
 
     }
+    return false;
 
 }
 
