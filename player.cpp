@@ -145,3 +145,12 @@ void player::setMoney(double money) {
     player::money = money;
 }
 
+void player::shop(player recipient) {
+    cout << "Welcome to Ye Olde Shoppe" << endl;
+    cout << "=========================" << endl;
+    cout << "=========================" << endl;
+    cout << "Welcome " << recipient.getName() << ", you have " << recipient.getMoney() << " gold to spend..." << endl;
+
+
+}
+

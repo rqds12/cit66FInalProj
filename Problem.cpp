@@ -3,3 +3,7 @@
 //
 
 #include "Problem.h"
+
+const string &Problem::getPrompt() const {
+    return prompt;
+}

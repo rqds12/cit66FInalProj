@@ -42,7 +42,7 @@ public:
     bool attack(player target);
     bool takeDamage(double dmg, bool ispoison);
     virtual bool specialAbility(player target, int choiNum);
-
+    void shop(player recipient);
     const std::string &getName() const;
     void setName(const std::string &name);
     const std::string &getWeapon() const;
