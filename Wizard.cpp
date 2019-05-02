@@ -12,6 +12,7 @@ Wizard::Wizard(string &name) {
     player::resource = 40;
     player::armor =3;
     player::weaponDmg = 2.332;
+
 }
 
 bool Wizard::specialAbility()   {

@@ -9,6 +9,10 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <vector>
+#include "Items.h"
+#include "Medicine.h"
+
 using namespace std;
 class player {
         protected:
@@ -22,6 +26,7 @@ class player {
         int agility;
         bool poisoned = false;
         int popo = 4;
+        vector <Items> bag;
 
 public:
     void displayStatus();
@@ -47,6 +52,8 @@ public:
     void setAgility(int agility);
     bool isPoisoned() const;
     void setPoisoned(bool poisoned);
+    bool usePotion(Medicine medicine);
+
 
 };
 

@@ -21,6 +21,7 @@ bool Paladin::specialAbility(player target) {
         int chance = rand() % 35;
         double dmg = 55 + chance;
         return target.takeDamage(dmg,false);
+
     }
     else{
         cout << getName() << " doesn't have enough " << getResourceName() << "to invoke the light of god.\n" << getName() << " looses most of their faith in their deity because of this failure" << endl;

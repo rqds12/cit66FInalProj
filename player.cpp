@@ -108,3 +108,12 @@ void player::setPoisoned(bool poisoned) {
     player::poisoned = poisoned;
 }
 
+bool player::usePotion(Medicine medicine) {
+    if(this->isPoisoned()&&medicine.isCurePoison()){
+        poisoned = false;
+    }
+    player::health += medicine.getHealingPower();
+
+    return false;
+}
+
