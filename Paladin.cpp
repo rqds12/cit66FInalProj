@@ -4,8 +4,9 @@
 
 #include <iostream>
 #include "Paladin.h"
+#include <string>
 
-Paladin::Paladin(string &name) {
+Paladin::Paladin(const std::string &name) {
     player::name = name;
     player::weapon = "Sword of God";
     player::health = 350;

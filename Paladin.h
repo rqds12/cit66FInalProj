@@ -14,7 +14,7 @@ class Paladin : public player {
 
 public:
     bool specialAbility(player target) override;
-    Paladin(string &name);
+    Paladin(const string& name);
 
 
 };
