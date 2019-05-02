@@ -14,7 +14,7 @@ Indian_Power_Rangers::Indian_Power_Rangers(std::string color) {
     player::health = 30;
     player::weaponDmg = 12;
     player::weapon = "Earth Slap";
-    player::weaponType = "Energy"
+    player::weaponType = "Energy";
 
 
 }
