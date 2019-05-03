@@ -123,7 +123,7 @@ void player::setType(const string &type) {
     player::type = type;
 }
 
-bool player::usePotion(Medicine medicine) {
+bool player::usePotion(const Medicine medicine) {
     if(this->isPoisoned()&&medicine.isCurePoison()){
         poisoned = false;
     }
@@ -183,6 +183,7 @@ void player::shop() {
             case 1: {
                 if (this->getMoney()>=8){
                     this->bag.push_back(Medicine("Medicinal Herbs(Weeedddd)", 25));
+                    this->setMoney(this->getMoney()-8);
                 }
                 else{
                     cout << "Shop owner beats you with a cricket bat for being a hooligan" << endl;
@@ -194,6 +195,7 @@ void player::shop() {
             case 2: {
                 if (this->getMoney()>=14) {
                     this->setWeaponDmg(this->getWeaponDmg() + 5);
+                    this->setMoney(this->getMoney()-14);
                 }
                 else{
                     cout << "Shop owner beats you with a cricket bat for being a hooligan" << endl;
@@ -204,6 +206,7 @@ void player::shop() {
             case 3: {
                 if (this->getMoney() >= 6) {
                     this->setArmor(this->getArmor() + 6);
+                    this->setMoney(this->getMoney()-6);
                 }
                 else {
                     cout << "Shop owner beats you with a cricket bat for being a hooligan" << endl;
@@ -214,6 +217,7 @@ void player::shop() {
             case 4: {
                 if (this->getMoney()>= 8){
                     this->setArmor(this->getArmor() + 8);
+                    this->setMoney(this->getMoney()-8);
                 }
                 else{
                     cout << "Shop owner beats you with a cricket bat for being a hooligan" << endl;
@@ -224,6 +228,7 @@ void player::shop() {
             case 5: {
                 if (this->getMoney()>=1){
                     this->setHealth(this->getHealth() - 2);
+                    this->setMoney(this->getMoney()-1);
                 }
                 else{
                     cout << "You obviously need this gold more than I do... By the way, here is a sword and some weed" << endl;
@@ -236,6 +241,7 @@ void player::shop() {
             case 6: {
                 if (this->getMoney()>= 30){
                     this->setWeaponDmg(this->getWeaponDmg() + 17);
+                    this->setMoney(this->getMoney()-30);
                 }
                 else{
                     cout << "Shop owner beats you with a cricket bat for being a hooligan" << endl;
