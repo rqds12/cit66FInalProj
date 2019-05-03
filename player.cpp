@@ -182,7 +182,7 @@ void player::shop() {
         switch (a) {
             case 1: {
                 if (this->getMoney()>=8){
-                    this->bag.push_back(Medicine("Medicinal Herbs(Weeedddd)", 25));
+                    this->bag.push_back(Medicine("Medicinal Herbs", 25));
                     this->setMoney(this->getMoney()-8);
                 }
                 else{
