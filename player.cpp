@@ -8,6 +8,7 @@
 #include <ctime>
 
 void player::displayStatus() {
+    cout << endl << endl << endl << endl << endl;
     cout << "Name: " << this->getName() << "\n"
             "Class: " << this->getType() << "\n"
             "Weapon: " <<this->getWeapon() << "\n"

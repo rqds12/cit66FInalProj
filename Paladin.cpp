@@ -13,7 +13,7 @@ Paladin::Paladin(string &name) {
     player::weapon = "Abaddon's Exterminant";
     player::weaponType = "Two Handed Great Sword";
     player::health = 350;
-    string resourceName = "Faith";
+    player::resourceName = "Faith";
     player::resource = 5;
     player::armor = 40;
     player::weaponDmg = 16;
