@@ -9,6 +9,7 @@
 
 Paladin::Paladin(string &name) {
     player::name = name;
+    player::type = "Paladin";
     player::weapon = "Abaddon's Exterminant";
     player::weaponType = "Two Handed Great Sword";
     player::health = 350;

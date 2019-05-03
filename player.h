@@ -36,6 +36,11 @@ protected:
         std::ofstream writer;
         std::vector<std::string> storyLine;
         double money;
+        string type;
+public:
+    const string &getType() const;
+
+    void setType(const string &type);
 
 public:
     void displayStatus();

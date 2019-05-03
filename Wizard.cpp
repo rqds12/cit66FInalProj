@@ -13,6 +13,7 @@ Wizard::Wizard(std::string &name) {
     player::armor =3;
     player::weaponType = "Wand, Dragon Heartstring, 10 &3/4 inches";
     player::weaponDmg = 2.332;
+    player::type = "Wizard";
 
 }
 

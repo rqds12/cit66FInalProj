@@ -8,6 +8,14 @@
 #include <ctime>
 
 void player::displayStatus() {
+    cout << "Name: " << this->getName() << "\n"
+            "Class: " << this->getType() << "\n"
+            "Weapon: " <<this->getWeapon() << "\n"
+            "Weapon Type: " << this->getWeaponType() << "\n"
+            "Health: " << this->getHealth() << "\n"
+             "Money: " << this->getMoney() << "\n"
+             "Armor: " << this->getArmor() << "\n"
+             << this->getResourceName() << ": " << this->getResource() << endl <<endl;
 
 }
 
@@ -106,6 +114,12 @@ bool player::isPoisoned() const {
 }
 void player::setPoisoned(bool poisoned) {
     player::poisoned = poisoned;
+}
+const string &player::getType() const {
+    return type;
+}
+void player::setType(const string &type) {
+    player::type = type;
 }
 
 bool player::usePotion(Medicine medicine) {
@@ -241,5 +255,7 @@ void player::shop() {
 
     }
 }
+
+
 
 

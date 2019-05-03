@@ -17,7 +17,8 @@ int main() {
 
 void play(std::vector<player*> players){
     player *player1 = (players[0]);
-    player1->shop();
+    player1->displayStatus();
+    //player1->shop();
     players[0]->read();
     std::vector <std::string>story = players[0]->getStoryLine();
     for (int i = 0; i < story.size(); ++i) {

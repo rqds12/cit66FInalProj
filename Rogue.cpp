@@ -13,6 +13,7 @@ Rogue::Rogue(string& name) {
     player::resource = 0;
     player::armor =25;
     player::weaponDmg = 34;
+    player::type = "Rogue";
 }
 
 bool Rogue::specialAbility(Enemy& target) {
