@@ -12,7 +12,7 @@ class Wizard : public player {
     //player class
 public:
     explicit Wizard(std::string &name);
-    bool specialAbility();
+    bool specialAbility(player target);
     bool read();
 
 
