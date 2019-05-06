@@ -49,7 +49,7 @@ public:
 
     void displayStatus();
     bool attack(player target);
-    bool takeDamage(double dmg, bool ispoison);
+    virtual bool takeDamage(double dmg, bool ispoison);
     virtual bool specialAbility(player target, int choiNum);
     void shop();
     const std::string &getName() const;
