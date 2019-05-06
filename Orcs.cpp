@@ -4,8 +4,10 @@
 
 #include "Orcs.h"
 
+
 Orcs::Orcs() {
-    Orcs::name = "";
+    Orcs::name = "Orc";
     Orcs::weaponDmg = 5;
-    Orcs::armor =
+    Orcs::agility =10;
+    //Orcs::isOrc = true;
 }

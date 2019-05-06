@@ -10,11 +10,11 @@
 
 using namespace std;
 class Enemy: public player {
-private:
+protected:
 
 public:
-
-    virtual bool specialAbility() =0 ;
+    Enemy();
+    bool specialAbility() ;
 
 
 

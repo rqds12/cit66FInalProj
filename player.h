@@ -13,9 +13,11 @@
 #include "Items.h"
 #include "Medicine.h"
 #include <fstream>
+#include "Problem.h"
 
 class Items;
 class Medicine;
+class Problem;
 
 using namespace std;
 class player {
@@ -36,13 +38,15 @@ protected:
         std::ofstream writer;
         std::vector<std::string> storyLine;
         double money;
+        std::vector<Problem> problems;
+
         string type;
 public:
     const string &getType() const;
 
     void setType(const string &type);
 
-public:
+
     void displayStatus();
     bool attack(player target);
     bool takeDamage(double dmg, bool ispoison);

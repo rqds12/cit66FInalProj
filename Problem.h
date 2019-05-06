@@ -1,5 +1,5 @@
 //
-// Created by sethsan on 5/2/19.
+// Created by Erik on 5/2/19.
 //
 
 #ifndef CIT66FINALPROJ_PROBLEM_H
@@ -12,13 +12,17 @@
 #include "Items.h"
 #include "Medicine.h"
 #include <fstream>
-using namespace std;
+#include "player.h"
 
+using namespace std;
+class player;
 class Problem {
-private:
+protected:
     string prompt;
 public:
     const string &getPrompt() const;
+    virtual bool action(player *player1) = 0;
+
 };
 
 

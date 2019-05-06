@@ -10,6 +10,7 @@
 
 class Orcs: public Enemy {
 protected:
+    //bool isOrc;
 public:
     bool specialAbility = 0;
     Orcs();
