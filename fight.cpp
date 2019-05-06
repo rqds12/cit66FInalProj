@@ -9,6 +9,7 @@
 #include "Enemy.h"
 bool fightMenu(player *player1, player* player2){
 
+
     while(player1->getHealth()>0 && player2->getHealth()){
 
     }

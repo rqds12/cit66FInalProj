@@ -39,7 +39,7 @@ protected:
         std::vector<std::string> storyLine;
         double money;
         std::vector<Problem> problems;
-
+        bool isEnemy =false;
         string type;
 public:
     const string &getType() const;
@@ -81,6 +81,9 @@ public:
     double getMoney() const;
     void setMoney(double money);
 
+    bool isEnemy1() const;
+
+    void setIsEnemy(bool isEnemy);
 };
 
 

@@ -263,6 +263,14 @@ void player::shop() {
     }
 }
 
+bool player::isEnemy1() const {
+    return isEnemy;
+}
+
+void player::setIsEnemy(bool isEnemy) {
+    player::isEnemy = isEnemy;
+}
+
 
 
 

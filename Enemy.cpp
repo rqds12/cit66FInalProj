@@ -6,7 +6,7 @@
 #include "Enemy.h"
 
 Enemy::Enemy() {
-    std::cout<<"";
+    isEnemy = true;
 }
 bool Enemy::specialAbility() {
     return false;
