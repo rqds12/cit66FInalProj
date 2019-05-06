@@ -8,7 +8,7 @@
 
 void play(std::vector <player*> players);
 void startingMenu();
-void play();
+void play(std::vector<player*> players);
 int main() {
     startingMenu();
 
@@ -82,9 +82,12 @@ void startingMenu(){
                                   break;
                               default:
                                   std::cout << "You're a hooligan\n";
+                                  break;
 
                           }
                       }
+                      play(players);
+                      return;
                   }
                   case 2:{
                       for (int i = 0; i < 2; ++i) {
@@ -130,9 +133,13 @@ void startingMenu(){
                               }
                           }
                       }
-
+                      play(players);
+                      return;
+                  }
+                  default:{
+                      cout << "You're a hooligan!" << endl;
+                      return;
                   }
               }
 
-    play(players);
 }
