@@ -19,8 +19,13 @@ Wizard::Wizard(std::string &name) {
 
 }
 
-bool Wizard::specialAbility(player target, int choiNum)   {
-    switch (choiNum){
+bool Wizard::specialAbility(player target)   {
+    cout << "\n Pick a Special Ability: \n"
+            "1) ATERK\n"
+            "2) Heal yourself" << endl;
+    std::string choiNum;
+    getline(std::cin, choiNum);
+    switch (stoi(choiNum)){
         case 1:{
             srand(time(NULL));
             if (resource >= 45){
@@ -46,6 +51,16 @@ bool Wizard::specialAbility(player target, int choiNum)   {
                 double healer = 10 + chance;
                 cout << this->getName() << " uses a healing spell which replaces " << healer << " health." << endl;
             }
+            else{
+                cout << getName() << " doesn't have enough " << getResourceName() << "to draw on dumbledore's secrets.\n" << getName() << " looses most of their mana because of this failure" << endl;
+                setResource((getResource())-(getResource())*0.85);
+                setHealth(getHealth()*0.95);
+                return false;
+            }
+        }
+        default:{
+            setResource((getResource())-(getResource())*0.85);
+            return false;
         }
     }
 

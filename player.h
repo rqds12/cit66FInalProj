@@ -50,7 +50,7 @@ public:
     void displayStatus();
     bool attack(player target);
     virtual bool takeDamage(double dmg, bool ispoison);
-    virtual bool specialAbility(player target, int choiNum);
+    virtual bool specialAbility(player target);
     void shop();
     const std::string &getName() const;
     void setName(const std::string &name);

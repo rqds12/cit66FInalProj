@@ -59,7 +59,7 @@ bool player::takeDamage(double dmg,bool ispoison) {
     return false;
 }
 
-bool player::specialAbility(player target, int choiNum) {
+bool player::specialAbility(player target) {
     return false;
 }
 

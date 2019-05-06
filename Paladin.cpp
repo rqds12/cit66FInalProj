@@ -22,19 +22,34 @@ Paladin::Paladin(string &name) {
 
 bool Paladin::specialAbility(player target) {
     srand(time(NULL));
-    if (resource >= 60){
-        srand(time(0));
-        int chance = rand() % 35;
-        double dmg = 55 + chance;
-        cout << this->getName() << " thrusts " << this->getWeapon() << "into the earth before him, ripping a void in the celestial fabric we exist upon."
-                "\nSt.John sees his plight and advises his master of " << target.getName() << "'s sin. The glory of " << this->getName() <<"'s devine master purifys his opponent."<<endl;
-        return target.takeDamage(dmg,false);
-    }
-    else{
-        cout << getName() << " doesn't have enough " << getResourceName() << "to invoke the light of god.\n" << getName() << " looses most of their faith in their deity because of this failure" << endl;
-        setResource((getResource())-(getResource())*0.85);
-        setHealth(getHealth()*0.74);
-        return false;
+    cout << "\n Pick a Special Ability: \n"
+            "1) ATERK\n"
+            "2) Cast a Shield" << endl;
+    std::string choiNum;
+    getline(std::cin, choiNum);
+    switch (stoi(choiNum)){
+        case 1:{
+            if (resource >= 60){
+                int chance = rand() % 35;
+                double dmg = 55 + chance;
+                cout << this->getName() << " thrusts " << this->getWeapon() << "into the earth before him, ripping a void in the celestial fabric we exist upon."
+                                                                               "\nSt.John sees his plight and advises his master of " << target.getName() << "'s sin. The glory of " << this->getName() <<"'s divine master purifies his opponent."<<endl;
+                return target.takeDamage(dmg,false);
+            }
+            else{
+                cout << getName() << " doesn't have enough " << getResourceName() << "to invoke the light of god.\n" << getName() << " looses most of their faith in their deity because of this failure" << endl;
+                setResource((getResource())-(getResource())*0.85);
+                setHealth(getHealth()*0.74);
+                return false;
+            }
+        }
+        case 2:{
+            if (resource >= 100){
+                int chance = rand() % 2000;
+                setArmor(getArmor()+chance+5);
+                cout << "St. George bathes you in the holy light, it protects you from your opponent's attack" << endl;
+            }
+        }
     }
 
 }
