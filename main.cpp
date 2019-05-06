@@ -4,6 +4,7 @@
 #include "player.h"
 #include "Wizard.h"
 #include "Rogue.h"
+#include "fight.h"
 
 void play(std::vector <player*> players);
 void startingMenu();
@@ -16,6 +17,14 @@ int main() {
 }
 
 void play(std::vector<player*> players){
+    if (players.size()==2){
+        player *player1 = (players[0]);
+        player *player2 = (players[1]);
+        player1->displayStatus();
+        player2->displayStatus();
+        fightMenu(player1,player2);
+        return;
+    }
     player *player1 = (players[0]);
     player1->displayStatus();
     //player1->shop();
@@ -78,7 +87,7 @@ void startingMenu(){
                       }
                   }
                   case 2:{
-                      for (int i = 0; i < 1; ++i) {
+                      for (int i = 0; i < 2; ++i) {
                           yeetusDeletus=false;
                           int ii=i+1;
                           cout << "Please Select a class for player " << ii << ": \n" <<
