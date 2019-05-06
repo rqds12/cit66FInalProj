@@ -7,13 +7,14 @@
 #include <ctime>
 Rogue::Rogue(string& name) {
     player::name = name;
-    player::weapon = "Knife";
-    player::health = 150;
+    player::weapon = "Rusty Pointy Thing";
+    player::health = 159;
     player::resourceName = "Anger";
-    player::resource = 0;
-    player::armor =25;
-    player::weaponDmg = 34;
-    player::type = "Rogue";
+    player::resource = 40;
+    player::armor =15;
+    player::weaponType = "Rusty Dagger";
+    player::weaponDmg = 8;
+    player::type = "Wizard";
 }
 
 bool Rogue::specialAbility(Enemy& target) {
@@ -46,3 +47,11 @@ bool Rogue::read() {
     }
     return true;
 }
+
+bool Rogue::takeDamage(double dmg, bool ispoison) {
+    double rage = (dmg * 2);
+    (ispoison) ? rage*0.95 : rage*1.2;
+    this->setResource(rage);
+    return player::takeDamage(dmg, ispoison);
+}
+

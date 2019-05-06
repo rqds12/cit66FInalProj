@@ -15,6 +15,7 @@ class Paladin : public player {
 public:
     bool specialAbility(player target);
     Paladin(string &name);
+    bool takeDamage(double dmg,bool ispoison);
     bool read();
 
 

@@ -18,22 +18,36 @@ Wizard::Wizard(std::string &name) {
 
 }
 
-bool Wizard::specialAbility(player target)   {
-    if (resource >= 45){
-        srand(time(0));
-        int chance = rand() % 65;
-        double dmg = 55 + chance;
-        cout << this->getName() << " incants while reading from an ancient text with" << this->getWeapon() << ". He propels a bolt of the purest energy into his opponent."
-                                                                       "\n" << target.getName() << " is struck down by a flowing, seething flow of power."<<endl;
-        return target.takeDamage(dmg,false);
+bool Wizard::specialAbility(player target, int choiNum)   {
+    switch (choiNum){
+        case 1:{
+            srand(time(NULL));
+            if (resource >= 45){
+                srand(time(0));
+                int chance = rand() % 25;
+                double dmg = 15 + chance;
+                cout << this->getName() << " incants while reading from an ancient text with" << this->getWeapon() << ". He propels a bolt of the purest energy into his opponent."
+                                                                                                                      "\n" << target.getName() << " is struck down by a flowing, seething flow of power."<<endl;
+                return target.takeDamage(dmg,false);
 
+            }
+            else{
+                cout << getName() << " doesn't have enough " << getResourceName() << "to draw on dumbledore's secrets.\n" << getName() << " looses most of their mana because of this failure" << endl;
+                setResource((getResource())-(getResource())*0.85);
+                setHealth(getHealth()*0.95);
+                return false;
+            }
+        }
+        case 2:{
+            if (resource >= 30){
+                srand(time(0));
+                int chance = rand() % 35;
+                double healer = 10 + chance;
+                cout << this->getName() << " uses a healing spell which replaces " << healer << " health." << endl;
+            }
+        }
     }
-    else{
-        cout << getName() << " doesn't have enough " << getResourceName() << "to invoke the light of god.\n" << getName() << " looses most of their faith in their deity because of this failure" << endl;
-        setResource((getResource())-(getResource())*0.85);
-        setHealth(getHealth()*0.4);
-        return false;
-    }
+
 
 }
 
@@ -51,4 +65,11 @@ bool Wizard::read() {
             return true;
         }
     }
+}
+
+bool Wizard::takeDamage(double dmg, bool ispoison) {
+    double rage = (dmg * 0.256);
+    (ispoison) ? rage*0.5 : rage*7;
+    this->setResource(rage);
+    return player::takeDamage(dmg, ispoison);
 }
