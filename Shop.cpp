@@ -10,4 +10,5 @@ Shop::Shop() {
 
 bool Shop::action(player *player1) {
     player1->shop();
+    return true;
 }

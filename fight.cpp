@@ -13,6 +13,7 @@ bool fightMenu(player *player1, player* player2){
     while(player1->getHealth()>0 && player2->getHealth()){
 
     }
+    return true;
 }
 bool fight::action(player *player1, bool isboss) {
     player* player2 = new Orcs;
