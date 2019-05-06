@@ -11,7 +11,7 @@
 using namespace std;
 class Enemy: public player {
 protected:
-bool isEnemy;
+
 public:
     Enemy();
     bool specialAbility() ;

@@ -8,10 +8,22 @@
 #include "player.h"
 #include "Enemy.h"
 bool fightMenu(player *player1, player* player2){
+    if((player1->getisEnemy() && !player2->getisEnemy()) || (!player1->getisEnemy() && player2->getisEnemy())) {
+        //one is an enemy and one is a player
+        while (player1->getHealth() > 0 && player2->getHealth() > 0) {
 
 
-    while(player1->getHealth()>0 && player2->getHealth()){
+            if (player1->getisEnemy()) {
 
+            }else{
+
+            }
+        }
+
+    }else if(!player1->getisEnemy() && !player2->getisEnemy()){
+        //both are players
+    }else{
+        //both are enemy
     }
     return true;
 }
@@ -33,4 +45,8 @@ bool fight::action(player *player1, bool isboss) {
         }
     }
     return a;
+}
+
+int desicsionMaker(player* player1, player* player2){
+
 }

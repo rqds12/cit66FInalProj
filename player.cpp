@@ -264,7 +264,7 @@ void player::shop() {
     }
 }
 
-bool player::isEnemy1() const {
+bool player::getisEnemy() const {
     return isEnemy;
 }
 

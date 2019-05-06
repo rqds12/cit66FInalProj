@@ -81,7 +81,7 @@ public:
     double getMoney() const;
     void setMoney(double money);
 
-    bool isEnemy1() const;
+    bool getisEnemy() const;
 
     void setIsEnemy(bool isEnemy);
 };

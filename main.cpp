@@ -45,12 +45,20 @@ void startingMenu(){
               "2) 2 Player" << endl;
               int a = 0;
               getline(std::cin, temp);
-              switch (std::stoi(temp)){
-                  case 1:{
+              switch (std::stoi(temp)) {
+                  case 1: {
                       a = 1;
                   }
-                  case 2:{
+                      break;
+                  case 2: {
                       a = 2;
+                  }
+                      break;
+                  default: {
+                      cout << "You're a hooligan!" << endl;
+                      return;
+                  }
+              }
                       for (int i = 0; i < a; ++i) {
                           yeetusDeletus=false;
                           int ii=i+1;
@@ -97,10 +105,6 @@ void startingMenu(){
                       play(players);
                       return;
                   }
-                  default:{
-                      cout << "You're a hooligan!" << endl;
-                      return;
-                  }
-              }
 
-}
+
+
