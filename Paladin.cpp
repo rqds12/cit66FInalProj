@@ -20,7 +20,7 @@ Paladin::Paladin(string &name) {
     player::money = 0;
 }
 
-bool Paladin::specialAbility(player target) {
+bool Paladin::specialAbility(player *target) {
     srand(time(NULL));
     cout << "\n Pick a Special Ability: \n"
             "1) ATERK\n"
@@ -33,11 +33,11 @@ bool Paladin::specialAbility(player target) {
                 int chance = rand() % 35;
                 double dmg = 55 + chance;
                 cout << this->getName() << " thrusts " << this->getWeapon() << "into the earth before him, ripping a void in the celestial fabric we exist upon."
-                                                                               "\nSt.John sees his plight and advises his master of " << target.getName() << "'s sin. The glory of " << this->getName() <<"'s divine master purifies his opponent."<<endl;
-                return target.takeDamage(dmg,false);
+                                                                               "\nSt.John sees his plight and advises his master of " << target->getName() << "'s sin. The glory of " << this->getName() <<"'s divine master purifies his opponent."<<endl;
+                return target->takeDamage(dmg,false);
             }
             else{
-                cout << getName() << " doesn't have enough " << getResourceName() << "to invoke the light of god.\n" << getName() << " looses most of their faith in their deity because of this failure" << endl;
+                cout << getName() << " doesn't have enough " << this->getResourceName() << "to invoke the light of god.\n" << this->getName() << " looses most of their faith in their deity because of this failure" << endl;
                 setResource((getResource())-(getResource())*0.85);
                 setHealth(getHealth()*0.74);
                 return false;

@@ -19,7 +19,7 @@ Wizard::Wizard(std::string &name) {
 
 }
 
-bool Wizard::specialAbility(player target)   {
+bool Wizard::specialAbility(player *target)   {
     cout << "\n Pick a Special Ability: \n"
             "1) ATERK\n"
             "2) Heal yourself" << endl;
@@ -33,12 +33,12 @@ bool Wizard::specialAbility(player target)   {
                 int chance = rand() % 25;
                 double dmg = 15 + chance;
                 cout << this->getName() << " incants while reading from an ancient text with" << this->getWeapon() << ". He propels a bolt of the purest energy into his opponent."
-                                                                                                                      "\n" << target.getName() << " is struck down by a flowing, seething flow of power."<<endl;
-                return target.takeDamage(dmg,false);
+                                                                                                                      "\n" << target->getName() << " is struck down by a flowing, seething flow of power."<<endl;
+                return target->takeDamage(dmg,false);
 
             }
             else{
-                cout << getName() << " doesn't have enough " << getResourceName() << "to draw on dumbledore's secrets.\n" << getName() << " looses most of their mana because of this failure" << endl;
+                cout << getName() << " doesn't have enough " << this->getResourceName() << "to draw on dumbledore's secrets.\n" << this->getName() << " looses most of their mana because of this failure" << endl;
                 setResource((getResource())-(getResource())*0.85);
                 setHealth(getHealth()*0.95);
                 return false;
@@ -52,7 +52,7 @@ bool Wizard::specialAbility(player target)   {
                 cout << this->getName() << " uses a healing spell which replaces " << healer << " health." << endl;
             }
             else{
-                cout << getName() << " doesn't have enough " << getResourceName() << "to draw on dumbledore's secrets.\n" << getName() << " looses most of their mana because of this failure" << endl;
+                cout << getName() << " doesn't have enough " << this->getResourceName() << "to draw on dumbledore's secrets.\n" << this->getName() << " looses most of their mana because of this failure" << endl;
                 setResource((getResource())-(getResource())*0.85);
                 setHealth(getHealth()*0.95);
                 return false;

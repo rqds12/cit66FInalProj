@@ -48,9 +48,9 @@ public:
 
 
     void displayStatus();
-    bool attack(player target);
+    bool attack(player *target);
     virtual bool takeDamage(double dmg, bool ispoison);
-    virtual bool specialAbility(player target);
+    virtual bool specialAbility(player *target);
     void shop();
     const std::string &getName() const;
     void setName(const std::string &name);

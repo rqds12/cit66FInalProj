@@ -22,6 +22,26 @@ bool fightMenu(player *player1, player* player2){
 
     }else if(!player1->getisEnemy() && !player2->getisEnemy()){
         //both are players
+        string choik;
+        bool kill = false;
+        while ((player1->getHealth() > 0 && player2->getHealth() > 0)||(kill)){
+            std::swap(player1, player2);
+            cout << player1->getName() <<"'s turn!!\n"
+                                         "Choose a move:\n"
+                                         "1) Attack\n"
+                                         "2) Special Move(s)\n"
+                                         "3) Shop" <<endl;
+            getline(std::cin,choik);
+            switch (stoi(choik)){
+                case 1:{
+                    (player1->attack(player2)) ? kill = true : kill = false;
+                }
+                break;
+                case 2:{
+                    ((player1)->specialAbility(player2)) ? kill = true : kill = false;
+                }
+            }
+        }
     }else{
         //both are enemy
     }

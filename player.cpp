@@ -20,19 +20,19 @@ void player::displayStatus() {
 
 }
 
-bool player::attack(player target) {
+bool player::attack(player *target) {
     int toHitRoll = rand() % 100;
-    if (toHitRoll > target.getAgility()){
+    if (toHitRoll > target->getAgility()){
         // Attack is Dodged
-        std::cout << name << " attacks " << target.getName() << " with their "<< weapon << ", but " << target.getName() <<
+        std::cout << name << " attacks " << target->getName() << " with their "<< weapon << ", but " << target->getName() <<
           " artfully dodges "<< "the attack causing embarrassment for " << name << ".\n\n";
         return false;
     }
     // Attack Succeeds
     double dmg = (rand() % 15) + weaponDmg;
-    std::cout << name << " attacks " << target.getName() << " with their "<< weapon << " and delivers a destructive blow causing " << dmg<< " points of damage.\n\n";
+    std::cout << name << " attacks " << target->getName() << " with their "<< weapon << " and delivers a destructive blow causing " << dmg<< " points of damage.\n\n";
     this->setMoney(this->getMoney()+3);
-    return target.takeDamage(dmg,false);
+    return target->takeDamage(dmg,false);
 }
 
 bool player::takeDamage(double dmg,bool ispoison) {
@@ -59,7 +59,7 @@ bool player::takeDamage(double dmg,bool ispoison) {
     return false;
 }
 
-bool player::specialAbility(player target) {
+bool player::specialAbility(player *target) {
     return false;
 }
 

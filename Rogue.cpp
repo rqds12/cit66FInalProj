@@ -17,15 +17,15 @@ Rogue::Rogue(string& name) {
     player::type = "Wizard";
 }
 
-bool Rogue::specialAbility(Enemy& target) {
+bool Rogue::specialAbility(player *target) {
     srand(time(NULL));
 
     double chance = ((rand() % 10) + 1) / 10;
     if (this->resource >= 45) {
         if (chance >= 0.4 && chance <= 0.6) {
-            target.setPoisoned(true);
+            target->setPoisoned(true);
 
-            target.takeDamage(target.getHealth() - (target.getHealth() * chance), true);
+            target->takeDamage(target->getHealth() - (target->getHealth() * chance), true);
         }
 
     }

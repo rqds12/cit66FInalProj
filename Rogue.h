@@ -13,7 +13,7 @@ class Rogue : public player {
     //player class
 public:
     explicit Rogue(string &name);
-    bool specialAbility(Enemy& target);
+    bool specialAbility(player *target);
     bool takeDamage(double dmg,bool ispoison);
     bool read();
 
