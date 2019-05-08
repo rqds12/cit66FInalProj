@@ -45,6 +45,7 @@ bool player::attack(player *target) {
         std::cout << name << " attacks " << target->getName() << " with their " << weapon
                   << " and delivers a destructive blow causing " << dmg << " points of damage.\n\n";
         this->setMoney(this->getMoney() + 3);
+        this->setResource((this->getResource())*1.35);
         return target->takeDamage(dmg, false);
     }
 }
