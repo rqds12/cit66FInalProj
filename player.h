@@ -27,6 +27,7 @@ protected:
         double health;
        std::string resourceName;
         double resource;
+        double resourceReq;
         double armor;
         double weaponDmg;
         string weaponType;
@@ -41,6 +42,7 @@ protected:
         std::vector<Problem> problems;
         bool isEnemy =false;
         string type;
+
 public:
     const string &getType() const;
 
@@ -84,6 +86,10 @@ public:
     bool getisEnemy() const;
 
     void setIsEnemy(bool isEnemy);
+
+    double getResourceReq() const;
+
+    void setResourceReq(double resourceReq);
 };
 
 

@@ -272,6 +272,14 @@ void player::setIsEnemy(bool isEnemy) {
     player::isEnemy = isEnemy;
 }
 
+double player::getResourceReq() const {
+    return resourceReq;
+}
+
+void player::setResourceReq(double resourceReq) {
+    player::resourceReq = resourceReq;
+}
+
 
 
 

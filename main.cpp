@@ -22,7 +22,7 @@ void play(std::vector<player*> players){
         player *player2 = (players[1]);
         player1->displayStatus();
         player2->displayStatus();
-        fightMenu(player1,player2);
+        fightMenu(player1,player2, false);
         return;
     }
     player *player1 = (players[0]);
