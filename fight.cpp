@@ -67,6 +67,6 @@ bool fight::action(player *player1, bool isboss) {
     return a;
 }
 
-int desicsionMaker(player* player1, player* player2){
-
-}
+//int desicsionMaker(player* player1, player* player2){
+//
+//}

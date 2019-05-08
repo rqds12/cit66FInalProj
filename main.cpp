@@ -38,27 +38,29 @@ void startingMenu(){
     std::vector <player*> players;
     std::string temp;
     bool yeetusDeletus = false;
+    bool yeetus2Deletus = false;
 
     std::cout << "Welcome to Text Adventure 3000\n" <<
               "Please Select a mode: \n"
               "1) Story Mode\n"
               "2) 2 Player" << endl;
-              int a = 0;
-              getline(std::cin, temp);
-              switch (std::stoi(temp)) {
-                  case 1: {
-                      a = 1;
-                  }
-                      break;
-                  case 2: {
-                      a = 2;
-                  }
-                      break;
-                  default: {
-                      cout << "You're a hooligan!" << endl;
-                      return;
-                  }
-              }
+    int a = 0;
+    while (!yeetus2Deletus){
+        try {
+            getline(std::cin, temp);
+            a = std::stoi(temp);
+            if (a !=1 && a!=2) {
+                throw "hooligan";
+            }
+            else {
+                yeetus2Deletus = true;
+            }
+        }
+        catch(...){
+            cout << "Enter a choice, 1 or 2" <<endl;
+        }
+    }
+
                       for (int i = 0; i < a; ++i) {
                           yeetusDeletus=false;
                           int ii=i+1;
