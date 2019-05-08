@@ -42,26 +42,43 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
         //both are players
         string choik;
         bool kill = false;
+        int a = 0;
         while ((player1->getHealth() > 0 && player2->getHealth() > 0)||(kill)){
-            std::swap(player1, player2);
+           std::swap(player1, player2);
             cout << player1->getName() <<"'s turn!!\n"
                                          "Choose a move:\n"
                                          "1) Attack\n"
                                          "2) Special Move(s)\n"
                                          "3) Shop" <<endl;
-            getline(std::cin,choik);
-            switch (stoi(choik)){
+            bool stoppo = false;
+            while (!stoppo) {
+                try {
+                    getline(std::cin, choik);
+                    a = std::stoi(choik);
+                    if (a != 1 && a != 2 && a!=3) {
+                        throw "hooligan";
+                    } else {
+                        stoppo = true;
+                    }
+                }
+                catch (...) {
+                    cout << "Enter a choice, 1 or 2 or 3" << endl;
+                }
+
+            }
+            switch (a){
                 case 1:{
-                    (player1->attack(player2)) == kill;
+                    kill = (player1->attack(player2));
                 }
                 break;
                 case 2:{
-                    ((player1)->specialAbility(player2)) == kill;
-                    break;
+                    kill = ((player1)->specialAbility(player2));
                 }
+                break;
                 case 3:{
                     player1->shop();
                 }
+                break;
             }
         }
     }else{

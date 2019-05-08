@@ -252,8 +252,9 @@ void player::shop() {
             }
                 break;
             case 7: {
-                yeetusDeletus = true;
+                return;
             }
+
             default:{
                     cout << "Shop owner beats you severely with a cricket bat for being a hooligan" << endl;
                 this->takeDamage(35,false);
@@ -263,7 +264,6 @@ void player::shop() {
 
 
     }
-    return;
 }
 
 bool player::getisEnemy() const {
