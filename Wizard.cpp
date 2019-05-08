@@ -16,6 +16,7 @@ Wizard::Wizard(std::string &name) {
     player::weaponDmg = 2.332;
     player::type = "Wizard";
     player::money = 0;
+    player::agility = 20;
 
 }
 

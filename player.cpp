@@ -6,6 +6,7 @@
 #include "player.h"
 #include <cstdlib>
 #include <ctime>
+#include <random>
 
 void player::displayStatus() {
     cout << endl << endl << endl << endl << endl;
@@ -21,18 +22,24 @@ void player::displayStatus() {
 }
 
 bool player::attack(player *target) {
-    int toHitRoll = rand() % 100;
-    if (toHitRoll > target->getAgility()){
+    std::knuth_b generator;
+    std::chi_squared_distribution<double> distribution(3.0);
+
+    double toHitRoll = distribution(generator);
+    if (toHitRoll > target->getAgility()) {
         // Attack is Dodged
-        std::cout << name << " attacks " << target->getName() << " with their "<< weapon << ", but " << target->getName() <<
-          " artfully dodges "<< "the attack causing embarrassment for " << name << ".\n\n";
+        std::cout << name << " attacks " << target->getName() << " with their " << weapon << ", but "
+                  << target->getName() <<
+                  " artfully dodges " << "the attack causing embarrassment for " << name << ".\n\n";
         return false;
+    } else {
+        // Attack Succeeds
+        double dmg = (rand() % 15) + weaponDmg;
+        std::cout << name << " attacks " << target->getName() << " with their " << weapon
+                  << " and delivers a destructive blow causing " << dmg << " points of damage.\n\n";
+        this->setMoney(this->getMoney() + 3);
+        return target->takeDamage(dmg, false);
     }
-    // Attack Succeeds
-    double dmg = (rand() % 15) + weaponDmg;
-    std::cout << name << " attacks " << target->getName() << " with their "<< weapon << " and delivers a destructive blow causing " << dmg<< " points of damage.\n\n";
-    this->setMoney(this->getMoney()+3);
-    return target->takeDamage(dmg,false);
 }
 
 bool player::takeDamage(double dmg,bool ispoison) {

@@ -18,6 +18,7 @@ Paladin::Paladin(string &name) {
     player::armor = 40;
     player::weaponDmg = 16;
     player::money = 0;
+    player::agility = 8;
 }
 
 bool Paladin::specialAbility(player *target) {
