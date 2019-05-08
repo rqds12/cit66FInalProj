@@ -43,7 +43,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
         string choik;
         bool kill = false;
         int a = 0;
-        while ((player1->getHealth() > 0 && player2->getHealth() > 0)||(kill)){
+        while ((player1->getHealth() > 0 && player2->getHealth() > 0)&&(!kill)){
            std::swap(player1, player2);
             player1->fightDisplay();
             player2->fightDisplay();

@@ -56,7 +56,9 @@ bool player::takeDamage(double dmg,bool ispoison) {
         if (armor > 0) {
             std::cout << name << "'s armor blocks " << armor << " points of the incoming " << "damage.\n\n";
             dmg -= armor;
-            armor -= (dmg * 0.70);
+            if (((armor -= (dmg * 0.70))<=0)||armor >= 350){
+                armor = 0;
+            }
         }
     }
     //poison decrementor
