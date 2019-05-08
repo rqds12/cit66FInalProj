@@ -44,6 +44,7 @@ void startingMenu() {
               "1) Story Mode\n"
               "2) 2 Player" << endl;
     int a = 1;
+    int b = 0;
     while (!yeetus2Deletus) {
         try {
             getline(std::cin, temp);
@@ -57,7 +58,10 @@ void startingMenu() {
         catch (...) {
             cout << "Enter a choice, 1 or 2" << endl;
         }
+
     }
+
+
     for (int i = 0; i < a; ++i) {
         yeetusDeletus = false;
         int ii = i + 1;
@@ -69,8 +73,8 @@ void startingMenu() {
         while (yeetus2Deletus) {
             try {
                 getline(std::cin, temp);
-                a = std::stoi(temp);
-                if (a != 1 && a != 2 && a != 3) {
+                b = std::stoi(temp);
+                if (b != 1 && b != 2 && b != 3) {
                     throw "hooligan";
                 } else {
                     yeetus2Deletus = false;
@@ -83,7 +87,7 @@ void startingMenu() {
         yeetus2Deletus = true;
 
         while (!yeetusDeletus) {
-            switch (a) {
+            switch (b) {
                 case 1: {
                     std::cout << "Enter your name, young Paladin\n";
                     getline(std::cin, temp);
