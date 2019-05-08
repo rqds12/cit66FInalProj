@@ -52,11 +52,11 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
             getline(std::cin,choik);
             switch (stoi(choik)){
                 case 1:{
-                    (player1->attack(player2)) ? kill = true : kill = false;
+                    (player1->attack(player2)) == kill;
                 }
                 break;
                 case 2:{
-                    ((player1)->specialAbility(player2)) ? kill = true : kill = false;
+                    ((player1)->specialAbility(player2)) == kill;
                     break;
                 }
                 case 3:{

@@ -8,7 +8,6 @@
 
 void play(std::vector <player*> players);
 void startingMenu();
-void play(std::vector<player*> players);
 int main() {
     startingMenu();
 
