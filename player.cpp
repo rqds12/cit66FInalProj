@@ -53,12 +53,19 @@ bool player::attack(player *target) {
 bool player::takeDamage(double dmg,bool ispoison) {
     //checks if the attack poisons
     if (!ispoison) {
-        if (armor > 0) {
+        if (armor > 0 && (dmg >= armor)) {
             std::cout << name << "'s armor blocks " << armor << " points of the incoming " << "damage.\n\n";
             dmg -= armor;
-            if (((armor -= (dmg * 0.70))<=0)||armor >= 350){
+            if (((armor -= (dmg * 0.70))<=0)||armor >= 350 || armor < 0){
                 armor = 0;
             }
+        }
+        else if (armor > 0 && (armor >= dmg)){
+            std::cout << name << "'s armor blocks all " << (armor - dmg) << " points of the incoming " << "damage.\n\n";
+            if (((armor -= (dmg * 0.70))<=0)||armor >= 350 || armor < 0){
+                armor = 0;
+            }
+            armor -= (dmg * 0.70);
         }
     }
     //poison decrementor

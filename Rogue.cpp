@@ -53,7 +53,7 @@ bool Rogue::read() {
 bool Rogue::takeDamage(double dmg, bool ispoison) {
     double rage = (dmg * 2);
     (ispoison) ? rage*0.95 : rage*1.2;
-    this->setResource(rage);
+    this->setResource(this->getResource()+rage);
     return player::takeDamage(dmg, ispoison);
 }
 

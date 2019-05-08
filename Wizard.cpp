@@ -21,12 +21,30 @@ Wizard::Wizard(std::string &name) {
 }
 
 bool Wizard::specialAbility(player *target)   {
+    std::string choiNum;
+    int a = 0;
     cout << "\n Pick a Special Ability: \n"
             "1) ATERK\n"
             "2) Heal yourself" << endl;
-    std::string choiNum;
-    getline(std::cin, choiNum);
-    switch (stoi(choiNum)){
+
+    bool stoppo = false;
+    while (!stoppo) {
+        try {
+            getline(std::cin, choiNum);
+            a = std::stoi(choiNum);
+            if (a != 1 && a != 2) {
+                throw "hooligan";
+            } else {
+                stoppo = true;
+            }
+        }
+        catch (...) {
+            cout << "Enter a choice, 1 or 2" << endl;
+        }
+
+    }
+
+    switch (a){
         case 1:{
             srand(time(NULL));
             if (resource >= 45){
@@ -51,6 +69,7 @@ bool Wizard::specialAbility(player *target)   {
                 int chance = rand() % 35;
                 double healer = 10 + chance;
                 cout << this->getName() << " uses a healing spell which replaces " << healer << " health." << endl;
+                this->setHealth(this->getHealth()+healer);
             }
             else{
                 cout << getName() << " doesn't have enough " << this->getResourceName() << "to draw on dumbledore's secrets.\n" << this->getName() << " looses most of their mana because of this failure" << endl;
@@ -87,6 +106,6 @@ bool Wizard::read() {
 bool Wizard::takeDamage(double dmg, bool ispoison) {
     double rage = (dmg * 0.256);
     (ispoison) ? rage*0.5 : rage*7;
-    this->setResource(rage);
+    this->setResource(this->getResource()+rage);
     return player::takeDamage(dmg, ispoison);
 }

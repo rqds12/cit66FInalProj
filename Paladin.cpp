@@ -33,8 +33,8 @@ bool Paladin::specialAbility(player *target) {
             if (resource >= 60){
                 int chance = rand() % 35;
                 double dmg = 55 + chance;
-                cout << this->getName() << " thrusts " << this->getWeapon() << "into the earth before him, ripping a void in the celestial fabric we exist upon."
-                                                                               "\nSt.John sees his plight and advises his master of " << target->getName() << "'s sin. The glory of " << this->getName() <<"'s divine master purifies his opponent."<<endl;
+                cout << this->getName() << " thrusts " << this->getWeapon() << " into the earth before him, ripping a void in the celestial fabric we exist upon."
+                                                                               "\nSt.John sees his plight and advises his master of " << target->getName() << "'s sin. The glory of " << this->getName() <<"'s divine master purifies " << dmg <<" from his opponent."<<endl;
                 return target->takeDamage(dmg,false);
             }
             else{
@@ -76,7 +76,7 @@ bool Paladin::read() {
 bool Paladin::takeDamage(double dmg, bool ispoison) {
     double rage = (dmg * 1.256);
     (ispoison) ? rage*3 : rage*2;
-    this->setResource(rage);
+    this->setResource(this->getResource()+rage);
     return player::takeDamage(dmg, ispoison);
 }
 /*
