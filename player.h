@@ -50,6 +50,7 @@ public:
 
 
     void displayStatus();
+    void fightDisplay();
     bool attack(player *target);
     virtual bool takeDamage(double dmg, bool ispoison);
     virtual bool specialAbility(player *target);

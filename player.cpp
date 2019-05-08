@@ -20,6 +20,13 @@ void player::displayStatus() {
              << this->getResourceName() << ": " << this->getResource() << endl <<endl;
 
 }
+void player::fightDisplay(){
+    cout << endl << endl;
+    cout << "Name: " << this->getName() << "\tClass: " << this->getType() << "\n"
+             "Health: " << this->getHealth() << "\tArmor: " << this->getArmor() << "\n" <<
+             "Money: " << this->getMoney() << "\t" << this->getResourceName() << ": " << this->getResource() << endl <<endl<<endl;
+
+}
 
 bool player::attack(player *target) {
     std::knuth_b generator;

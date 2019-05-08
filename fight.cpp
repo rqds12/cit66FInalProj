@@ -45,7 +45,9 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
         int a = 0;
         while ((player1->getHealth() > 0 && player2->getHealth() > 0)||(kill)){
            std::swap(player1, player2);
-            cout << player1->getName() <<"'s turn!!\n"
+            player1->fightDisplay();
+            player2->fightDisplay();
+           cout << player1->getName() <<"'s turn!!\n"
                                          "Choose a move:\n"
                                          "1) Attack\n"
                                          "2) Special Move(s)\n"
