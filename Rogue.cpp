@@ -14,7 +14,8 @@ Rogue::Rogue(string& name) {
     player::armor =15;
     player::weaponType = "Rusty Dagger";
     player::weaponDmg = 8;
-    player::type = "Wizard";
+    player::type = "Rogue";
+    player::money = 5;
 }
 
 bool Rogue::specialAbility(player *target) {

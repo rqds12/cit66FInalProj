@@ -175,7 +175,8 @@ void player::shop() {
                 "3) Leather Breastplate (+6 Armor)............6 gold\n"
                 "4) Iron Breastplate (+8 Armor)............8 gold\n"
                 "5) A good kick in the pants (-2 health)............1 gold\n"
-                "6) Short Sword, good for blocking and knifing political opponents in the back (+17 Damage)............30 gold"
+                "6) Short Sword, good for blocking and knifing political opponents in the back (+17 Damage)............30 gold\n"
+                "7) Exit"
              << endl << endl;
         //todo: make poison thingamagig
         cout << "Enter your selection: " << endl;
@@ -262,6 +263,7 @@ void player::shop() {
 
 
     }
+    return;
 }
 
 bool player::getisEnemy() const {
