@@ -31,6 +31,7 @@ void play(std::vector<player*> players){
     for (int i = 0; i < story.size(); ++i) {
         std::cout << story[i] << "\n";
     }
+
 }
 void startingMenu() {
     std::vector<player *> players;

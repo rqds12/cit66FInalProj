@@ -58,6 +58,10 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
                 break;
                 case 2:{
                     ((player1)->specialAbility(player2)) ? kill = true : kill = false;
+                    break;
+                }
+                case 3:{
+                    player1->shop();
                 }
             }
         }
