@@ -12,7 +12,6 @@ void play(std::vector<player*> players);
 int main() {
     startingMenu();
 
-
     return 0;
 }
 
@@ -27,7 +26,6 @@ void play(std::vector<player*> players){
     }
     player *player1 = (players[0]);
     player1->displayStatus();
-    //player1->shop();
     players[0]->read();
     std::vector <std::string>story = players[0]->getStoryLine();
     for (int i = 0; i < story.size(); ++i) {
@@ -44,7 +42,7 @@ void startingMenu() {
               "Please Select a mode: \n"
               "1) Story Mode\n"
               "2) 2 Player" << endl;
-    int a = 0;
+    int a = 1;
     while (!yeetus2Deletus) {
         try {
             getline(std::cin, temp);
@@ -81,6 +79,7 @@ void startingMenu() {
                 cout << "Enter a choice, 1 or 2 or 3" << endl;
             }
         }
+        yeetus2Deletus = true;
 
         while (!yeetusDeletus) {
             switch (a) {
@@ -113,9 +112,8 @@ void startingMenu() {
                     break;
             }
         }
-        play(players);
-        return;
     }
+        play(players);
 }
 
 
