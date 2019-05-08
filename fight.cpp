@@ -22,8 +22,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
                 cout << player1->getName() << "'s turn!!\n"
                                               "Choose a move:\n"
                                               "1) Attack\n"
-                                              "2) Special Move(s)\n"
-                                              "3) Shop" << endl;
+                                              "2) Special Move(s)"<< endl;
                 getline(std::cin, choik);
                 switch (stoi(choik)) {
                     case 1: {
