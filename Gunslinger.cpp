@@ -6,7 +6,7 @@
 #include "Gunslinger.h"
 bool Gunslinger::specialAbility(player *target) {
     srand(time(NULL));
-            if (resource >= 60){
+            if (resource >= 20){
                 int chance = rand() % 55;
                 double dmg = 55 + chance;
                 cout << this->getName() << " quick draws their " << this->getWeapon() << " and fires a single shot into the nearby propane tank."
@@ -19,6 +19,7 @@ bool Gunslinger::specialAbility(player *target) {
                 setHealth(getHealth()*0.74);
                 setAgility(getAgility()*.355);
                 return false;
+                //todo: make take aim to fire special ability which costs no resource but costs turn
 }
 }
 
@@ -38,11 +39,11 @@ Gunslinger::Gunslinger(string &name){
     player::type = "Gunslinger";
     player::weapon = "Bang Bang Shootem' up";
     player::weaponType = "6 Shooter";
-    player::health = 15;
+    player::health = 25;
     player::resourceName = "Skill";
     player::resource = 5;
     player::armor = 12;
     player::weaponDmg = 55;
     player::money = 0;
-    player::agility = 25;
+    player::agility = 45;
 }
