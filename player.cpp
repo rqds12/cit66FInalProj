@@ -65,11 +65,20 @@ bool player::takeDamage(double dmg,bool ispoison) {
             }
         }
         else if (armor > 0 && (armor >= dmg)){
-            std::cout << name << "'s armor blocks all " << (armor - dmg) << " points of the incoming " << "damage.\n\n";
+            std::cout << name << "'s armor blocks all " << (dmg) << " points of the incoming " << "damage.\n\n";
             if (((armor -= (dmg * 0.70))<=0)||armor >= 350 || armor < 0){
                 armor = 0;
             }
-            armor -= (dmg * 0.70);
+            if((dmg * 0.70)>=armor){
+                armor = 0;
+            }
+            else{
+                armor = ((dmg * 0.70)>=armor);
+            }
+            dmg = 0;
+        }
+        else{
+            std::cout << name << " takes " << dmg << " damage. They are gravely wounded as their armor has failed them"<<endl;
         }
     }
     //poison decrementor

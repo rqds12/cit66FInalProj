@@ -5,6 +5,8 @@
 #include "Rogue.h"
 #include "Enemy.h"
 #include <ctime>
+#include <iostream>
+
 Rogue::Rogue(string& name) {
     player::name = name;
     player::weapon = "Rusty Pointy Thing";
@@ -26,8 +28,12 @@ bool Rogue::specialAbility(player *target) {
     if (this->resource >= 45) {
         if (chance >= 0.4 && chance <= 0.6) {
             target->setPoisoned(true);
-
-            target->takeDamage(target->getHealth() - (target->getHealth() * chance), true);
+            target->takeDamage(target->getHealth() - ((target->getHealth() * chance)+15), true);
+            cout << this->getName() << " sticks " << target->getName() << " with a " << this->getWeapon() << " and they get lock jaw"<<endl;
+        }
+        else{
+            cout << this->getName() << " sticks " << target->getName() << " with a " << this->getWeapon() << endl;
+            target->takeDamage((chance*10+30),0);
         }
 
     }
