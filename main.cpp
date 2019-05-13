@@ -29,10 +29,18 @@ void play(std::vector<player*> players){
         std::vector<std::string> story = player1->getStoryLine();
         for (int i = 0; i < story.size(); ++i) {
             std::cout << story[i] << std::endl;
-            player1->createProblems(5);
-            for (int j = 0; j < player1->getProblems()->size(); ++j) {
-                (*player1->getProblems())[j]->action(player1);
+            if ((story[i])[0] != '%') {
+                player1->createProblems(5);
+                for (int j = 0; j < player1->getProblems()->size(); ++j) {
+                    //todo: implement a menu for continuing on or resting or using a potion
+
+                    (*player1->getProblems())[j]->action(player1);
+                }
+            }else{
+                fight fight1;
+                fight1.action(player1, true);
             }
+
         }
     }
 

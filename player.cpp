@@ -44,6 +44,7 @@ bool player::attack(player *target) {
         return false;
     } else {
         // Attack Succeeds
+
         double dmg = distribution(generator) + weaponDmg;
         std::cout << name << " attacks " << target->getName() << " with their " << weapon
                   << " and delivers a destructive blow causing " << dmg << " points of damage.\n\n";
@@ -312,19 +313,26 @@ void player::setResourceReq(double resourceReq) {
 
 void player::createProblems(int n) {
     std::vector<Problem*>* problemss = new std::vector<Problem*>;
-    std::default_random_engine generator;
-    std::uniform_int_distribution<int> distribution(0,1);
-
+    std::knuth_b generator;
+    std::uniform_real_distribution<double> distribution(0,1);
+    int switcher = 0;
 
 
 
     for (int i = 0; i < n; ++i) {
-        int rando = distribution(generator);
-
-        switch (rando){
+        double rando = distribution(generator);
+            if(rando >= 0.5){
+                rando =1;
+            }else{
+                rando = 0;
+            }
+            switcher = rando;
+        switch (switcher){
             case 0:{
                 Shop *shop1 = new Shop;
                 problemss->push_back(shop1);
+
+
 
             }
                 break;

@@ -3,11 +3,15 @@
 //
 
 #include <iostream>
+#include <string>
 #include "fight.h"
 #include "Orcs.h"
 #include "player.h"
 #include "Enemy.h"
 #include "Medicine.h"
+#include "Indian_Power_Rangers.h"
+#include "Elder_Cunningham.h"
+#include <random>
 bool fightMenu(player *player1, player* player2, bool isBoss){
     if((player1->getisEnemy() && !player2->getisEnemy()) || (!player1->getisEnemy() && player2->getisEnemy())) {
         //one is an enemy and one is a player
@@ -32,7 +36,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
 
               // getline(std::cin, choik); //todo: add in try catch blocks
               std::cin >> choik;
-
+                    std::cin.sync();
                 switch (std::stoi(choik)) {
                     case 1: {
                         (player1->attack(player2));
@@ -42,6 +46,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
                         ((player1)->specialAbility(player2));
 
                     }
+                        break;
                     case 3:{
                         for (int i = 0; i < player1->getBag().size()  ; ++i) {
                             std::cout << player1->getBag()[i].getName() << std::endl;
@@ -112,12 +117,11 @@ bool fight::action(player *player1) {
     return false;
 }
 bool fight::action(player *player1, bool isboss) {
-    player* player2 = new Orcs;
+    player* player2;
     bool a = false;
 
     if (!isboss) {
-
-
+            player2 = new Orcs;
             std::cout << "You encountered an Orc\n";
             if (player1->getAgility() >= player2->getAgility()){
                 a= fightMenu(player1, player2, isboss);
@@ -127,6 +131,45 @@ bool fight::action(player *player1, bool isboss) {
                 a=fightMenu(player2, player1, isboss);
                 delete player2;
         }
+    }else{
+        std::knuth_b generator;
+        std::uniform_real_distribution distribution(0,1);
+        if(distribution(generator) >=  1){
+            std::string color = "";
+            std::uniform_int_distribution distribution1(0,5);
+
+            switch(distribution1(generator)){
+                case 0:{
+                    color = "black";
+                }
+                break;
+                case 1:{
+                    color = "blue";
+                }
+                break;
+                case 3:{
+                    color = "green";
+                }
+                break;
+                case 4:{
+                    color = "white";
+
+                }
+                break;
+                case 5:{
+                    color = "red";
+                }
+                break;
+                default:{
+                    color = "black";
+                }
+            }
+
+           player2 = new Indian_Power_Rangers(color);
+        }else{
+            player2 = new Elder_Cunningham;
+        }
+        fightMenu(player1, player2, true);
     }
     return a;
 }
