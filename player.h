@@ -103,7 +103,7 @@ public:
     void setBag(const vector<Items> &bag);
 };
 
-double randoGenerator();
+double randoGeneratorUniform();
 
 
 #endif //CIT66FINALPROJ_PLAYER_H

@@ -9,9 +9,10 @@
 #include "Enemy.h"
 
 class Elder_Cunningham: public Enemy {
+public:
     bool specialAbility(player& target);
 
-private:
+
     Elder_Cunningham();
 };
 
