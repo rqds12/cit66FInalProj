@@ -13,6 +13,7 @@ Elder_Cunningham::Elder_Cunningham() {
     player::weaponDmg = 19;
     player::weapon = "Door to Door Evangelizing";
     player::weaponType = "Religious Teaching";
+    player::type = "Elder Cunningham";
 }
 
 bool player::specialAbility(player *target) {
@@ -21,18 +22,16 @@ bool player::specialAbility(player *target) {
     if(chance >=80) {
         if (resource >= 70) {
             chance = (rand()%40)+31;
-            target.takeDamage(chance, false);
-            this->takeDamage(5, false);
+            target->setPoisoned(true);
+            target->takeDamage((chance+5), true);
 
-            std::cout << "The "<< color << " Indian PowerRanger® hit you with an IED\n";
+            std::cout << "The elder hit you with a massive guilt trip and a free bible.\nYou are going to church with him on wednesday and you can feel your willpower draining quickly.";
             return true;
         }
         else{
-            std::cout << "The good elder didn't have enough " << getResource() << " to evangelize you today.";
+            std::cout << "The good elder didn't have enough " << getResource() << " to evangelize you today.\n";
             return false;
         }
 
     }
-    return false;
-
 }

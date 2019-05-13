@@ -38,7 +38,6 @@ bool Indian_Power_Rangers::specialAbility(player& target) {
         }
 
     }
-    return false;
 
 }
 
