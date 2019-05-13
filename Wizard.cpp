@@ -49,7 +49,7 @@ bool Wizard::specialAbility(player *target)   {
             srand(time(NULL));
             if (resource >= 45){
                 srand(time(0));
-                int chance = rand() % 25;
+                int chance = rand() % 85;
                 double dmg = 15 + chance;
                 cout << this->getName() << " incants while reading from an ancient text with" << this->getWeapon() << ". He propels a bolt of the purest energy into his opponent."
                                                                                                                       "\n" << target->getName() << " is struck down by a flowing, seething flow of power."<<endl;
