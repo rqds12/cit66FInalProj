@@ -18,7 +18,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
                 desicsionMaker(player1, player2, isBoss);
 
             } else {
-                string choik = "3";
+                string choik = "";
                 bool kill = false;
                 cout << player1->getName() << "'s turn!!\n"
                                               "Choose a move:\n"
@@ -103,6 +103,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
 }
 bool fight::action(player *player1) {
     this->action(player1, 0);
+    return false;
 }
 bool fight::action(player *player1, bool isboss) {
     player* player2 = new Orcs;
