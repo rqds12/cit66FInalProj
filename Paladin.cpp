@@ -27,8 +27,24 @@ bool Paladin::specialAbility(player *target) {
             "1) ATERK\n"
             "2) Cast a Shield" << endl;
     std::string choiNum;
-    getline(std::cin, choiNum);
-    switch (stoi(choiNum)){
+    bool stoppo = false;
+    int a = 0;
+    while (!stoppo) {
+        try {
+            getline(std::cin, choiNum);
+            a = std::stoi(choiNum);
+            if (a != 1 && a != 2) {
+                throw "hooligan";
+            } else {
+                stoppo = true;
+            }
+        }
+        catch (...) {
+            cout << "Enter a choice, 1 or 2" << endl;
+        }
+
+    }
+    switch (a){
         case 1:{
             if (resource >= 60){
                 int chance = rand() % 35;
