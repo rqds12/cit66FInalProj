@@ -49,6 +49,7 @@ bool Paladin::specialAbility(player *target) {
                 int chance = rand() % 2000;
                 setArmor(getArmor()+chance+5);
                 cout << "St. George bathes you in the holy light, it protects you from your opponent's attack" << endl;
+                return false;
             }
         }
     }
