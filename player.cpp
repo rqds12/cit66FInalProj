@@ -44,7 +44,7 @@ bool player::attack(player *target) {
         return false;
     } else {
         // Attack Succeeds
-        double dmg = (rand() % 15) + weaponDmg;
+        double dmg = distribution(generator) + weaponDmg;
         std::cout << name << " attacks " << target->getName() << " with their " << weapon
                   << " and delivers a destructive blow causing " << dmg << " points of damage.\n\n";
         this->setMoney(this->getMoney() + 3);

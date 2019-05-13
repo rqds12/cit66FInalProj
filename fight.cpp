@@ -17,16 +17,22 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
             if (player1->getisEnemy()) {
                 desicsionMaker(player1, player2, isBoss);
 
+                std::swap(player1, player2);
+
             } else {
                 string choik = "";
                 bool kill = false;
+                player1->fightDisplay();
+                player2->fightDisplay();
                 cout << player1->getName() << "'s turn!!\n"
                                               "Choose a move:\n"
                                               "1) Attack\n"
                                               "2) Special Move(s)\n"
                                               "3) Use Item"<< endl;
 
-               getline(std::cin, choik); //todo: add in try catch blocks
+              // getline(std::cin, choik); //todo: add in try catch blocks
+              std::cin >> choik;
+
                 switch (std::stoi(choik)) {
                     case 1: {
                         (player1->attack(player2));
