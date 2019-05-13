@@ -10,7 +10,6 @@ void play(std::vector <player*> players);
 void startingMenu();
 int main() {
     startingMenu();
-
     return 0;
 }
 
@@ -21,15 +20,23 @@ void play(std::vector<player*> players){
         player1->displayStatus();
         player2->displayStatus();
         fightMenu(player1,player2, false);
-        return;
+    }else {
+        player *player1 = (players[0]);
+
+        player1->displayStatus();
+        player1->read();
+
+        std::vector<std::string> story = player1->getStoryLine();
+        for (int i = 0; i < story.size(); ++i) {
+            std::cout << story[i] << std::endl;
+            player1->createProblems(5);
+            for (int j = 0; j < player1->getProblems()->size(); ++j) {
+                (*player1->getProblems())[j]->action(player1);
+            }
+        }
     }
-    player *player1 = (players[0]);
-    player1->displayStatus();
-    players[0]->read();
-    std::vector <std::string>story = players[0]->getStoryLine();
-    for (int i = 0; i < story.size(); ++i) {
-        std::cout << story[i] << "\n";
-    }
+
+
 
 }
 void startingMenu() {

@@ -7,6 +7,9 @@
 #include <cstdlib>
 #include <ctime>
 #include <random>
+#include "Problem.h"
+#include "Shop.h"
+#include "fight.h"
 
 void player::displayStatus() {
     cout << endl << endl << endl << endl << endl;
@@ -307,5 +310,41 @@ void player::setResourceReq(double resourceReq) {
 }
 
 
+void player::createProblems(int n) {
+    std::vector<Problem*>* problemss = new std::vector<Problem*>;
+    std::default_random_engine generator;
+    std::uniform_int_distribution<int> distribution(0,1);
+
+
+
+
+    for (int i = 0; i < n; ++i) {
+        int rando = distribution(generator);
+
+        switch (rando){
+            case 0:{
+                Shop *shop1 = new Shop;
+                problemss->push_back(shop1);
+
+            }
+                break;
+            case 1:{
+                fight *fight1 = new fight;
+                problemss->push_back(fight1);
+
+            }
+            break;
+        }
+    }
+    setProblems(problemss);
+}
+
+vector<Problem*> *player::getProblems() const {
+    return problems;
+}
+
+void player::setProblems(vector<Problem*> *problems) {
+    player::problems = problems;
+}
 
 

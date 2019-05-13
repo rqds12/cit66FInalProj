@@ -14,17 +14,17 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
 
 
             if (player1->getisEnemy()) {
-                switch (desicsionMaker(player1, player2, isBoss)) {
-                }
+                desicsionMaker(player1, player2, isBoss);
+
             } else {
-                string choik;
+                string choik = "";
                 bool kill = false;
                 cout << player1->getName() << "'s turn!!\n"
                                               "Choose a move:\n"
                                               "1) Attack\n"
                                               "2) Special Move(s)"<< endl;
-                getline(std::cin, choik);
-                switch (stoi(choik)) {
+                getline(std::cin, choik); //todo: add in try catch blocks
+                switch (std::stoi(choik)) {
                     case 1: {
                         (player1->attack(player2));
                     }
@@ -87,6 +87,9 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
         //both are enemy
     }
     return true;
+}
+bool fight::action(player *player1) {
+    this->action(player1, 0);
 }
 bool fight::action(player *player1, bool isboss) {
     player* player2 = new Orcs;

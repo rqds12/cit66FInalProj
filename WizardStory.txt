@@ -1,3 +1,8 @@
 Wizards Unite to Defend the Realm!
 
-You have been dm'd by the wizard in chief to help squash the orc rebelion
+You wake up in a cave finding your wand and a couple sheets of parchment and a map.
+The parchment is titled Wizards Unite to Defend the Realm.  It is a call to arms against the Orc invasion.
+No one knows who is responsible for the massive Orc army, but it is still a dangerous threat.  You start thinking
+that you must have been separated from your troop. You look at your map and find a mark showing you where you were
+headed.  You must find your way back to your troop to help fight for the realm.|
+

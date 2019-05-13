@@ -39,7 +39,7 @@ protected:
         std::ofstream writer;
         std::vector<std::string> storyLine;
         double money;
-        std::vector<Problem> problems;
+        std::vector<Problem*>* problems;
         bool isEnemy =false;
         string type;
 
@@ -91,6 +91,12 @@ public:
     double getResourceReq() const;
 
     void setResourceReq(double resourceReq);
+
+    vector<Problem*> *getProblems() const;
+
+    void setProblems(vector<Problem*> *problems);
+
+    void createProblems(int n);
 };
 
 

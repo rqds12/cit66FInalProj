@@ -10,6 +10,7 @@
 
 class fight : public Problem{
 public:
+    bool action(player* player1);
     bool action(player* player1, bool isboss);
 };
 bool fightMenu(player* player1, player* player2, bool isBoss);

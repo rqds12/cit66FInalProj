@@ -21,7 +21,7 @@ protected:
     string prompt;
 public:
     const string &getPrompt() const;
-    virtual bool action(player *player1) = 0;
+    virtual bool action(player *player1);
 
 };
 

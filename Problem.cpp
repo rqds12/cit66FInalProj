@@ -7,3 +7,7 @@
 const string &Problem::getPrompt() const {
     return prompt;
 }
+
+bool Problem::action(player *player1) {
+    return false;
+}
