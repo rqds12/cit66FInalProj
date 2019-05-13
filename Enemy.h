@@ -14,7 +14,8 @@ protected:
 
 public:
     Enemy();
-    bool specialAbility() ;
+
+    virtual bool specialAbility(player* target) ;
 
 
 

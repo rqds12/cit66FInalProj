@@ -20,13 +20,13 @@ Indian_Power_Rangers::Indian_Power_Rangers(std::string color) {
 
 }
 
-bool Indian_Power_Rangers::specialAbility(player& target) {
+bool Indian_Power_Rangers::specialAbility(player* target) {
     srand(time(NULL));
     double chance  = (rand()%100)+1;
     if(chance >=80) {
         if (resource >= 70) {
             chance = (rand()%40)+31;
-            target.takeDamage(chance, false);
+            target->takeDamage(chance, false);
             this->takeDamage(5, false);
           
             std::cout << "The "<< color << " Indian PowerRanger® hit you with an IED\n";

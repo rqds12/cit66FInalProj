@@ -10,7 +10,7 @@
 
 class Elder_Cunningham: public Enemy {
 public:
-    bool specialAbility(player& target);
+    bool specialAbility(player* target);
 
 
     Elder_Cunningham();

@@ -8,6 +8,6 @@
 Enemy::Enemy() {
     isEnemy = true;
 }
-bool Enemy::specialAbility() {
+bool Enemy::specialAbility(player* target) {
     return false;
 }
