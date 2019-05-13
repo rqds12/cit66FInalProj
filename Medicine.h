@@ -14,6 +14,7 @@ protected:
     double healingPower;
 public:
     Medicine(std::string name, double healingPower);
+    Medicine();
 
     bool isCurePoison() const;
 

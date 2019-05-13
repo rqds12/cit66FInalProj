@@ -97,6 +97,10 @@ public:
     void setProblems(vector<Problem*> *problems);
 
     void createProblems(int n);
+
+    const vector<Items> &getBag() const;
+
+    void setBag(const vector<Items> &bag);
 };
 
 

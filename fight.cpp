@@ -7,6 +7,7 @@
 #include "Orcs.h"
 #include "player.h"
 #include "Enemy.h"
+#include "Medicine.h"
 bool fightMenu(player *player1, player* player2, bool isBoss){
     if((player1->getisEnemy() && !player2->getisEnemy()) || (!player1->getisEnemy() && player2->getisEnemy())) {
         //one is an enemy and one is a player
@@ -17,13 +18,15 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
                 desicsionMaker(player1, player2, isBoss);
 
             } else {
-                string choik = "";
+                string choik = "3";
                 bool kill = false;
                 cout << player1->getName() << "'s turn!!\n"
                                               "Choose a move:\n"
                                               "1) Attack\n"
-                                              "2) Special Move(s)"<< endl;
-                getline(std::cin, choik); //todo: add in try catch blocks
+                                              "2) Special Move(s)\n"
+                                              "3) Use Item"<< endl;
+
+               getline(std::cin, choik); //todo: add in try catch blocks
                 switch (std::stoi(choik)) {
                     case 1: {
                         (player1->attack(player2));
@@ -33,8 +36,18 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
                         ((player1)->specialAbility(player2));
 
                     }
-                        std::swap(player1, player2);
+                    case 3:{
+                        for (int i = 0; i < player1->getBag().size()  ; ++i) {
+                            std::cout << player1->getBag()[i].getName() << std::endl;
+                        }
+                        getline(std::cin, choik);
+                        Items *temp;
+                        *temp = (player1->getBag()[std::stoi(choik)-1]);
+
+                        player1->usePotion(*(dynamic_cast<Medicine*>(temp)));
+                    }
                 }
+                std::swap(player1, player2);
             }
         }
 

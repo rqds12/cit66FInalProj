@@ -347,4 +347,12 @@ void player::setProblems(vector<Problem*> *problems) {
     player::problems = problems;
 }
 
+const vector<Items> &player::getBag() const {
+    return bag;
+}
+
+void player::setBag(const vector<Items> &bag) {
+    player::bag = bag;
+}
+
 
