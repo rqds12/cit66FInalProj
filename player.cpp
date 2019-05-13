@@ -374,6 +374,8 @@ void player::setBag(const vector<Items> &bag) {
 
 
 double randoGenerator(){
-    //std::knuth_b;
-    return 2;
+    std::knuth_b generator;
+    std::uniform_real_distribution distribution;
+    return distribution(generator);
+
 }
