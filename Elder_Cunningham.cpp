@@ -1,10 +1,11 @@
 //
 // Created by sethsan on 5/1/19.
 //
-using namespace std;
+
 
 #include <iostream>
 #include "Elder_Cunningham.h"
+using namespace std;
 Elder_Cunningham::Elder_Cunningham() {
     player::resourceName = "Free Bibles";
     player::resource = 5;
@@ -16,7 +17,7 @@ Elder_Cunningham::Elder_Cunningham() {
     player::type = "Elder Cunningham";
 }
 
-bool player::specialAbility(player *target) {
+bool Elder_Cunningham::specialAbility(player* target) {
     srand(time(NULL));
     double chance  = (rand()%100)+1;
     if(chance >=80) {
@@ -34,4 +35,5 @@ bool player::specialAbility(player *target) {
         }
 
     }
+    return false;
 }
