@@ -15,6 +15,7 @@ Indian_Power_Rangers::Indian_Power_Rangers(std::string color) {
     player::weaponDmg = 12;
     player::weapon = "Earth Slap";
     player::weaponType = "Energy";
+    player::type = "Indian Power Rangers";
 
 
 }
