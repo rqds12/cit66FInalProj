@@ -5,6 +5,7 @@
 #include "Wizard.h"
 #include "Rogue.h"
 #include "fight.h"
+#include "Gunslinger.h"
 
 void play(std::vector <player*> players);
 void startingMenu();
@@ -82,20 +83,21 @@ void startingMenu() {
         cout << "Please Select a class for player " << ii << ": \n" <<
              "1) Paladin\n" <<
              "2) Wizard\n" <<
-             "3) Rogue\n";
+             "3) Rogue\n" <<
+             "4) Gunslinger" << endl;
 
         while (yeetus2Deletus) {
             try {
                 getline(std::cin, temp);
                 b = std::stoi(temp);
-                if (b != 1 && b != 2 && b != 3) {
+                if (b != 1 && b != 2 && b != 3 && b != 4) {
                     throw "hooligan";
                 } else {
                     yeetus2Deletus = false;
                 }
             }
             catch (...) {
-                cout << "Enter a choice, 1 or 2 or 3" << endl;
+                cout << "Enter a choice, 1 or 2 or 3 or 4" << endl;
             }
         }
         yeetus2Deletus = true;
@@ -126,6 +128,15 @@ void startingMenu() {
 
                     auto user3 = new Rogue(temp);
                     players.push_back(user3);
+                    yeetusDeletus = true;
+                }
+                    break;
+                case 4: {
+                    std::cout << "Enter your name, young Gunslinger\n";
+                    getline(std::cin, temp);
+
+                    auto user4 = new Gunslinger(temp);
+                    players.push_back(user4);
                     yeetusDeletus = true;
                 }
                     break;
