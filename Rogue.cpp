@@ -1,7 +1,3 @@
-//
-// Created by Seth on 5/1/2019.
-//
-
 #include "Rogue.h"
 #include "Enemy.h"
 #include <ctime>

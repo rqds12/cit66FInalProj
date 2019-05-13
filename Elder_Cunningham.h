@@ -11,6 +11,7 @@
 class Elder_Cunningham: public Enemy {
     bool specialAbility(player& target);
 
+private:
     Elder_Cunningham();
 };
 

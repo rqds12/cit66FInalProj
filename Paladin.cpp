@@ -69,7 +69,7 @@ bool Paladin::specialAbility(player *target) {
             }
         }
     }
-
+return false;
 }
 
 
