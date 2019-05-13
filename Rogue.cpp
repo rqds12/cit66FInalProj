@@ -33,7 +33,7 @@ bool Rogue::specialAbility(player *target) {
         }
         else{
             cout << this->getName() << " sticks " << target->getName() << " with a " << this->getWeapon() << endl;
-            target->takeDamage((target->getHealth() - ((target->getHealth() * chance)+15)),0);
+            target->takeDamage((chance*10+30),0);
         }
 
     }
