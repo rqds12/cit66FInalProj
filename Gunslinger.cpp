@@ -2,13 +2,31 @@
 // Created by sethsan on 5/13/19.
 //
 
+#include <iostream>
 #include "Gunslinger.h"
 bool Gunslinger::specialAbility(player *target) {
-    return false;
+    srand(time(NULL));
+            if (resource >= 60){
+                int chance = rand() % 55;
+                double dmg = 55 + chance;
+                cout << this->getName() << " quick draws their " << this->getWeapon() << " and fires a single shot into the nearby propane tank."
+                    "\nThe tank explodes and shrapnel hits " << target->getName() << ". "<< target->getName() <<" bleeds " << dmg <<" units of blood and he is weakened considerably"<<endl;
+                return target->takeDamage(dmg,false);
+            }
+            else{
+                cout << getName() << " doesn't have enough " << this->getResourceName() << " to quick draw with accuracy.\n" << this->getName() << " shoots themselves in the foot." << endl;
+                setResource((getResource())-(getResource())*0.85);
+                setHealth(getHealth()*0.74);
+                setAgility(getAgility()*.355);
+                return false;
+}
 }
 
 bool Gunslinger::takeDamage(double dmg, bool ispoison) {
-    return false;
+    double rage = (dmg * 1.256);
+    (ispoison) ? rage*-0.22 : rage*2;
+    this->setResource(this->getResource()+rage);
+    return player::takeDamage(dmg, ispoison);
 }
 
 bool Gunslinger::read() {
