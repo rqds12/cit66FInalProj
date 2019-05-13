@@ -133,7 +133,7 @@ bool fight::action(player *player1, bool isboss) {
         }
     }else{
         std::knuth_b generator;
-        std::uniform_real_distribution distribution(0,1);
+        std::uniform_real_distribution distribution(1.0);
         if(distribution(generator) >=  1){
             std::string color = "";
             std::uniform_int_distribution distribution1(0,5);
