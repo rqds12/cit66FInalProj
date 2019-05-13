@@ -68,7 +68,12 @@ bool player::takeDamage(double dmg,bool ispoison) {
             if (((armor -= (dmg * 0.70))<=0)||armor >= 350 || armor < 0){
                 armor = 0;
             }
-            armor -= (dmg * 0.70);
+            if((dmg * 0.70)>=armor){
+                armor = 0;
+            }
+            else{
+                armor = ((dmg * 0.70)>=armor);
+            }
             dmg = 0;
         }
         else{
