@@ -101,6 +101,7 @@ bool Wizard::read() {
             return true;
         }
     }
+    return false;
 }
 
 bool Wizard::takeDamage(double dmg, bool ispoison) {
