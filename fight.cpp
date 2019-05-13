@@ -34,10 +34,24 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
                                               "2) Special Move(s)\n"
                                               "3) Use Item"<< endl;
 
-              // getline(std::cin, choik); //todo: add in try catch blocks
-              std::cin >> choik;
-                    std::cin.sync();
-                switch (std::stoi(choik)) {
+                bool stoppo = false;
+                int a = 0;
+                while (!stoppo) {
+                    try {
+                        getline(std::cin, choik);
+                        a = std::stoi(choik);
+                        if (a != 1 && a != 2 && a!=3) {
+                            throw "hooligan";
+                        } else {
+                            stoppo = true;
+                        }
+                    }
+                    catch (...) {
+                        cout << "Enter a choice, 1 or 2 or 3" << endl;
+                    }
+
+                }
+                switch (a) {
                     case 1: {
                         (player1->attack(player2));
                     }
@@ -51,9 +65,24 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
                         for (int i = 0; i < player1->getBag().size()  ; ++i) {
                             std::cout << player1->getBag()[i].getName() << std::endl;
                         }
-                        getline(std::cin, choik);
+                        bool stoppo = false;
+                        while (!stoppo) {
+                            try {
+                                getline(std::cin, choik);
+                                a = std::stoi(choik);
+                                if (a+1 > (player1->getBag().size())) {
+                                    throw "hooligan";
+                                } else {
+                                    stoppo = true;
+                                }
+                            }
+                            catch (...) {
+                                cout << "Enter a valid number choice" << endl;
+                            }
+
+                        }
                         Items *temp;
-                        *temp = (player1->getBag()[std::stoi(choik)-1]);
+                        *temp = (player1->getBag()[a-1]);
 
                         player1->usePotion(*(dynamic_cast<Medicine*>(temp)));
                     }
