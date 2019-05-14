@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "Elder_Cunningham.h"
+#include <random>
 using namespace std;
 Elder_Cunningham::Elder_Cunningham() {
     player::resourceName = "Free Bibles";
@@ -15,11 +16,13 @@ Elder_Cunningham::Elder_Cunningham() {
     player::weapon = "Door to Door Evangelizing";
     player::weaponType = "Religious Teaching";
     player::type = "Elder Cunningham";
+    player::name = player::type;
 }
 
 bool Elder_Cunningham::specialAbility(player* target) {
-    srand(time(NULL));
-    double chance  = (rand()%100)+1;
+    std::random_device generator;
+    std::uniform_int_distribution<int> distribution(0,100);
+    double chance  = distribution(generator);
     if(chance >=80) {
         if (resource >= 70) {
             chance = (rand()%40)+31;

@@ -34,7 +34,7 @@ protected:
         int agility;
         bool poisoned = false;
         int popo = 4;
-        std::vector<Items> bag;
+        std::vector<Items*> bag;
         std::ifstream reader;
         std::ofstream writer;
         std::vector<std::string> storyLine;
@@ -73,7 +73,7 @@ public:
     void setAgility(int agility);
     bool isPoisoned() const;
     void setPoisoned(bool poisoned);
-    bool usePotion(Medicine medicine);
+    bool usePotion(Medicine* medicine, int a);
     virtual bool read();
     //virtual bool write();
     const std::vector<std::string> &getStoryLine() const;
@@ -98,12 +98,13 @@ public:
 
     void createProblems(int n);
 
-    const vector<Items> &getBag() const;
+    const vector<Items *> &getBag() const;
 
-    void setBag(const vector<Items> &bag);
+    void setBag(const vector<Items *> &bag);
 };
 
-double randoGeneratorUniform();
+
+
 
 
 #endif //CIT66FINALPROJ_PLAYER_H

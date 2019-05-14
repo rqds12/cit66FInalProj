@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "Indian_Power_Rangers.h"
-
+#include <random>
 
 Indian_Power_Rangers::Indian_Power_Rangers(std::string color) {
     Indian_Power_Rangers::color = color;
@@ -16,13 +16,14 @@ Indian_Power_Rangers::Indian_Power_Rangers(std::string color) {
     player::weapon = "Earth Slap";
     player::weaponType = "Energy";
     player::type = "Indian Power Rangers";
-
+    player::name = player::type;
 
 }
 
 bool Indian_Power_Rangers::specialAbility(player* target) {
-    srand(time(NULL));
-    double chance  = (rand()%100)+1;
+    std::random_device generator;
+    std::uniform_int_distribution<int> distribution(0,100);
+    double chance  = distribution(generator);
     if(chance >=80) {
         if (resource >= 70) {
             chance = (rand()%40)+31;
@@ -33,12 +34,13 @@ bool Indian_Power_Rangers::specialAbility(player* target) {
             return true;
         }
       else{
-            std::cout << "The "<< color << "Indian PowerRanger® did not have enough resource to launch the IED";
+            std::cout << "The "<< color << " Indian PowerRanger® did not have enough resource to launch the IED";
             return false;
         }
 
     }
-
+    std::cout << "The " << color << " Indian missed the IED\n";
+    return false;
 }
 
 const string &Indian_Power_Rangers::getColor() const {

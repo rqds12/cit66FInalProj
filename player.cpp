@@ -32,7 +32,7 @@ void player::fightDisplay(){
 }
 
 bool player::attack(player *target) {
-    std::knuth_b generator;
+    std::random_device generator;
     std::chi_squared_distribution<double> distribution(3.0);
 
     double toHitRoll = distribution(generator);
@@ -161,11 +161,15 @@ void player::setType(const string &type) {
     player::type = type;
 }
 
-bool player::usePotion(const Medicine medicine) {
-    if(this->isPoisoned()&&medicine.isCurePoison()){
+bool player::usePotion(Medicine *medicine, int a) {
+
+    if(this->isPoisoned()&&medicine->isCurePoison()){
         poisoned = false;
     }
-    player::health += medicine.getHealingPower();
+    player::health += medicine->getHealingPower();
+
+    delete medicine;
+    player::bag.erase(bag.begin()+a);
 
     return false;
 }
@@ -221,7 +225,8 @@ void player::shop() {
         switch (a) {
             case 1: {
                 if (this->getMoney()>=8){
-                    this->bag.push_back(Medicine("Medicinal Herbs", 25));
+                    auto medicine = new Medicine("Medicinal Herbs", 25);
+                    this->bag.push_back(medicine);
                     this->setMoney(this->getMoney()-8);
                 }
                 else{
@@ -273,7 +278,8 @@ void player::shop() {
                     cout << "You obviously need this gold more than I do... By the way, here is a sword and some weed" << endl;
                     this->setWeaponDmg(this->getWeaponDmg()+17);
                     this->setMoney(this->getMoney()+12);
-                    this->bag.push_back(Medicine("Herbs ;)",25));
+                    Medicine *medicine = new Medicine("Herbs ;", 25);
+                    this->bag.push_back(medicine);
                 }
             }
                 break;
@@ -322,7 +328,7 @@ void player::setResourceReq(double resourceReq) {
 
 void player::createProblems(int n) {
     std::vector<Problem*>* problemss = new std::vector<Problem*>;
-    std::knuth_b generator;
+    std::random_device generator;
     std::uniform_real_distribution<double> distribution(0,1);
     int switcher = 0;
 
@@ -364,18 +370,12 @@ void player::setProblems(vector<Problem*> *problems) {
     player::problems = problems;
 }
 
-const vector<Items> &player::getBag() const {
+const vector<Items *> &player::getBag() const {
     return bag;
 }
 
-void player::setBag(const vector<Items> &bag) {
+void player::setBag(const vector<Items *> &bag) {
     player::bag = bag;
 }
 
 
-double randoGeneratorUniform(){
-    std::knuth_b generator;
-    std::uniform_real_distribution distribution;
-    return distribution(generator);
-
-}

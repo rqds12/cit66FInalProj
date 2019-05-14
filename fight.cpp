@@ -12,6 +12,7 @@
 #include "Indian_Power_Rangers.h"
 #include "Elder_Cunningham.h"
 #include <random>
+#include <ctime>
 bool fightMenu(player *player1, player* player2, bool isBoss){
     if((player1->getisEnemy() && !player2->getisEnemy()) || (!player1->getisEnemy() && player2->getisEnemy())) {
         //one is an enemy and one is a player
@@ -61,30 +62,36 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
 
                     }
                         break;
-                    case 3:{
-                        for (int i = 0; i < player1->getBag().size()  ; ++i) {
-                            std::cout << player1->getBag()[i].getName() << std::endl;
-                        }
-                        bool stoppo = false;
-                        while (!stoppo) {
-                            try {
-                                getline(std::cin, choik);
-                                a = std::stoi(choik);
-                                if (a+1 > (player1->getBag().size())) {
-                                    throw "hooligan";
-                                } else {
-                                    stoppo = true;
+                    case 3: {
+                        if (player1->getBag().size() != 0) {
+                            for (int i = 0; i < player1->getBag().size(); ++i) {
+                                std::cout << player1->getBag()[i]->getName() << std::endl;
+                            }
+                            bool stoppo = false;
+                            while (!stoppo) {
+                                try {
+                                    getline(std::cin, choik);
+                                    a = std::stoi(choik);
+                                    if (a + 1 > (player1->getBag().size())) {
+                                        throw "hooligan";
+                                    } else {
+                                        stoppo = true;
+                                    }
                                 }
-                            }
-                            catch (...) {
-                                cout << "Enter a valid number choice" << endl;
-                            }
+                                catch (...) {
+                                    cout << "Enter a valid number choice" << endl;
+                                }
 
+                            }
+                            Items *temp = new Items;
+                            temp = (player1->getBag()[a]);
+
+                            player1->usePotion((dynamic_cast<Medicine *>(temp)), a);
+
+
+                        }else{
+                            std::cout << "You do not have any items in your bag\n";
                         }
-                        Items *temp;
-                        *temp = (player1->getBag()[a-1]);
-
-                        player1->usePotion(*(dynamic_cast<Medicine*>(temp)));
                     }
                 }
                 std::swap(player1, player2);
@@ -161,9 +168,12 @@ bool fight::action(player *player1, bool isboss) {
                 delete player2;
         }
     }else{
-        std::knuth_b generator;
-        std::uniform_real_distribution distribution(1.0);
-        if(distribution(generator) >=  1){
+
+       std::random_device generator;
+        std::uniform_real_distribution distribution(0.5,1.5);
+
+
+        if( distribution(generator) >  1){
             std::string color = "";
             std::uniform_int_distribution distribution1(0,5);
 
@@ -204,10 +214,15 @@ bool fight::action(player *player1, bool isboss) {
 }
 
 int desicsionMaker(player* player1, player* player2, bool isBoss){
+
+    std::knuth_b generator;
+    std::uniform_int_distribution<int> distribution(0,100);
+
+
     if(!isBoss){
         player1->attack(player2);
         return 1;
-    }else if(player1->getResource() >= player1->getResourceReq()){
+    }else if(distribution(generator) >= 60 && (player1->getResource() >= player1->getResourceReq())){
         player1->specialAbility(player2);
         return 2;
     }else{
