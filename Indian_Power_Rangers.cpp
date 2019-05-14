@@ -6,7 +6,7 @@
 #include "Indian_Power_Rangers.h"
 #include <random>
 
-Indian_Power_Rangers::Indian_Power_Rangers(std::string color) {
+Indian_Power_Rangers::Indian_Power_Rangers(std::string &color) {
     Indian_Power_Rangers::color = color;
     player::resourceName = "Tunuk Tunuk";
     player::resource = 5;
@@ -26,14 +26,15 @@ bool Indian_Power_Rangers::specialAbility(player* target) {
     double chance  = distribution(generator);
     if(chance >=80) {
         if (resource >= 70) {
-            chance = (rand()%40)+31;
+            std::uniform_int_distribution<int> distribution1(0,40);
+            chance = distribution1(generator)+31;
             target->takeDamage(chance, false);
             this->takeDamage(5, false);
           
             std::cout << "The "<< color << " Indian PowerRanger® hit you with an IED\n";
             return true;
         }
-      else{
+        else{
             std::cout << "The "<< color << " Indian PowerRanger® did not have enough resource to launch the IED";
             return false;
         }

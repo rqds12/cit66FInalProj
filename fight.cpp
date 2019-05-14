@@ -26,7 +26,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
 
             } else {
                 string choik = "";
-                bool kill = false;
+                bool kill = false; //todo: figure out what this was for
                 player1->fightDisplay();
                 player2->fightDisplay();
                 cout << player1->getName() << "'s turn!!\n"
@@ -63,7 +63,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
                     }
                         break;
                     case 3: {
-                        if (player1->getBag().size() != 0) {
+                        if (!player1->getBag().empty()) {
                             for (int i = 0; i < player1->getBag().size(); ++i) {
                                 std::cout << player1->getBag()[i]->getName() << std::endl;
                             }
@@ -83,7 +83,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
                                 }
 
                             }
-                            Items *temp = new Items;
+                            Items *temp;
                             temp = (player1->getBag()[a]);
 
                             player1->usePotion((dynamic_cast<Medicine *>(temp)), a);
@@ -149,7 +149,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
     return true;
 }
 bool fight::action(player *player1) {
-    this->action(player1, 0);
+    this->action(player1, false);
     return false;
 }
 bool fight::action(player *player1, bool isboss) {
@@ -215,7 +215,7 @@ bool fight::action(player *player1, bool isboss) {
 
 int desicsionMaker(player* player1, player* player2, bool isBoss){
 
-    std::knuth_b generator;
+    std::random_device generator;
     std::uniform_int_distribution<int> distribution(0,100);
 
 

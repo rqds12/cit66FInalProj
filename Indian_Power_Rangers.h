@@ -13,7 +13,7 @@ private:
     std::string color ="";
 public:
     bool specialAbility(player* target);
-    Indian_Power_Rangers(std::string color);
+    Indian_Power_Rangers(std::string &color);
 
     const string &getColor() const;
 
