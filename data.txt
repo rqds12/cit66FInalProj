@@ -1,0 +1,12 @@
+Class = Wizard;
+Name = seth;
+LocationOfStory = 0;
+LocationOfProblems = 1;
+ListOfProblems = fight,Shop,Shop,Shop,Shop,;
+NumberOfItems = 0;
+ListOfItems = ;
+Health = 154.499;
+Armor = 0;
+WeaponDmg = 19.332;
+Gold = 18;
+Resource = 75.4923;

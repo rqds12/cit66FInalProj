@@ -106,17 +106,24 @@ void startingMenu() {
     std::cout << "Welcome to Text Adventure 3000\n" <<
               "Please Select a mode: \n"
               "1) Story Mode\n"
-              "2) 2 Player" << endl;
+              "2) 2 Player\n"
+              "3) load from a previous file\n";
     int a = 1;
     int b = 0;
+    int c =0;
     while (!yeetus2Deletus) {
         try {
             getline(std::cin, temp);
             a = std::stoi(temp);
-            if (a != 1 && a != 2) {
+            if (a != 1 && a != 2 && a != 3) {
                 throw "hooligan";
-            } else {
+            } else if(a != 1 && a != 2){
                 yeetus2Deletus = true;
+                a = 1;
+                c = 1;
+            }else{
+                yeetus2Deletus = true;
+
             }
         }
         catch (...) {
@@ -125,73 +132,78 @@ void startingMenu() {
 
     }
 
+    if(c == 1){
+        auto user1 = setRead();
+        players.push_back(user1);
+    }else {
+        for (int i = 0; i < a; ++i) {
+            yeetusDeletus = false;
+            int ii = i + 1;
+            cout << "Please Select a class for player " << ii << ": \n" <<
+                 "1) Paladin\n" <<
+                 "2) Wizard\n" <<
+                 "3) Rogue\n" <<
+                 "4) Gunslinger" << endl;
 
-    for (int i = 0; i < a; ++i) {
-        yeetusDeletus = false;
-        int ii = i + 1;
-        cout << "Please Select a class for player " << ii << ": \n" <<
-             "1) Paladin\n" <<
-             "2) Wizard\n" <<
-             "3) Rogue\n" <<
-             "4) Gunslinger" << endl;
-
-        while (yeetus2Deletus) {
-            try {
-                getline(std::cin, temp);
-                b = std::stoi(temp);
-                if (b != 1 && b != 2 && b != 3 && b != 4) {
-                    throw "hooligan";
-                } else {
-                    yeetus2Deletus = false;
+            while (yeetus2Deletus) {
+                try {
+                    getline(std::cin, temp);
+                    b = std::stoi(temp);
+                    if (b != 1 && b != 2 && b != 3 && b != 4) {
+                        throw "hooligan";
+                    } else {
+                        yeetus2Deletus = false;
+                    }
+                }
+                catch (...) {
+                    cout << "Enter a choice, 1 or 2 or 3 or 4" << endl;
                 }
             }
-            catch (...) {
-                cout << "Enter a choice, 1 or 2 or 3 or 4" << endl;
-            }
-        }
-        yeetus2Deletus = true;
+            yeetus2Deletus = true;
 
-        while (!yeetusDeletus) {
-            switch (b) {
-                case 1: {
-                    std::cout << "Enter your name, young Paladin\n";
-                    getline(std::cin, temp);
+            while (!yeetusDeletus) {
+                switch (b) {
+                    case 1: {
+                        std::cout << "Enter your name, young Paladin\n";
+                        getline(std::cin, temp);
 
-                    auto user1 = new Paladin(temp);
-                    players.push_back(user1);
-                    yeetusDeletus = true;
+                        auto user1 = new Paladin(temp);
+                        players.push_back(user1);
+                        yeetusDeletus = true;
+                    }
+                        break;
+                    case 2: {
+                        std::cout << "Enter your name, young Wizard\n";
+                        getline(std::cin, temp);
+
+                        auto user2 = new Wizard(temp);
+                        players.push_back(user2);
+                        yeetusDeletus = true;
+                    }
+                        break;
+                    case 3: {
+                        std::cout << "Enter your name, young Rogue\n";
+                        getline(std::cin, temp);
+
+                        auto user3 = new Rogue(temp);
+                        players.push_back(user3);
+                        yeetusDeletus = true;
+                    }
+                        break;
+                    case 4: {
+                        std::cout << "Enter your name, young Gunslinger\n";
+                        getline(std::cin, temp);
+
+                        auto user4 = new Gunslinger(temp);
+                        players.push_back(user4);
+                        yeetusDeletus = true;
+                    }
+                        break;
                 }
-                    break;
-                case 2: {
-                    std::cout << "Enter your name, young Wizard\n";
-                    getline(std::cin, temp);
-
-                    auto user2 = new Wizard(temp);
-                    players.push_back(user2);
-                    yeetusDeletus = true;
-                }
-                    break;
-                case 3: {
-                    std::cout << "Enter your name, young Rogue\n";
-                    getline(std::cin, temp);
-
-                    auto user3 = new Rogue(temp);
-                    players.push_back(user3);
-                    yeetusDeletus = true;
-                }
-                    break;
-                case 4: {
-                    std::cout << "Enter your name, young Gunslinger\n";
-                    getline(std::cin, temp);
-
-                    auto user4 = new Gunslinger(temp);
-                    players.push_back(user4);
-                    yeetusDeletus = true;
-                }
-                    break;
             }
         }
     }
+
         play(players);
 }
 

@@ -13,6 +13,10 @@
 #include "Elder_Cunningham.h"
 #include <random>
 #include <ctime>
+fight::fight() {
+    prompt = "fight";
+}
+
 bool fightMenu(player *player1, player* player2, bool isBoss){
     if((player1->getisEnemy() && !player2->getisEnemy()) || (!player1->getisEnemy() && player2->getisEnemy())) {
         //one is an enemy and one is a player
@@ -153,6 +157,7 @@ bool fight::action(player *player1) {
     return false;
 }
 bool fight::action(player *player1, bool isboss) {
+
     player* player2;
     bool a = false;
 

@@ -2,7 +2,7 @@
 #include "Enemy.h"
 #include <ctime>
 #include <iostream>
-
+#include <random>
 Rogue::Rogue(string& name) {
     player::name = name;
     player::weapon = "Rusty Pointy Thing";
@@ -18,9 +18,9 @@ Rogue::Rogue(string& name) {
 }
 
 bool Rogue::specialAbility(player *target) {
-    srand(time(NULL));
-
-    double chance = ((rand() % 10) + 1) / 10;
+    std::random_device generator;
+    std::uniform_int_distribution<int> distribution(0,10);
+    double chance = (distribution(generator)) / 10;
     if (this->resource >= 45) {
         if (chance >= 0.4 && chance <= 0.6) {
             target->setPoisoned(true);
@@ -31,6 +31,7 @@ bool Rogue::specialAbility(player *target) {
             cout << this->getName() << " sticks " << target->getName() << " with a " << this->getWeapon() << endl;
             target->takeDamage((chance*10+30),0);
         }
+        setResource(getResource()-getResourceReq());
 
     }
     return false;

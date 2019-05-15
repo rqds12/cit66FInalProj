@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "Wizard.h"
-
+#include <random>
 Wizard::Wizard(std::string &name) {
     player::name = name;
     player::weapon = "The Elder Wand";
@@ -21,6 +21,9 @@ Wizard::Wizard(std::string &name) {
 }
 
 bool Wizard::specialAbility(player *target)   {
+    std::random_device generator;
+    std::uniform_int_distribution<int> distribution(0,85);
+    std::uniform_int_distribution<int> distribution1(0,35);
     std::string choiNum;
     int a = 0;
     cout << "\n Pick a Special Ability: \n"
@@ -46,13 +49,14 @@ bool Wizard::specialAbility(player *target)   {
 
     switch (a){
         case 1:{
-            srand(time(NULL));
+
             if (resource >= 45){
-                srand(time(0));
-                int chance = rand() % 85;
+
+                int chance =distribution(generator)
                 double dmg = 15 + chance;
                 cout << this->getName() << " incants while reading from an ancient text with" << this->getWeapon() << ". He propels a bolt of the purest energy into his opponent."
                                                                                                                       "\n" << target->getName() << " is struck down by a flowing, seething flow of power."<<endl;
+                setResource(getResource()-getResourceReq());
                 return target->takeDamage(dmg,false);
 
             }
@@ -65,8 +69,7 @@ bool Wizard::specialAbility(player *target)   {
         }
         case 2:{
             if (resource >= 30){
-                srand(time(0));
-                int chance = rand() % 35;
+                int chance = distribution1(generator);
                 double healer = 10 + chance;
                 cout << this->getName() << " uses a healing spell which replaces " << healer << " health." << endl;
                 this->setHealth(this->getHealth()+healer);

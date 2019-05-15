@@ -7,9 +7,14 @@
 #include <cstdlib>
 #include <ctime>
 #include <random>
+#include <sstream>
 #include "Problem.h"
 #include "Shop.h"
 #include "fight.h"
+#include "Paladin.h"
+#include "Wizard.h"
+#include "Gunslinger.h"
+#include "Rogue.h"
 
 void player::displayStatus() {
     cout << endl << endl << endl << endl << endl;
@@ -185,6 +190,131 @@ void player::setStoryLine(const std::vector<std::string> &storyLine) {
 bool player::read() {
     return false;
 }
+std::string parse(std::string temp){
+   int a=temp.find("=");
+    temp.erase(temp.begin(), temp.begin()+a+2);
+    return temp;
+}
+player* setRead() {
+    player* things;
+    auto problems = new std::vector<Problem*>;
+     std::vector<Items*> bag;
+    std::string temp2[5];
+    std::string temp, temp1 ="";
+
+    int a =0;
+    int b =a;
+    int c =a;
+    std::ifstream read;
+    read.open("../data.txt");
+    if(read.good()){
+        //class
+        getline(read, temp, ';');
+         temp = parse(temp);
+         if(temp == "Paladin"){
+             things = new Paladin(temp1);
+         }else if(temp == "Wizard"){
+             things = new Wizard(temp1);
+         }else if(temp == "Rogue"){
+             things = new Rogue(temp1);
+         }else if(temp == "Gunslinger"){
+             things = new Gunslinger(temp1);
+         }
+         things->setType(temp);
+         //name
+         getline(read, temp, ';');
+         temp = parse(temp);
+         things->setName(temp);
+         //location of Story
+         getline(read, temp, ';');
+         temp = parse(temp);
+         things->setLocationOfStory(std::stoi(temp));
+         getline(read, temp, ';');
+         temp = parse(temp);
+         things->setLocationOfStory(std::stoi(temp));
+         //todo: try catch block probs
+         //problems
+         getline(read, temp, ';');
+         temp = parse(temp);
+        std::istringstream temp3(temp);
+        for (int i = 0; i <5 ; ++i) {
+            getline(temp3, temp, ',');
+            Problem* stuff;
+            if(temp == "fight"){
+                stuff = new fight;
+                problems->push_back(stuff);
+            }else{
+                stuff = new Shop;
+                problems->push_back(stuff);
+            }
+        }
+        things->setProblems(problems);
+        //numOfItems
+        getline(read, temp, ';');
+        temp = parse(temp);
+        a = std::stoi(temp);
+        //items
+        getline(read, temp, ';');
+        temp = parse(temp);
+        std::istringstream temp4(temp);
+        for (int i = 0; i < a ; ++i) {
+            getline(temp4, temp, ',');
+            Medicine* stuff = new Medicine;
+            stuff->setName(temp);
+            getline(temp4, temp, ',');
+            stuff->setHealingPower(std::stod(temp));
+            getline(temp4, temp, ',');
+            stuff->setCurePoison(std::stoi(temp));
+            bag.push_back(stuff);
+        }
+        things->setBag(bag);
+        //health
+        getline(read, temp, ';');
+        temp = parse(temp);
+       things->setHealth(std::stod(temp));
+        //armor
+        getline(read, temp, ';');
+        temp = parse(temp);
+        things->setArmor(std::stod(temp));
+        //weaponDmg
+        getline(read, temp, ';');
+        temp = parse(temp);
+        things->setWeaponDmg(std::stod(temp));
+        //gold
+        getline(read, temp, ';');
+        temp = parse(temp);
+        things->setMoney(std::stod(temp));
+        //resource
+        getline(read, temp, ';');
+        temp = parse(temp);
+        things->setResource(std::stod(temp));
+
+
+
+    }else{
+        read.close();
+    }
+    read.close();
+return things;
+}
+
+int player::getLocationOfStory() const {
+    return LocationOfStory;
+}
+
+void player::setLocationOfStory(int locationOfStory) {
+    LocationOfStory = locationOfStory;
+}
+
+int player::getLocationOfProblems() const {
+    return LocationOfProblems;
+}
+
+void player::setLocationOfProblems(int locationOfProblems) {
+    LocationOfProblems = locationOfProblems;
+}
+
+
 bool player::write(int locationOfStory, int locationOfProblems) {
     std::ofstream write;
     write.open("../data.txt");
@@ -198,10 +328,20 @@ bool player::write(int locationOfStory, int locationOfProblems) {
             write << (*problems)[i]->getPrompt() << ",";
         }
         write << ";\n";
+        write << "NumberOfItems = " << numOfItems << ";\n";
         write << "ListOfItems = ";
-        for (int j = 0; j < problems->size() ; ++j) {
-            write << (*problems)[j]->getPrompt() << ",";
+        //have to dynamic cast
+        Medicine* medicine = new Medicine;
+        for (int j = 0; j < bag.size() ; ++j) {
+            if (dynamic_cast<Medicine *> (bag[j])) {
+
+                medicine = dynamic_cast<Medicine*> (bag[j]);
+                write << medicine->getName() << "," << medicine->getHealingPower() << ","  << medicine->isCurePoison()<<",";
+
+            }
+
         }
+        delete medicine;
         write << ";\n";
         write << "Health = " << health << ";\n";
         write << "Armor = " << armor << ";\n";
@@ -305,7 +445,7 @@ void player::shop() {
                     cout << "You obviously need this gold more than I do... By the way, here is a sword and some weed" << endl;
                     this->setWeaponDmg(this->getWeaponDmg()+17);
                     this->setMoney(this->getMoney()+12);
-                    Medicine *medicine = new Medicine("Herbs ;", 25);
+                    Medicine *medicine = new Medicine("Herbs", 25);
                     this->bag.push_back(medicine);
                 }
             }
@@ -403,6 +543,14 @@ const vector<Items *> &player::getBag() const {
 
 void player::setBag(const vector<Items *> &bag) {
     player::bag = bag;
+}
+
+int player::getNumOfItems() const {
+    return numOfItems;
+}
+
+void player::setNumOfItems(int numOfItems) {
+    player::numOfItems = numOfItems;
 }
 
 

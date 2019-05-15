@@ -42,6 +42,7 @@ protected:
         std::vector<Problem*>* problems;
         bool isEnemy =false;
         string type;
+        int LocationOfStory, LocationOfProblems, numOfItems = 0;
 
 public:
     const string &getType() const;
@@ -75,7 +76,8 @@ public:
     void setPoisoned(bool poisoned);
     bool usePotion(Medicine* medicine, int a);
     virtual bool read();
-    virtual bool write(int locationOfStory, int locationOfProblems);
+
+    bool write(int locationOfStory, int locationOfProblems);
     const std::vector<std::string> &getStoryLine() const;
 
     void setStoryLine(const std::vector<std::string> &storyLine);
@@ -101,10 +103,24 @@ public:
     const vector<Items *> &getBag() const;
 
     void setBag(const vector<Items *> &bag);
+
+    int getLocationOfStory() const;
+
+    void setLocationOfStory(int locationOfStory);
+
+    int getLocationOfProblems() const;
+
+    void setLocationOfProblems(int locationOfProblems);
+
+    int getNumOfItems() const;
+
+    void setNumOfItems(int numOfItems);
+
+
 };
 
-
-
+std::string parse(std::string parsed);
+player* setRead();
 
 
 #endif //CIT66FINALPROJ_PLAYER_H

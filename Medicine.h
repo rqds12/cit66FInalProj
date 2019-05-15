@@ -12,6 +12,7 @@ class Medicine : public Items {
 protected:
     bool curePoison;
     double healingPower;
+
 public:
     Medicine(std::string name, double healingPower);
     Medicine();
