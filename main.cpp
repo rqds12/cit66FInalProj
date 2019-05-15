@@ -29,13 +29,13 @@ void play(std::vector<player*> players){
         player1->read();
 
         std::vector<std::string> story = player1->getStoryLine();
-        for (int i = 0; i < story.size(); ++i) {
+        for (int i = player1->getLocationOfStory(); i < story.size(); ++i) {
             char temp = (story[i])[0];
             (story[i]).erase((story[i].begin()));
             std::cout << story[i] << std::endl;
             if (temp != '%' && temp != '^' ){
                 player1->createProblems(5);
-                for (int j = 0; j < player1->getProblems()->size(); ++j) {
+                for (int j = player1->getLocationOfProblems(); j < player1->getProblems()->size(); ++j) {
 
                     std::cout << "1) Continue on \n"
                                  "2) Use an Item\n"

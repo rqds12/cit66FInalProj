@@ -231,8 +231,8 @@ player* setRead() {
          things->setLocationOfStory(std::stoi(temp));
          getline(read, temp, ';');
          temp = parse(temp);
-         things->setLocationOfStory(std::stoi(temp));
-         //todo: try catch block probs
+         things->setLocationOfProblems(std::stoi(temp));
+         //
          //problems
          getline(read, temp, ';');
          temp = parse(temp);
@@ -288,6 +288,11 @@ player* setRead() {
         getline(read, temp, ';');
         temp = parse(temp);
         things->setResource(std::stod(temp));
+
+        //agility
+        getline(read, temp, ';');
+        temp = parse(temp);
+        things->setAgility(std::stoi(temp));
 
 
 
@@ -348,6 +353,8 @@ bool player::write(int locationOfStory, int locationOfProblems) {
         write << "WeaponDmg = " << weaponDmg << ";\n";
         write << "Gold = " << money << ";\n";
         write << "Resource = " << resource << ";\n";
+        write << "Agility = " << agility << ";\n";
+
         write.close();
 
     }
