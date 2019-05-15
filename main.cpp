@@ -6,6 +6,7 @@
 #include "Rogue.h"
 #include "fight.h"
 #include "Gunslinger.h"
+#include <chrono>
 void credits();
 void play(std::vector <player*> players);
 void startingMenu();
@@ -94,7 +95,37 @@ void play(std::vector<player*> players){
 }
 
 void credits(){
+    for (int i = 0; i < 15 ; ++i) {
+        std::cout << std::endl;
+    }
 
+    std::vector<std::string> creditss = {"Developers:", "Erik Hearne", "Seth Kroeker"};
+    std::chrono::steady_clock clock1;
+    typedef std::chrono::duration<int, std::milli> milliseconds_type;
+
+    bool creditloop = true;
+
+    for (int i = 0; i < creditss.size(); ++i) {
+        std::cout << creditss[i] << std::endl;
+    }
+    std::chrono::steady_clock::time_point test = std::chrono::steady_clock::now();
+    std::chrono::steady_clock::time_point test1;
+    std::chrono::steady_clock::time_point test2 = std::chrono::steady_clock::now();
+    while(creditloop){
+
+        milliseconds_type halfSeconds(500);
+        milliseconds_type fivesSconds(10000);
+
+        while(test1 < halfSeconds+test){
+           test1= std::chrono::steady_clock::now();
+        }
+        test = std::chrono::steady_clock::now();
+        std::cout << std::endl;
+
+        if(test1 > test2+fivesSconds+halfSeconds){
+            creditloop = false;
+        }
+    }
 
 }
 void startingMenu() {
