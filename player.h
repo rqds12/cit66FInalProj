@@ -75,7 +75,7 @@ public:
     void setPoisoned(bool poisoned);
     bool usePotion(Medicine* medicine, int a);
     virtual bool read();
-    //virtual bool write();
+    virtual bool write(int locationOfStory, int locationOfProblems);
     const std::vector<std::string> &getStoryLine() const;
 
     void setStoryLine(const std::vector<std::string> &storyLine);

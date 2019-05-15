@@ -6,7 +6,7 @@
 #include "Rogue.h"
 #include "fight.h"
 #include "Gunslinger.h"
-
+void credits();
 void play(std::vector <player*> players);
 void startingMenu();
 int main() {
@@ -29,22 +29,71 @@ void play(std::vector<player*> players){
 
         std::vector<std::string> story = player1->getStoryLine();
         for (int i = 0; i < story.size(); ++i) {
+            char temp = (story[i])[0];
+            (story[i]).erase((story[i].begin()));
             std::cout << story[i] << std::endl;
-            if ((story[i])[0] != '%') {
+            if (temp != '%' && temp != '^' ){
                 player1->createProblems(5);
                 for (int j = 0; j < player1->getProblems()->size(); ++j) {
-                    //todo: implement a menu for continuing on or resting or using a potion
 
-                    (*player1->getProblems())[j]->action(player1);
+                    std::cout << "1) Continue on \n"
+                                 "2) Use an Item\n"
+                                 "3) Rest\n"
+                                 "4) Save Game\n";
+                    std::string choice = "";
+                    //todo: implement a menu for continuing on or resting or using a potion
+                    bool trial = true;
+                    while(trial) {
+                        try {
+                            getline(std::cin, choice);
+                            if (std::stoi(choice) != 1 && std::stoi(choice) != 2 && std::stoi(choice) != 3 &&
+                                std::stoi(choice) != 4) {
+                                throw "hooligan";
+                            } else{
+                                trial = false;
+                            }
+                        }
+                        catch (...) {
+                            std::cout << "Enter 1,2,3 or 4\n";
+                        }
+
+                    }
+                    switch (std::stoi(choice)) {
+                        case 1: {
+                            (*player1->getProblems())[j]->action(player1);
+                        }
+                        break;
+                        case 2:{
+                            //todo: use an Item
+                        }
+                        break;
+                        case 3:{
+                            //todo: rest
+                        }
+                        break;
+                        case 4:{
+                            player1->write(i, j);
+                            return;
+
+                        }
+                    }
+
                 }
-            }else{
+            }else if(temp == '%'){
                 fight fight1;
                 fight1.action(player1, true);
+            }else if(  temp == '^' ){
+               credits();
             }
 
         }
     }
 
+
+
+}
+
+void credits(){
 
 
 }

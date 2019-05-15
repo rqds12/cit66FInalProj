@@ -185,6 +185,33 @@ void player::setStoryLine(const std::vector<std::string> &storyLine) {
 bool player::read() {
     return false;
 }
+bool player::write(int locationOfStory, int locationOfProblems) {
+    std::ofstream write;
+    write.open("../data.txt");
+    if(write.good()){
+        write << "Class = " << type << ";\n";
+        write << "Name = " << name << ";\n";
+        write << "LocationOfStory = " << locationOfStory << ";\n";
+        write << "LocationOfProblems = " << locationOfProblems << ";\n";
+        write << "ListOfProblems = ";
+        for (int i = 0; i < problems->size() ; ++i) {
+            write << (*problems)[i]->getPrompt() << ",";
+        }
+        write << ";\n";
+        write << "ListOfItems = ";
+        for (int j = 0; j < problems->size() ; ++j) {
+            write << (*problems)[j]->getPrompt() << ",";
+        }
+        write << ";\n";
+        write << "Health = " << health << ";\n";
+        write << "Armor = " << armor << ";\n";
+        write << "WeaponDmg = " << weaponDmg << ";\n";
+        write << "Gold = " << money << ";\n";
+        write << "Resource = " << resource << ";\n";
+        write.close();
+
+    }
+}
 const string &player::getWeaponType() const {
     return weaponType;
 }

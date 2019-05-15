@@ -13,7 +13,7 @@ protected:
 public:
 
 
-    virtual    const std::string &getName() const;
+    virtual const std::string &getName() const;
 
      virtual void setName(const std::string &name);
 };
