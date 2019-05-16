@@ -4,4 +4,6 @@ You wake up in a cave finding your wand and a couple sheets of parchment and a m
 The parchment is titled Wizards Unite to Defend the Realm.  It is a call to arms against the Orc invasion.
 No one knows who is responsible for the massive Orc army, but it is still a dangerous threat.  You start thinking
 that you must have been separated from your troop. You look at your map and find a mark showing you where you were
-headed.  You must find your way back to your troop to help fight for the realm.|
+headed.  You must find your way back to your troop to help fight for the realm.| After fighting your way though Orcs
+and Shop owners you are a little fatigued.  You spend the night in a cave and wake up the next morning feeling as
+refreshed as you can be after sleeping in a cave.| 
