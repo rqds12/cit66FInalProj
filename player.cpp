@@ -40,26 +40,35 @@ void player::fightDisplay(){
 
 }
 
-bool player::attack(player *target) {
+bool player::dodge(player *target) {
     std::random_device generator;
-    std::chi_squared_distribution<double> distribution(3.0);
-
+    std::uniform_int_distribution<int> distribution(0, 50);
     double toHitRoll = distribution(generator);
-    if (toHitRoll > target->getAgility()) {
+    if (toHitRoll < target->getAgility()) {
         // Attack is Dodged
         std::cout << name << " attacks " << target->getName() << " with their " << weapon << ", but "
                   << target->getName() <<
                   " artfully dodges " << "the attack causing embarrassment for " << name << ".\n\n";
         return false;
-    } else {
-        // Attack Succeeds
+    }
+    else{
+        return true;
+    }
+}
 
+bool player::attack(player *target) {
+    std::random_device generator;
+    std::uniform_int_distribution<int> distribution(0, 100);
+    if (dodge(target)) {
         double dmg = distribution(generator) + weaponDmg;
         std::cout << name << " attacks " << target->getName() << " with their " << weapon
                   << " and delivers a destructive blow causing " << dmg << " points of damage.\n\n";
         this->setMoney(this->getMoney() + 3);
-        this->setResource((this->getResource())*1.35);
+        this->setResource((this->getResource()) * 1.35);
         return target->takeDamage(dmg, false);
+    }
+    else{
+        return false;
     }
 }
 

@@ -24,7 +24,7 @@ bool Elder_Cunningham::specialAbility(player* target) {
     std::uniform_int_distribution<int> distribution(0,100);
     double chance  = distribution(generator);
     if(chance >=80) {
-        if (resource >= 70) {
+        if (resource >= 70 && !dodge(target)) {
             std::uniform_int_distribution<int> distribution1(0,40);
             chance = distribution1(generator)+31;
             target->setPoisoned(true);

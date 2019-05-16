@@ -48,7 +48,7 @@ bool Paladin::specialAbility(player *target) {
     }
     switch (a){
         case 1:{
-            if (resource >= 60){
+            if (resource >= 60 && !dodge(target)){
                 int chance = distribution(generator);
                 double dmg = 55 + chance;
                 cout << this->getName() << " thrusts " << this->getWeapon() << " into the earth before him, ripping a void in the celestial fabric we exist upon."

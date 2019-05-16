@@ -50,7 +50,7 @@ bool Wizard::specialAbility(player *target)   {
     switch (a){
         case 1:{
 
-            if (resource >= 45){
+            if (resource >= 45 && !dodge(target)){
 
                 int chance =distribution(generator);
                 double dmg = 15 + chance;

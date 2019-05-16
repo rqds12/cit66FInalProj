@@ -5,6 +5,8 @@
 #ifndef CIT66FINALPROJ_GUNSLINGER_H
 #define CIT66FINALPROJ_GUNSLINGER_H
 
+#include <random>
+
 
 #include "player.h"
 

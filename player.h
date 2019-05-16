@@ -54,6 +54,7 @@ public:
     void displayStatus();
     void fightDisplay();
     bool attack(player *target);
+    bool dodge(player *target);
     virtual bool takeDamage(double dmg, bool ispoison);
     virtual bool specialAbility(player *target);
     void shop();

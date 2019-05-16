@@ -21,7 +21,7 @@ bool Rogue::specialAbility(player *target) {
     std::random_device generator;
     std::uniform_int_distribution<int> distribution(0,10);
     double chance = (distribution(generator)) / 10;
-    if (this->resource >= 45) {
+    if (this->resource >= 45 && !dodge(target)) {
         if (chance >= 0.4 && chance <= 0.6) {
             target->setPoisoned(true);
             target->takeDamage(target->getHealth() - ((target->getHealth() * chance)+15), true);
