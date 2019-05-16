@@ -34,7 +34,8 @@ void play(std::vector<player*> players){
             (story[i]).erase((story[i].begin()));
             std::cout << story[i] << std::endl;
             if (temp != '%' && temp != '^' ){
-                player1->createProblems(5);
+
+
                 for (int j = player1->getLocationOfProblems(); j < player1->getProblems()->size(); ++j) {
 
                     std::cout << "1) Continue on \n"

@@ -16,6 +16,10 @@
 #include "Gunslinger.h"
 #include "Rogue.h"
 
+player::player(){
+    this->createProblems(5);
+}
+
 void player::displayStatus() {
     cout << endl << endl << endl << endl << endl;
     cout << "Name: " << this->getName() << "\n"
@@ -71,14 +75,14 @@ bool player::takeDamage(double dmg,bool ispoison) {
         }
         else if (armor > 0 && (armor >= dmg)){
             std::cout << name << "'s armor blocks all " << (dmg) << " points of the incoming " << "damage.\n\n";
-            if (((armor -= (dmg * 0.70))<=0)||armor >= 350 || armor < 0){
+            if (((armor - (dmg * 0.70))<=0)||armor >= 350 || armor < 0){
                 armor = 0;
             }
             if((dmg * 0.70)>=armor){
                 armor = 0;
             }
             else{
-                armor = ((dmg * 0.70)>=armor);
+                armor -= dmg*0.70;  //used to be armor = (dmg*0.70>=armor)
             }
             dmg = 0;
         }

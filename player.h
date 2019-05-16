@@ -49,6 +49,7 @@ public:
 
     void setType(const string &type);
 
+    player();
 
     void displayStatus();
     void fightDisplay();
