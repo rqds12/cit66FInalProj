@@ -38,8 +38,11 @@ void play(std::vector<player*> players){
 
 
                     for (int j = player1->getLocationOfProblems(); j < player1->getProblems()->size(); ++j) {
-                        if(!player1->isAlive())
+                        if(!player1->isAlive()) {
+                            delete player1;
+                            credits();
                             return;
+                        }
 
                         std::cout << "1) Continue on \n"
                                      "2) Use an Item\n"
@@ -66,6 +69,8 @@ void play(std::vector<player*> players){
                         switch (std::stoi(choice)) {
                             case 1: {
                                 (*player1->getProblems())[j]->action(player1);
+                                if(player1->getHealth() <= 0)
+                                    player1->setAlive(false);
                             }
                                 break;
                             case 2: {
