@@ -24,7 +24,7 @@ void play(std::vector<player*> players){
         fightMenu(player1,player2, false);
     }else {
         player *player1 = (players[0]);
-
+        player1->getProblems().reserve(5);
         player1->displayStatus();
         player1->read();
 
@@ -37,7 +37,7 @@ void play(std::vector<player*> players){
                 if (temp != '%' && temp != '^') {
 
 
-                    for (int j = player1->getLocationOfProblems(); j < player1->getProblems()->size(); ++j) {
+                    for (int j = player1->getLocationOfProblems(); j < player1->getProblems().size(); ++j) {
                         if(!player1->isAlive()) {
                             delete player1;
                             credits();
@@ -68,7 +68,7 @@ void play(std::vector<player*> players){
                         }
                         switch (std::stoi(choice)) {
                             case 1: {
-                                (*player1->getProblems())[j]->action(player1);
+                                (player1->getProblems())[j]->action(player1);
                                 if(player1->getHealth() <= 0)
                                     player1->setAlive(false);
                             }
@@ -89,6 +89,9 @@ void play(std::vector<player*> players){
                         }
 
                     }
+                    player1->createProblems(5);
+                    player1->setLocationOfProblems(0);
+
                 } else if (temp == '%') {
                     fight fight1;
                     fight1.action(player1, true);

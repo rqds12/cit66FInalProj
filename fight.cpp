@@ -176,12 +176,12 @@ bool fight::action(player *player1, bool isboss) {
     }else{
 
        std::random_device generator;
-        std::uniform_real_distribution distribution(0.5,1.5);
+        std::uniform_real_distribution<double> distribution(0.5,1.5);
 
 
         if( distribution(generator) >  1){
             std::string color = "";
-            std::uniform_int_distribution distribution1(0,5);
+            std::uniform_int_distribution<int> distribution1(0,5);
 
             switch(distribution1(generator)){
                 case 0:{

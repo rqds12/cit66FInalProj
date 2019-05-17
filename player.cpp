@@ -266,7 +266,7 @@ player* setRead() {
                 problems->push_back(stuff);
             }
         }
-        things->setProblems(problems);
+        things->setProblems(*problems);
         //numOfItems
         getline(read, temp, ';');
         temp = parse(temp);
@@ -347,8 +347,8 @@ bool player::write(int locationOfStory, int locationOfProblems) {
         write << "LocationOfStory = " << locationOfStory << ";\n";
         write << "LocationOfProblems = " << locationOfProblems << ";\n";
         write << "ListOfProblems = ";
-        for (int i = 0; i < problems->size() ; ++i) {
-            write << (*problems)[i]->getPrompt() << ",";
+        for (int i = 0; i < problems.size() ; ++i) {
+            write << (problems)[i]->getPrompt() << ",";
         }
         write << ";\n";
         write << "NumberOfItems = " << numOfItems << ";\n";
@@ -538,7 +538,7 @@ void player::createProblems(int n) {
         switch (switcher){
             case 0:{
                 Shop *shop1 = new Shop;
-                problemss->push_back(shop1);
+                problemss->emplace_back(shop1);
                 ifShop =true;
 
 
@@ -546,7 +546,7 @@ void player::createProblems(int n) {
                 break;
             case 1:{
                 fight *fight1 = new fight;
-                problemss->push_back(fight1);
+                problemss->emplace_back(fight1);
 
             }
             break;
@@ -555,17 +555,17 @@ void player::createProblems(int n) {
     if(!ifShop){
         problemss->pop_back();
         Shop* shop2 = new Shop;
-        problems->push_back(shop2);
+        problems.push_back(shop2);
     }
 
-    setProblems(problemss);
+    setProblems(*problemss);
 }
 
-vector<Problem*> *player::getProblems() const {
+vector<Problem*> player::getProblems() const {
     return problems;
 }
 
-void player::setProblems(vector<Problem*> *problems) {
+void player::setProblems(vector<Problem*> problems) {
     player::problems = problems;
 }
 

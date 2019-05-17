@@ -39,10 +39,12 @@ protected:
         std::ofstream writer;
         std::vector<std::string> storyLine;
         double money;
-        std::vector<Problem*>* problems;
+        std::vector<Problem*> problems;
         bool isEnemy =false;
         string type;
-        int LocationOfStory, LocationOfProblems, numOfItems = 0;
+        int LocationOfStory =0;
+        int LocationOfProblems =0;
+        int numOfItems = 0;
         bool alive = true;
 public:
     const string &getType() const;
@@ -101,9 +103,9 @@ public:
 
     void setResourceReq(double resourceReq);
 
-    vector<Problem*> *getProblems() const;
+    vector<Problem*> getProblems() const;
 
-    void setProblems(vector<Problem*> *problems);
+    void setProblems(vector<Problem*> problems);
 
     void createProblems(int n);
 
