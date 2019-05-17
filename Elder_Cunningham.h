@@ -9,7 +9,11 @@
 #include "Enemy.h"
 
 class Elder_Cunningham: public Enemy {
+public:
+    bool specialAbility(player* target);
 
+
+    Elder_Cunningham();
 };
 
 

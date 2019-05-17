@@ -13,10 +13,13 @@
 #include "Items.h"
 #include "Medicine.h"
 #include <fstream>
+#include "Problem.h"
 
 class Items;
 class Medicine;
+class Problem;
 
+using namespace std;
 class player {
 protected:
         std::string name;
@@ -24,24 +27,42 @@ protected:
         double health;
        std::string resourceName;
         double resource;
+        double resourceReq;
         double armor;
         double weaponDmg;
         string weaponType;
         int agility;
         bool poisoned = false;
         int popo = 4;
-        std::vector<Items> bag;
+        std::vector<Items*> bag;
         std::ifstream reader;
         std::ofstream writer;
         std::vector<std::string> storyLine;
         double money;
-
+        std::vector<Problem*>* problems;
+        bool isEnemy =false;
+        string type;
+        int LocationOfStory, LocationOfProblems, numOfItems = 0;
+        bool alive = true;
 public:
-    void displayStatus();
-    bool attack(player target);
-    bool takeDamage(double dmg, bool ispoison);
-    virtual bool specialAbility(player target, int choiNum);
+    const string &getType() const;
 
+    void setType(const string &type);
+
+    bool isAlive() const;
+
+    void setAlive(bool alive);
+
+    player();
+    ~player();
+
+    void displayStatus();
+    void fightDisplay();
+    bool attack(player *target);
+    bool dodge(player *target);
+    virtual bool takeDamage(double dmg, bool ispoison);
+    virtual bool specialAbility(player *target);
+    void shop();
     const std::string &getName() const;
     void setName(const std::string &name);
     const std::string &getWeapon() const;
@@ -60,9 +81,10 @@ public:
     void setAgility(int agility);
     bool isPoisoned() const;
     void setPoisoned(bool poisoned);
-    bool usePotion(Medicine medicine);
+    bool usePotion(Medicine* medicine, int a);
     virtual bool read();
-    //virtual bool write();
+
+    bool write(int locationOfStory, int locationOfProblems);
     const std::vector<std::string> &getStoryLine() const;
 
     void setStoryLine(const std::vector<std::string> &storyLine);
@@ -71,7 +93,41 @@ public:
     double getMoney() const;
     void setMoney(double money);
 
+    bool getisEnemy() const;
+
+    void setIsEnemy(bool isEnemy);
+
+    double getResourceReq() const;
+
+    void setResourceReq(double resourceReq);
+
+    vector<Problem*> *getProblems() const;
+
+    void setProblems(vector<Problem*> *problems);
+
+    void createProblems(int n);
+
+    const vector<Items *> &getBag() const;
+
+    void setBag(const vector<Items *> &bag);
+
+    int getLocationOfStory() const;
+
+    void setLocationOfStory(int locationOfStory);
+
+    int getLocationOfProblems() const;
+
+    void setLocationOfProblems(int locationOfProblems);
+
+    int getNumOfItems() const;
+
+    void setNumOfItems(int numOfItems);
+
+
 };
+
+std::string parse(std::string parsed);
+player* setRead();
 
 
 #endif //CIT66FINALPROJ_PLAYER_H

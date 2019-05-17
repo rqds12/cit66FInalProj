@@ -13,9 +13,10 @@ class Paladin : public player {
     //player class
 
 public:
-    bool specialAbility(player target);
+    bool specialAbility(player *target) override;
     Paladin(string &name);
-
+    bool takeDamage(double dmg,bool ispoison) override;
+    bool read() override;
 
 
 };

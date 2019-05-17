@@ -28,3 +28,7 @@ void Medicine::setHealingPower(double healingPower) {
     Medicine::healingPower = healingPower;
 }
 
+Medicine::Medicine() {
+
+}
+

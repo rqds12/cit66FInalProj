@@ -1,0 +1,13 @@
+Class = Rogue;
+Name = seth;
+LocationOfStory = 0;
+LocationOfProblems = 1;
+ListOfProblems = fight,Shop,Shop,Shop,fight,;
+NumberOfItems = 0;
+ListOfItems = ;
+Health = 157.336;
+Armor = 4.40653;
+WeaponDmg = 8;
+Gold = 17;
+Resource = 210.437;
+Agility = 40;
