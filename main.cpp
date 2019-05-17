@@ -50,23 +50,21 @@ void play(std::vector<player*> players){
 
                         std::cout << "1) Continue on \n"
                                      "2) Use an Item\n"
-                                     "3) Rest\n"
-                                     "4) Save Game\n";
+                                     "3) Save Game\n";
                         std::string choice = "";
                         //todo: implement a menu for continuing on or resting or using a potion
 
                         while (trial) {
                             try {
                                 getline(std::cin, choice);
-                                if (std::stoi(choice) != 1 && std::stoi(choice) != 2 && std::stoi(choice) != 3 &&
-                                    std::stoi(choice) != 4) {
+                                if (std::stoi(choice) != 1 && std::stoi(choice) != 2 && std::stoi(choice) != 3) {
                                     throw "hooligan";
                                 } else {
                                     trial = false;
                                 }
                             }
                             catch (...) {
-                                std::cout << "Enter 1,2,3 or 4\n";
+                                std::cout << "Enter 1,2, or 3\n";
                             }
 
                         }
@@ -83,16 +81,11 @@ void play(std::vector<player*> players){
 
                                     break;
                                 case 2: {
-                                    //todo: use an Item
+
                                     useItem(player1);
                                 }
                                     break;
                                 case 3: {
-                                    //todo: rest
-
-                                }
-                                    break;
-                                case 4: {
                                     player1->write(i, j);
                                     return;
 
