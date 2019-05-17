@@ -19,6 +19,9 @@
 player::player(){
     this->createProblems(5);
 }
+player::~player() {
+    alive = false;
+}
 
 void player::displayStatus() {
     cout << endl << endl << endl << endl << endl;
@@ -107,8 +110,10 @@ bool player::takeDamage(double dmg,bool ispoison) {
         health -= dmg;
     }
     //death msg
-    if (health <= 0){cout << name << " breathes their last breath while cursing the bane for failing their path. "<<
+    if (health <= 0){
+        cout << name << " breathes their last breath while cursing the bane for failing their path. "<<
      " It is truly a dark day for the empire...\n\n"<< name << " has died.\n\n";
+
     return true;
     }
     return false;
@@ -518,12 +523,13 @@ void player::createProblems(int n) {
     std::random_device generator;
     std::uniform_real_distribution<double> distribution(0,1);
     int switcher = 0;
+    bool ifShop = false;
 
 
 
     for (int i = 0; i < n; ++i) {
         double rando = distribution(generator);
-            if(rando >= 0.5){
+            if(rando >= 0.3){
                 rando =1;
             }else{
                 rando = 0;
@@ -533,7 +539,7 @@ void player::createProblems(int n) {
             case 0:{
                 Shop *shop1 = new Shop;
                 problemss->push_back(shop1);
-
+                ifShop =true;
 
 
             }
@@ -546,6 +552,12 @@ void player::createProblems(int n) {
             break;
         }
     }
+    if(!ifShop){
+        problemss->pop_back();
+        Shop* shop2 = new Shop;
+        problems->push_back(shop2);
+    }
+
     setProblems(problemss);
 }
 
@@ -571,6 +583,14 @@ int player::getNumOfItems() const {
 
 void player::setNumOfItems(int numOfItems) {
     player::numOfItems = numOfItems;
+}
+
+bool player::isAlive() const {
+    return alive;
+}
+
+void player::setAlive(bool alive) {
+    player::alive = alive;
 }
 
 

@@ -63,8 +63,9 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
                         break;
                     case 2: {
                         ((player1)->specialAbility(player2));
+                        }
 
-                    }
+
                         break;
                     case 3: {
                         if (!player1->getBag().empty()) {
@@ -134,7 +135,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
             }
             switch (a){
                 case 1:{
-                    kill = (player1->attack(player2));
+            kill = (player1->attack(player2));
                 }
                 break;
                 case 2:{

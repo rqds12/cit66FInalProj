@@ -43,13 +43,18 @@ protected:
         bool isEnemy =false;
         string type;
         int LocationOfStory, LocationOfProblems, numOfItems = 0;
-
+        bool alive = true;
 public:
     const string &getType() const;
 
     void setType(const string &type);
 
+    bool isAlive() const;
+
+    void setAlive(bool alive);
+
     player();
+    ~player();
 
     void displayStatus();
     void fightDisplay();

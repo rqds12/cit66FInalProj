@@ -28,10 +28,11 @@ bool Elder_Cunningham::specialAbility(player* target) {
             std::uniform_int_distribution<int> distribution1(0,40);
             chance = distribution1(generator)+31;
             target->setPoisoned(true);
-            target->takeDamage((chance+5), true);
+
 
             std::cout << "The elder hit you with a massive guilt trip and a free bible.\nYou are going to church with him on wednesday and you can feel your willpower draining quickly.";
-            return true;
+
+            return target->takeDamage((chance+5), true);
         }
         else{
             std::cout << "The good elder didn't have enough " << getResource() << " to evangelize you today.\n";
