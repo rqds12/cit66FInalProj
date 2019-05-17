@@ -38,11 +38,15 @@ void play(std::vector<player*> players){
 
 
                     for (int j = player1->getLocationOfProblems(); j < player1->getProblems().size(); ++j) {
-                        if(!player1->isAlive()) {
+                        if (!player1->isAlive()) {
                             delete player1;
                             credits();
                             return;
                         }
+
+                        bool triall = true;
+                        while (triall){
+                            bool trial = true;
 
                         std::cout << "1) Continue on \n"
                                      "2) Use an Item\n"
@@ -50,7 +54,7 @@ void play(std::vector<player*> players){
                                      "4) Save Game\n";
                         std::string choice = "";
                         //todo: implement a menu for continuing on or resting or using a potion
-                        bool trial = true;
+
                         while (trial) {
                             try {
                                 getline(std::cin, choice);
@@ -66,25 +70,33 @@ void play(std::vector<player*> players){
                             }
 
                         }
-                        switch (std::stoi(choice)) {
-                            case 1: {
-                                (player1->getProblems())[j]->action(player1);
-                                if(player1->getHealth() <= 0)
-                                    player1->setAlive(false);
-                            }
-                                break;
-                            case 2: {
-                                //todo: use an Item
-                            }
-                                break;
-                            case 3: {
-                                //todo: rest
-                            }
-                                break;
-                            case 4: {
-                                player1->write(i, j);
-                                return;
 
+
+                            switch (std::stoi(choice)) {
+                                case 1: {
+
+                                    triall = false;
+                                    (player1->getProblems())[j]->action(player1);
+                                    if (player1->getHealth() <= 0)
+                                        player1->setAlive(false);
+                                }
+
+                                    break;
+                                case 2: {
+                                    //todo: use an Item
+                                    useItem(player1);
+                                }
+                                    break;
+                                case 3: {
+                                    //todo: rest
+
+                                }
+                                    break;
+                                case 4: {
+                                    player1->write(i, j);
+                                    return;
+
+                                }
                             }
                         }
 

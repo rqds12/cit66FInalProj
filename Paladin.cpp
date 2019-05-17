@@ -19,6 +19,7 @@ Paladin::Paladin(string &name) {
     player::weaponDmg = 16;
     player::money = 0;
     player::agility = 8;
+    player::resourceReq = 60;
 }
 
 bool Paladin::specialAbility(player *target) {
@@ -48,7 +49,7 @@ bool Paladin::specialAbility(player *target) {
     }
     switch (a){
         case 1:{
-            if (resource >= 60 && !dodge(target)){
+            if (resource >= 60 && dodge(target)){
                 int chance = distribution(generator);
                 double dmg = 55 + chance;
                 cout << this->getName() << " thrusts " << this->getWeapon() << " into the earth before him, ripping a void in the celestial fabric we exist upon."
@@ -56,13 +57,16 @@ bool Paladin::specialAbility(player *target) {
                 setResource(getResource()-getResourceReq());
                 return target->takeDamage(dmg,false);
             }
-            else{
+            else if(resource < resourceReq){
                 cout << getName() << " doesn't have enough " << this->getResourceName() << "to invoke the light of god.\n" << this->getName() << " looses most of their faith in their deity because of this failure" << endl;
                 setResource((getResource())-(getResource())*0.85);
                 setHealth(getHealth()*0.74);
                 return false;
+            }else{
+                setResource((getResource()-getResourceReq()));
             }
         }
+        break;
         case 2:{
             if (resource >= 100){
                 int chance = distribution1(generator);

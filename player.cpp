@@ -420,6 +420,7 @@ void player::shop() {
                     auto medicine = new Medicine("Medicinal Herbs", 25);
                     this->bag.push_back(medicine);
                     this->setMoney(this->getMoney()-8);
+                    this->setNumOfItems(numOfItems+1);
                 }
                 else{
                     cout << "Shop owner beats you with a cricket bat for being a hooligan" << endl;
@@ -472,6 +473,8 @@ void player::shop() {
                     this->setMoney(this->getMoney()+12);
                     Medicine *medicine = new Medicine("Herbs", 25);
                     this->bag.push_back(medicine);
+                    this->setNumOfItems(numOfItems+1);
+
                 }
             }
                 break;

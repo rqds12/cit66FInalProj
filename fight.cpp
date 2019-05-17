@@ -68,35 +68,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
 
                         break;
                     case 3: {
-                        if (!player1->getBag().empty()) {
-                            for (int i = 0; i < player1->getBag().size(); ++i) {
-                                std::cout << player1->getBag()[i]->getName() << std::endl;
-                            }
-                            bool stoppo = false;
-                            while (!stoppo) {
-                                try {
-                                    getline(std::cin, choik);
-                                    a = std::stoi(choik);
-                                    if (a + 1 > (player1->getBag().size())) {
-                                        throw "hooligan";
-                                    } else {
-                                        stoppo = true;
-                                    }
-                                }
-                                catch (...) {
-                                    cout << "Enter a valid number choice" << endl;
-                                }
-
-                            }
-                            Items *temp;
-                            temp = (player1->getBag()[a]);
-
-                            player1->usePotion((dynamic_cast<Medicine *>(temp)), a);
-
-
-                        }else{
-                            std::cout << "You do not have any items in your bag\n";
-                        }
+                        useItem(player1);
                     }
                 }
                 std::swap(player1, player2);
@@ -235,4 +207,43 @@ int desicsionMaker(player* player1, player* player2, bool isBoss){
         player1->attack(player2);
         return 1;
     }
+}
+
+bool useItem(player *player1) {
+    std::string choik;
+    int a =0;
+
+    if (!player1->getBag().empty()) {
+        for (int i = 0; i < player1->getBag().size(); ++i) {
+            std::cout << player1->getBag()[i]->getName() << std::endl;
+        }
+        bool stoppo = false;
+        while (!stoppo) {
+            try {
+                getline(std::cin, choik);
+                a = std::stoi(choik);
+                if (a  > (player1->getBag().size()) && a==0) {
+                    throw "hooligan";
+                } else {
+                    stoppo = true;
+                }
+            }
+            catch (...) {
+                cout << "Enter a valid number choice" << endl;
+            }
+
+        }
+        Items *temp;
+        temp = (player1->getBag()[a-1]);
+
+        player1->usePotion((dynamic_cast<Medicine *>(temp)), a-1);
+
+
+    }else{
+        std::cout << "You do not have any items in your bag\n";
+    }
+    player1->displayStatus();
+    return true;
+
+
 }

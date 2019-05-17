@@ -16,5 +16,6 @@ public:
 };
 bool fightMenu(player* player1, player* player2, bool isBoss);
 int desicsionMaker(player* player1, player* player2, bool isBoss);
+bool useItem(player* player1);
 
 #endif //CIT66FINALPROJ_FIGHT_H
