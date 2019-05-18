@@ -74,7 +74,7 @@ public:
     const std::string &getResourceName() const;
     void setResourceName(const std::string &resourceName);
     double getResource() const;
-    void setResource(double resource);
+    virtual void setResource(double resource);
     double getArmor();
     void setArmor(double armor);
     double getWeaponDmg() const;

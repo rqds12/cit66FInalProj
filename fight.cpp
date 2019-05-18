@@ -30,7 +30,7 @@ bool fightMenu(player *player1, player* player2, bool isBoss){
 
             } else {
                 string choik = "";
-                bool kill = false; //todo: figure out what this was for
+                bool kill = false;
                 player1->fightDisplay();
                 player2->fightDisplay();
                 cout << player1->getName() << "'s turn!!\n"
@@ -186,6 +186,8 @@ bool fight::action(player *player1, bool isboss) {
         }else{
             player2 = new Elder_Cunningham;
         }
+        std::cout << "You encountered " << player2->getName() << ".\n"
+                                                                 "You attack first\n";
         fightMenu(player1, player2, true);
     }
     return a;

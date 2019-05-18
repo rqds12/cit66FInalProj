@@ -52,7 +52,6 @@ void play(std::vector<player*> players){
                                      "2) Use an Item\n"
                                      "3) Save Game\n";
                         std::string choice = "";
-                        //todo: implement a menu for continuing on or resting or using a potion
 
                         while (trial) {
                             try {

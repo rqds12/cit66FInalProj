@@ -12,3 +12,7 @@ Orcs::Orcs() {
     Orcs::health = 40;
     //Orcs::isOrc = true;
 }
+
+void Orcs::setResource(double resource) {
+    this->resource =0;
+}

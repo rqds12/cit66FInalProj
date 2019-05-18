@@ -524,15 +524,15 @@ void player::setResourceReq(double resourceReq) {
 void player::createProblems(int n) {
     std::vector<Problem*>* problemss = new std::vector<Problem*>;
     std::random_device generator;
-    std::uniform_real_distribution<double> distribution(0,1);
+    std::uniform_int_distribution<int> distribution(0,100);
     int switcher = 0;
     bool ifShop = false;
 
 
 
     for (int i = 0; i < n; ++i) {
-        double rando = distribution(generator);
-            if(rando >= 0.3){
+        int rando = distribution(generator);
+            if(rando >= 10){
                 rando =1;
             }else{
                 rando = 0;
@@ -541,7 +541,7 @@ void player::createProblems(int n) {
         switch (switcher){
             case 0:{
                 Shop *shop1 = new Shop;
-                problemss->emplace_back(shop1);
+                problemss->push_back(shop1);
                 ifShop =true;
 
 
@@ -549,7 +549,7 @@ void player::createProblems(int n) {
                 break;
             case 1:{
                 fight *fight1 = new fight;
-                problemss->emplace_back(fight1);
+                problemss->push_back(fight1);
 
             }
             break;
@@ -558,7 +558,7 @@ void player::createProblems(int n) {
     if(!ifShop){
         problemss->pop_back();
         Shop* shop2 = new Shop;
-        problems.push_back(shop2);
+        problemss->push_back(shop2);
     }
 
     setProblems(*problemss);

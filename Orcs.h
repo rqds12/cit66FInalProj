@@ -14,6 +14,7 @@ protected:
 public:
     bool specialAbility = 0;
     Orcs();
+    void setResource(double resource);
 
 };
 
