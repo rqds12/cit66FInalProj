@@ -9,7 +9,7 @@
 #include "player.h"
 #include "Enemy.h"
 #include "Medicine.h"
-#include "Indian_Power_Rangers.h"
+#include "Joseph_Stalin.h"
 #include "Salem_Darkmore.h"
 #include <random>
 #include <ctime>
@@ -155,34 +155,7 @@ bool fight::action(player *player1, bool isboss) {
             std::string color = "";
             std::uniform_int_distribution<int> distribution1(0,5);
 
-            switch(distribution1(generator)){
-                case 0:{
-                    color = "black";
-                }
-                break;
-                case 1:{
-                    color = "blue";
-                }
-                break;
-                case 3:{
-                    color = "green";
-                }
-                break;
-                case 4:{
-                    color = "white";
-
-                }
-                break;
-                case 5:{
-                    color = "red";
-                }
-                break;
-                default:{
-                    color = "black";
-                }
-            }
-
-           player2 = new Indian_Power_Rangers(color);
+           player2 = new Joseph_Stalin;
         }else{
             player2 = new Salem_Darkmore;
         }
