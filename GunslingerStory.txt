@@ -4,4 +4,12 @@ out why there is a recent resurgence in Orcs.  You go to the local tavern to ass
 about how big this invasion is.  Inside the tavern you hire 5 other well known gunslingers to help you on this mission.
 The next day this party of 6 sets off toward where the mayor said the front line was.| After a couple of days of fighting
 Orcs you start mapping out the possible routes the Orcs had come from.  You determine that they had come from the southEast.
-You start following the Orc tracks southeast.| Many days later of fighting Orcs you and your team stumble upon
+You start following the Orc tracks southeast.| Many days later of fighting Orcs you and your team stumble upon a ranch
+riddled with Orc guards.  They have not spotted you yet. You decide to wait until day when the Orcs are unprepared as they
+do not like the light.| You killed the Orcs and have infiltrated the ranch.  This ranch is really more like a fortress with
+cattle.| You are making your way through this ranch to try and find the main house where you expect to find answers.| You
+find a stairwell that goes well into the earth. You and your party go down the stairs. Each step you take seems to increase
+the air temperature by a couple of degrees.| You reach the bottom of the stairs to be met with a large furnace. Your party
+hides from Orcs you see patrolling the furnace. They spot you.|% The furnace room is empty, but you hear a loud alarm. You
+start running into a different room to hide, but you feel a dark presence and you think is this it.  You turn around and
+see a figure.  You attack it.
