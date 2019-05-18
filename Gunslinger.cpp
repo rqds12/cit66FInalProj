@@ -68,7 +68,7 @@ bool Gunslinger::takeDamage(double dmg, bool ispoison) {
 
 bool Gunslinger::read() {
     std::string temp;
-    reader.open("../Gunslinger.txt");
+    reader.open("../GunslingerStory.txt");
     if(reader.is_open()){
         while(reader.good()){
             getline(reader, temp, '|');
