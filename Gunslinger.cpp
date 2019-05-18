@@ -55,6 +55,7 @@ bool Gunslinger::specialAbility(player *target) {
             return false;
         }
     }
+    return false;
 
 }
 

@@ -15,4 +15,6 @@ you start running toward it.| The shadow moved much faster than you, but you kep
 hours you come into a large clearing with a massive hole.  You go to the edge of the hole and look down.  You see the
 top of what seems to be a castle.  You fashion some rope out of organic materials using your magical abilities and repel
 down.  It takes about an hour for you to repel down and the temperature has risen significantly.  When you do reach the
-bottom
+bottom you see a large entrance to the castle. There are some guards that you have to fight.|  You enter the castle and
+explore the first floor.|%After doing so you start to feel a presence behind you and turn around.  You are realizing that
+this presence is behind the recent appearance of Orcs.

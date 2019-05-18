@@ -376,6 +376,7 @@ bool player::write(int locationOfStory, int locationOfProblems) {
         write.close();
 
     }
+    return true;
 }
 const string &player::getWeaponType() const {
     return weaponType;
