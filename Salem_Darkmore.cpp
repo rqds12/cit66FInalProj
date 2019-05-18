@@ -4,22 +4,22 @@
 
 
 #include <iostream>
-#include "Elder_Cunningham.h"
+#include "Salem_Darkmore.h"
 #include <random>
 using namespace std;
-Elder_Cunningham::Elder_Cunningham() {
-    player::resourceName = "Free Bibles";
+Salem_Darkmore::Salem_Darkmore() {
+    player::resourceName = "Darkness";
     player::resource = 5;
     player::armor = 400;
     player::health = 3;
     player::weaponDmg = 19;
-    player::weapon = "Door to Door Evangelizing";
-    player::weaponType = "Religious Teaching";
-    player::type = "Elder Cunningham";
+    player::weapon = "Nosferatu";
+    player::weaponType = "Dark Magic";
+    player::type = "Salem Darkmore";
     player::name = player::type;
 }
 
-bool Elder_Cunningham::specialAbility(player* target) {
+bool Salem_Darkmore::specialAbility(player* target) {
     std::random_device generator;
     std::uniform_int_distribution<int> distribution(0,100);
     double chance  = distribution(generator);
@@ -30,12 +30,12 @@ bool Elder_Cunningham::specialAbility(player* target) {
             target->setPoisoned(true);
 
 
-            std::cout << "The elder hit you with a massive guilt trip and a free bible.\nYou are going to church with him on wednesday and you can feel your willpower draining quickly.";
+            std::cout << "Darkmore hit you with a strong magical attack that drained your will.\n";
 
             return target->takeDamage((chance+5), true);
         }
         else{
-            std::cout << "The good elder didn't have enough " << getResource() << " to evangelize you today.\n";
+            std::cout << "The Dark mage didn't have enough " << getResource() << " to kill you today.\n";
             return false;
         }
 

@@ -10,7 +10,7 @@
 #include "Enemy.h"
 #include "Medicine.h"
 #include "Indian_Power_Rangers.h"
-#include "Elder_Cunningham.h"
+#include "Salem_Darkmore.h"
 #include <random>
 #include <ctime>
 fight::fight() {
@@ -184,7 +184,7 @@ bool fight::action(player *player1, bool isboss) {
 
            player2 = new Indian_Power_Rangers(color);
         }else{
-            player2 = new Elder_Cunningham;
+            player2 = new Salem_Darkmore;
         }
         std::cout << "You encountered " << player2->getName() << ".\n"
                                                                  "You attack first\n";
