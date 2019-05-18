@@ -66,7 +66,18 @@ bool Gunslinger::takeDamage(double dmg, bool ispoison) {
 }
 
 bool Gunslinger::read() {
-    return false;
+    std::string temp;
+    reader.open("../Gunslinger.txt");
+    if(reader.is_open()){
+        while(reader.good()){
+            getline(reader, temp, '|');
+            storyLine.push_back(temp);
+            if(reader.bad()){
+                break;
+            }
+        }
+    }
+    return true;
 }
 
 Gunslinger::Gunslinger(string &name){
