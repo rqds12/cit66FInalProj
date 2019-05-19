@@ -13,8 +13,8 @@ Joseph_Stalin::Joseph_Stalin() {
     player::armor = 110;
     player::health = 30;
     player::weaponDmg = 12;
-    player::weapon = "Machine Gun";
-    player::weaponType = "Gun";
+    player::weapon = "The People's Anti-Bourgeoisie Missle";
+    player::weaponType = "Propaganda Nuke";
     player::type = "Joseph Stalin";
     player::name = player::type;
 
@@ -31,7 +31,7 @@ bool Joseph_Stalin::specialAbility(player* target) {
             target->takeDamage(chance, false);
             this->takeDamage(5, false);
           
-            std::cout << "Stalin hit you with an Nuke\n";
+            std::cout << "Comrade Stalin Cleanses the Earth of your Filth with a nuke\n";
             return true;
         }
         else{
