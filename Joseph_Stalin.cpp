@@ -13,7 +13,7 @@ Joseph_Stalin::Joseph_Stalin() {
     player::armor = 110;
     player::health = 30;
     player::weaponDmg = 12;
-    player::weapon = "The People's Anti-Bourgeoisie Missle";
+    player::weapon = "The People's Anti-Bourgeoisie Missile";
     player::weaponType = "Propaganda Nuke";
     player::type = "Joseph Stalin";
     player::name = player::type;
