@@ -1,5 +1,5 @@
 //
-// Created by sethsan on 4/30/19.
+// Created by Erik on 4/30/19.
 //
 
 #ifndef CIT66FINALPROJ_PLAYER_H

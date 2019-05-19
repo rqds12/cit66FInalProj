@@ -1,5 +1,5 @@
 //
-// Created by sethsan on 5/2/19.
+// Created by Seth on 5/2/19.
 //
 
 #ifndef CIT66FINALPROJ_ORCS_H

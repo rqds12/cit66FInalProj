@@ -1,3 +1,4 @@
+//created by Erik
 #include "Rogue.h"
 #include "Enemy.h"
 #include <ctime>

@@ -1,5 +1,5 @@
 //
-// Created by sethsan on 5/1/19.
+// Created by Erik on 5/1/19.
 //
 
 #ifndef CIT66FINALPROJ_JOSEPH_STALIN_H

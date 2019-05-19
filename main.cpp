@@ -1,3 +1,4 @@
+//Created by seth
 #include <iostream>
 #include <string>
 #include "Paladin.h"
