@@ -25,7 +25,7 @@ bool Rogue::specialAbility(player *target) {
         if (chance >= 0.4 && chance <= 0.6) {
             target->setPoisoned(true);
             target->takeDamage(target->getHealth() - ((target->getHealth() * chance)+15), true);
-            cout << this->getName() << " sticks " << target->getName() << " with a " << this->getWeapon() << " and they get lock jaw"<<endl;
+            cout << this->getName() << " throws oliander powder in " << target->getName() << "'s soup and the become ill."<<endl;
         }
         else{
             cout << this->getName() << " sticks " << target->getName() << " with a " << this->getWeapon() << endl;
