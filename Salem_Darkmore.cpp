@@ -30,8 +30,9 @@ bool Salem_Darkmore::specialAbility(player* target) {
             target->setPoisoned(true);
 
 
-            std::cout << "Darkmore hit you with a strong magical attack that drained your will.\n";
+            std::cout << "Darkmore hit you with a strong shimmer dance that drained your will.\n";
 
+            target->setResource(2);
             return target->takeDamage((chance+5), true);
         }
         else{
