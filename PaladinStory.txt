@@ -1,8 +1,17 @@
  You, young paladin begin in a village, injured & find a map with your weapon. You go to the local mercantile for provisions
-You exit the store and your map has a location scrawled on it in what appears to be orc blood. the preferred ink of your trade.|
-You are a Paladin, a warrior of god, trained from birth to fight the resurgence of evil in this realm.
-You carry a sword passed on by your uncle, Mithradates, the last paladin to protect this county and the most famous in the dominion.
+You exit the store and your map has a location scrawled on it in what appears to be orc blood. the preferred ink of your trade.
+You are a Paladin, a warrior of god, trained from birth to fight the resurgence of evil in this realm. You carry a sword
+ passed on by your uncle, Mithradates, the last paladin to protect this county and the most famous in the dominion.
 He was gravely wounded in the battle of Ephesus, a witch rebellion. He now lies in what is soon to be his death bed at your home.
-You have been dispatched by St. Augustine himself, terminating your training early in the hope that you will embody the same fervor as your uncle.|
-You are traveling across the land in search of the location marked leaving piles of Orcs in your wake. You hope to find the
-recent resurgence of evil.|
+You have been dispatched by St. Augustine himself, terminating your training early in the hope that you will embody the
+same fervor as your uncle.| You are traveling across the land in search of the location marked leaving piles of Orcs in
+your wake. You hope to end this resurgence of Evil.| Along the pathway you start to doubt where the map is leading you.
+The landmarks on the map are strange and you have not seen any of the landmarks.| After some traveling you find a local
+village to help guide you.  They have not recognized the map and where it is.  You are now frustrated because this map
+given to you by the St. Augustine makes no sense.  Then you realize that at the beginning it did make sense. It has your
+village and a bit beyond, so you travel back and retrace your steps.| You go back to your village to find it burned down.
+ The terror of the Orcs was apparent.  You feel like a failure because you could not save this village.  You reason that
+ the Orcs must have come in a large pack as this was no normal town it was a town of retired, but experienced fighters that
+ could hold their own. You look around for any vantage points that the Orcs could have come from.| You wonder where those
+ Orcs came from. You find a hole in the ground large enough for an Orc and follow it down.  Oddly enough there is lighting
+ in the hole.  You think that the Orcs must have come from this hole.
