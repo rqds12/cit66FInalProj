@@ -13,5 +13,10 @@ You really enjoy math but you dislike people as they remind you of your dead fam
   the days seem to get darker and darker.  It seems only to pass from dusk to night to dusk again. You have seen less
   and less animals, much less people as you follow your map.| Everything seems to be covered with black slime as if God
   himself has cursed this land, but you continue on as your need for vengeance grows by the minute.| In the distance you
-  see a large fortress.  You find a hill and look upon the valley.  
+  see a large fortress.  You find a hill and look upon the valley.  You see a large army of Orcs being trained and a large
+  fortress. You head toward the fortress.| You quietly slay the beasts and head swiftly toward the looming fortress.| You
+  arrive at the bottom of the valley and find a break in the wall.  You sneak inside.  Your longing for revenge grows.
+  Once inside you start sneaking around trying to find some clues.  You feel giddy about the prospect of getting revenge
+  with the man whom brought the Orcs back.|%You feel a presence behind you and lash out, but the figure grabs you by your
+  arm and throws you across the room.  You shout, "You'll pay for this".
 
