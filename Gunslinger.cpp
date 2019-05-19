@@ -82,9 +82,9 @@ bool Gunslinger::read() {
 }
 
 Gunslinger::Gunslinger(string &name){
-    player::name = name;
+    player::name = "Clint Eastwood";
     player::type = "Gunslinger";
-    player::weapon = "Bang Bang Shootem' up";
+    player::weapon = "Hand Cannon";
     player::weaponType = "6 Shooter";
     player::health = 25;
     player::resourceName = "Skill";
