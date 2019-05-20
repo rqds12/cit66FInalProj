@@ -11,7 +11,7 @@ bool Gunslinger::specialAbility(player *target) {
     int a = 0;
     cout << "\n Pick a Special Ability: \n"
             "1) ATERK\n"
-            "2) Heal yourself" << endl;
+            "2) Aim to Fire" << endl;
 
     bool stoppo = false;
     while (!stoppo) {

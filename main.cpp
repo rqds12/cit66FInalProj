@@ -23,6 +23,7 @@ void play(std::vector<player*> players){
         player1->displayStatus();
         player2->displayStatus();
         fightMenu(player1,player2, false);
+        credits();
     }else {
         player *player1 = (players[0]);
         player1->getProblems().reserve(5);
