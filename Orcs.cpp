@@ -11,6 +11,8 @@ Orcs::Orcs() {
     Orcs::agility =10;
     Orcs::health = 40;
     //Orcs::isOrc = true;
+    Orcs::weaponType = "club";
+    Orcs::weapon = "club";
 }
 
 void Orcs::setResource(double resource) {

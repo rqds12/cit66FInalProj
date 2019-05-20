@@ -96,7 +96,7 @@ bool player::takeDamage(double dmg,bool ispoison) {
                 armor = 0;
             }
             else{
-                armor -= dmg*0.70;  //used to be armor = (dmg*0.70>=armor)
+                armor -= dmg*0.70;
             }
             dmg = 0;
         }
