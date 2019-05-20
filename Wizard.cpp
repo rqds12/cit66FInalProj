@@ -57,6 +57,7 @@ bool Wizard::specialAbility(player *target)   {
                 cout << this->getName() << " incants while reading from an ancient text with" << this->getWeapon() << ". He propels a bolt of the purest energy into his opponent."
                                                                                                                       "\n" << target->getName() << " is struck down by a flowing, seething flow of power."<<endl;
                 setResource(getResource()-getResourceReq());
+                this->setMoney(this->getMoney()+5);
                 return target->takeDamage(dmg,false);
 
             }

@@ -27,10 +27,13 @@ bool Rogue::specialAbility(player *target) {
             target->setPoisoned(true);
             target->takeDamage(target->getHealth() - ((target->getHealth() * chance)+15), true);
             cout << this->getName() << " throws oliander powder in " << target->getName() << "'s soup and the become ill."<<endl;
+            this->setMoney(this->getMoney()+5);
         }
         else{
             cout << this->getName() << " sticks " << target->getName() << " with a " << this->getWeapon() << endl;
+            this->setMoney(this->getMoney()+5);
             target->takeDamage((chance*10+30),0);
+
         }
         setResource(getResource()-getResourceReq());
 

@@ -277,12 +277,12 @@ player* setRead() {
         getline(read, temp, ';');
         temp = parse(temp);
         std::istringstream temp4(temp);
-        for (int i = 0; i < a ; ++i) {
+        for (int i = 0; i < (a) ; ++i) {
             getline(temp4, temp, ',');
             Medicine* stuff = new Medicine;
             stuff->setName(temp);
             getline(temp4, temp, ',');
-            stuff->setHealingPower(std::stod(temp));
+            stuff->setHealingPower(std::stoi(temp));
             getline(temp4, temp, ',');
             stuff->setCurePoison(std::stoi(temp));
             bag.push_back(stuff);

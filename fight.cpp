@@ -190,7 +190,7 @@ bool useItem(player *player1) {
 
     if (!player1->getBag().empty()) {
         for (int i = 0; i < player1->getBag().size(); ++i) {
-            std::cout << player1->getBag()[i]->getName() << std::endl;
+            std::cout <<(i+1) << ")" << player1->getBag()[i]->getName() << std::endl;
         }
         bool stoppo = false;
         while (!stoppo) {
@@ -213,7 +213,7 @@ bool useItem(player *player1) {
 
         player1->usePotion((dynamic_cast<Medicine *>(temp)), a-1);
 
-
+        player1->setNumOfItems(player1->getNumOfItems()-1);
     }else{
         std::cout << "You do not have any items in your bag\n";
     }

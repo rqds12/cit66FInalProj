@@ -55,6 +55,7 @@ bool Paladin::specialAbility(player *target) {
                 cout << this->getName() << " thrusts " << this->getWeapon() << " into the earth before him, ripping a void in the celestial fabric we exist upon."
                                                                                "\nSt.John sees his plight and advises his master of " << target->getName() << "'s sin. The glory of " << this->getName() <<"'s divine master purifies " << dmg <<" from his opponent."<<endl;
                 setResource(getResource()-getResourceReq());
+                this->setMoney(this->getMoney()+5);
                 return target->takeDamage(dmg,false);
             }
             else if(resource < resourceReq){

@@ -36,6 +36,7 @@ bool Gunslinger::specialAbility(player *target) {
                 double dmg = 55 + chance;
                 cout << this->getName() << " quick draws their " << this->getWeapon() << " and fires a single shot into the nearby propane tank."
                                                                                          "\nThe tank explodes and shrapnel hits " << target->getName() << ". "<< target->getName() <<" bleeds " << dmg <<" units of blood and he is weakened considerably"<<endl;
+                this->setMoney(this->getMoney()+5);
                 return target->takeDamage(dmg,false);
             }
             else{

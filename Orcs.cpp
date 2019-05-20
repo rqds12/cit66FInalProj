@@ -8,8 +8,8 @@
 Orcs::Orcs() {
     Orcs::name = "Orc";
     Orcs::weaponDmg = 5;
-    Orcs::agility =10;
-    Orcs::health = 40;
+    Orcs::agility = 6;
+    Orcs::health = 50;
     //Orcs::isOrc = true;
     Orcs::weaponType = "club";
     Orcs::weapon = "club";
