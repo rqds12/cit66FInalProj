@@ -14,7 +14,7 @@ Rogue::Rogue(string& name) {
     player::weaponType = "Rusty Dagger";
     player::weaponDmg = 8;
     player::type = "Rogue";
-    player::agility = 40;
+    player::agility = 30;
     player::money = 5;
 }
 

@@ -93,5 +93,5 @@ Gunslinger::Gunslinger(string &name){
     player::armor = 12;
     player::weaponDmg = 55;
     player::money = 0;
-    player::agility = 55;
+    player::agility = 45;
 }

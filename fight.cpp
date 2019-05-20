@@ -133,11 +133,14 @@ bool fight::action(player *player1, bool isboss) {
 
     player* player2;
     bool a = false;
+    std::random_device generator;
+    std::uniform_int_distribution distribution(0,30);
+
 
     if (!isboss) {
             player2 = new Orcs;
             std::cout << "You encountered an Orc\n";
-            if (player1->getAgility() >= player2->getAgility()){
+            if (player1->getAgility() >= (player2->getAgility()+distribution(generator))){
                 a= fightMenu(player1, player2, isboss);
                 delete player2;
             }else{
