@@ -18,5 +18,7 @@ You really enjoy math but you dislike people as they remind you of your dead fam
   arrive at the bottom of the valley and find a break in the wall.  You sneak inside.  Your longing for revenge grows.
   Once inside you start sneaking around trying to find some clues.  You feel giddy about the prospect of getting revenge
   with the man whom brought the Orcs back.|%You feel a presence behind you and lash out, but the figure grabs you by your
-  arm and throws you across the room.  You shout, "You'll pay for this".
+  arm and throws you across the room.  You shout, "You'll pay for this".|^After you destroy every part of the figure you
+  finally feel that sweet sweet vengeance, that you have been longing for.  Nobody knows of your heroic deed, but you know
+  and keep it in your heart so that you can feel better than everyone else as well.
 

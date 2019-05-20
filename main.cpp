@@ -102,6 +102,7 @@ void play(std::vector<player*> players){
                     fight1.action(player1, true);
                 } else if (temp == '^') {
                     credits();
+                    return;
                 }
 
             }

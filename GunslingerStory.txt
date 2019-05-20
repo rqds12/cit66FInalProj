@@ -12,4 +12,5 @@ find a stairwell that goes well into the earth. You and your party go down the s
 the air temperature by a couple of degrees.| You reach the bottom of the stairs to be met with a large furnace. Your party
 hides from Orcs you see patrolling the furnace. They spot you.|% The furnace room is empty, but you hear a loud alarm. You
 start running into a different room to hide, but you feel a dark presence and you think is this it.  You turn around and
-see a figure.  You attack it.|%You see the figure and shoot it, but he blocks it. You are stunned.
+see a figure.  You attack it.|%You see the figure and shoot it, but he blocks it. You are stunned.|^After a hard fought
+battle you defeat the figure. Hope has been restored to the land.  It has become free once again.  The mayor thanks you.

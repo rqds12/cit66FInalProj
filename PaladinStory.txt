@@ -20,4 +20,5 @@ village and a bit beyond, so you travel back and retrace your steps.| You go bac
  which was infused by magic, and thrust through the wall cutting a hole in it.| You step onto the bridge and head toward
  the fortress.| Once you get to the front you feel a sense of darkness. You open the door and are confronted by a large
  group of Orcs.|%After you slay the Orcs you see a man sitting in a large chair get up and start walking toward you. You
- know that this is the man behind the darkness.
+ know that this is the man behind the darkness.|^You slay the man. Hope has been restored to the kingdom.  St. Augustine
+ personally thanks you.
