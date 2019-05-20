@@ -1,4 +1,4 @@
-//Created 
+//Team Seth Kroeker and Erik Hearne
 #include <iostream>
 #include <string>
 #include "Paladin.h"
